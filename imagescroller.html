@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetched JSON Image Scroller</title>
+    <style>
+        body { 
+        font-family: sans-serif; padding: 20px; 
+        }
+        h3 { 
+            margin-top: 30px;
+         }
+        .gallery { 
+            position: relative; max-width: 900px; margin: 0 auto; 
+        }
+        .scroller {
+            display: flex; overflow-x: scroll; scroll-behavior: smooth; 
+            gap: 15px; padding: 10px;
+            -ms-overflow-style: none; scrollbar-width: none;
+        }
+        .scroller::-webkit-scrollbar { 
+        display: none; 
+        }
+        .scroller img {
+            flex-shrink: 0; width: 250px; height: 180px;
+            object-fit: cover; border-radius: 8px;
+        }
+        .scroll-button {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            padding: 12px 15px; border: none; cursor: pointer;
+            background: rgba(0, 0, 0, 0.6); color: white;
+            font-size: 18px; border-radius: 50%; z-index: 10;
+        }
+        .scroll-button.left { 
+            left: 10px; 
+        }
+        .scroll-button.right {
+             right: 10px; 
+            }
+        .loading { 
+            text-align: center; color: #666; padding: 50px; 
+        }
+    </style>
+</head>
+<body>
+
+    <h3>Trending Destinations ✨</h3>
+    <div class="gallery">
+        <div class="scroller" id="gallery-trending">
+            <div class="loading">Loading trending data...</div>
+        </div> 
+        <button class="scroll-button left" onclick="scrollGallery('gallery-trending', -300)"> &lt; </button>
+        <button class="scroll-button right" onclick="scrollGallery('gallery-trending', 300)"> &gt; </button>
+    </div>
+
+    <hr>
+
+    <h3>Beach Getaways 🏝️</h3>
+    <div class="gallery">
+        <div class="scroller" id="gallery-beach">
+            <div class="loading">Loading beach data...</div>
+        </div>
+        <button class="scroll-button left" onclick="scrollGallery('gallery-beach', -300)"> &lt; </button>
+        <button class="scroll-button right" onclick="scrollGallery('gallery-beach', 300)"> &gt; </button>
+    </div>
+
+    <script>
+        function renderGalleries(galleryData) {
+            for (const galleryId in galleryData) {
+                const scrollerElement = document.getElementById(galleryId);
+                const images = galleryData[galleryId];
+                
+                if (scrollerElement && images) {
+                    let htmlContent = '';
+                    images.forEach(item => {
+                        htmlContent += `<img src="${item.src}" alt="${item.title}" title="${item.title}">`;
+                    });
+                    scrollerElement.innerHTML = htmlContent;
+                }
+            }
+        }
+
+        function scrollGallery(elementId, scrollAmount) {
+            const scroller = document.getElementById(elementId);
+            if (scroller) {
+                scroller.scrollLeft += scrollAmount; 
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('galleries.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}.`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    renderGalleries(data);
+                })
+                .catch(error => {
+                    console.error('Failed to load gallery data:', error);
+                    document.querySelectorAll('.scroller').forEach(el => {
+                         el.innerHTML = '<div class="loading" style="color: red;">Error: Content failed to load. Check console.</div>';
+                    });
+                });
+        });
+    </script>
+
+
+ <h1>here the json test</h1>
+
+ <h3>Trending Destinations ✨</h3>
+    <div class="gallery">
+        <div class="scroller" id="gallery-surfing">
+            <div class="loading">Loading trending data...</div>
+        </div> 
+        <button class="scroll-button left" onclick="scrollGallery('gallery-surfing', -300)"> &lt; </button>
+        <button class="scroll-button right" onclick="scrollGallery('gallery-surfing', 300)"> &gt; </button>
+    </div>
+
+<hr>
+
+
+
+</body>
+</html>

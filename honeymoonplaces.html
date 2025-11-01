@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>T Hill Tour & Stay</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: sans-serif;
+    }
+
+    body {
+      background-color: #f8f8f8;
+    }
+
+    .top-bar {
+      background-color: #36454F;
+      color: #FFFAF0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6px 40px;
+      font-size: 14px;
+    }
+
+    .top-bar i {
+      margin-right: 8px;
+      color: #FFC000;
+    }
+
+    .mainbar {
+      background-color: #006400;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 12px 40px;
+      flex-wrap: wrap;
+      width: 100%;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .mainbar .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #FFFAF0;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .mainbar .logo i {
+      margin-right: 8px;
+      color: #FFC000;
+    }
+
+    .heading {
+      text-align: center;
+      font-size: 24px;
+      margin-top: 30px;
+      margin-bottom: 20px;
+      color: #006400;
+      font-weight: bold;
+    }
+
+    .HONEYMOON {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      padding: 30px 10%;
+    }
+
+    .place-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease;
+    }
+
+    .place-card:hover {
+      transform: scale(1.02);
+    }
+
+    .place-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .place-info {
+      padding: 15px;
+      text-align: center;
+    }
+
+    .place-info h4 {
+      color: #006400;
+      margin-bottom: 8px;
+    }
+
+    .place-info p {
+      color: #333;
+      font-size: 14px;
+      line-height: 1.5;
+      margin-bottom: 15px;
+    }
+
+    .enquire-btn {
+      background-color: #FFD700;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .enquire-btn:hover {
+      background-color: #ffce00;
+      transform: scale(1.05);
+    }
+
+    footer {
+      background-color: #006400;
+      color: #fff;
+      text-align: center;
+      padding: 25px;
+      margin-top: 40px;
+      font-size: 14px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    footer h3 {
+      margin-bottom: 8px;
+      color: #FFD700;
+    }
+
+    footer a {
+      color: #FFD700;
+      text-decoration: none;
+      font-weight: bold;
+    }
+      .thehub{
+    margin-top: 2px;
+    }
+    .thehub button{
+      padding: 10PX;
+      border: none;
+        background: linear-gradient(90deg, #006400, #f4a300e0, #99ffb32a, #006400);
+        font-family:sans-serif;
+        background-size: 300% 100%;
+        animation: moveGradient 1s linear infinite;
+        color: #ffffff; 
+    font-weight: bold;
+    border-bottom-right-radius: 10PX;
+    }
+    @keyframes moveGradient {
+    0% {
+        background-position: 0% 50%; 
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+    
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <div><i class="fa-solid fa-envelope"></i> dpkome@gmail.com</div>
+    <div><i class="fa-solid fa-phone"></i> +91 9886254942</div>
+  </div>
+
+  <div class="mainbar">
+    <div class="logo"><i class="fa-solid fa-seedling"></i><a style="text-decoration: none; color: white;" href="hotelbooking.html">T Hill Tour & Stay</a></div>
+  </div>
+
+  <h3 class="heading">Top Destinations to Explore in Kerala During the Monsoon</h3>
+  
+    <div class="thehub">
+      <BUtton>  <I><a style="text-decoration: none; color: white;" href="index.html">Back to Hub</a></I> </BUtton>
+    </div>
+
+
+
+  <div class="HONEYMOON">
+    <div class="place-card">
+      <img src="TOURSANDSTAYS/ALAPPUZHA.webp" alt="Alappuzha">
+      <div class="place-info">
+        <h4>Alappuzha (Alleppey)</h4>
+        <p>Known as the 'Venice of the East', Alappuzha is famous for its scenic backwaters, houseboats, and lush paddy fields.</p>
+      <button class="enquire-btn">   <a href="honeyform.html">Enquire Now</a></button>
+      </div>
+    </div>
+
+    <div class="place-card">
+      <img src="TOURSANDSTAYS/kovalam12.jpg" alt="Kovalam">
+      <div class="place-info">
+        <h4>Kovalam</h4>
+        <p>A serene beach town near Thiruvananthapuram, Kovalam is perfect for sunbathing, ayurvedic massages, and seaside stays.</p>
+        <button class="enquire-btn">   <a href="honeyform.html">Enquire Now</a></button>
+      </div>
+    </div>
+
+    <div class="place-card">
+      <img src="TOURSANDSTAYS/best-time-munnar.jpg" alt="Munnar">
+      <div class="place-info">
+        <h4>Munnar</h4>
+        <p>Nestled in the Western Ghats, Munnar is a paradise for tea lovers and nature enthusiasts, offering misty hills and waterfalls.</p>
+         <button class="enquire-btn">   <a href="honeyform.html">Enquire Now</a></button>
+      </div>
+    </div>
+
+    <div class="place-card">
+      <img src="TOURSANDSTAYS/KUMARAKOM.jpg" alt="Kumarakom">
+      <div class="place-info">
+        <h4>Kumarakom</h4>
+        <p>A tranquil village on Vembanad Lake, Kumarakom offers beautiful houseboat cruises and rich birdlife in its sanctuary.</p>
+         <button class="enquire-btn">   <a href="honeyform.html">Enquire Now</a></button>
+      </div>
+    </div>
+
+    
+    <div class="place-card">
+      <img src="TOURSANDSTAYS/kannur-kerala-tourism-entry-fee-timings-holidays-reviews-header.jpg" alt="Munnar">
+      <div class="place-info">
+        <h4>Kannur</h4>
+        <p>Known as the “Land of Looms and Lore,” Kannur is a captivating blend of history, culture, and coastal charm. Famous for its ancient forts, pristine beaches, and vibrant Theyyam performances, Kannur offers a glimpse into Kerala’s living traditions</p>
+  <button class="enquire-btn">   <a href="honeyform.html">Enquire Now</a></button>
+      </div>
+    </div>
+
+    <div class="place-card">
+      <img src="TOURSANDSTAYS/KOCHI.jpg" alt="Kumarakom">
+      <div class="place-info">
+        <h4>Kochi</h4>
+        <p>Kochi, often called the “Queen of the Arabian Sea,” is a vibrant coastal city where tradition and modernity blend seamlessly. Once a bustling port in the spice trade, Kochi today is a cosmopolitan hub that reflects Kerala’s rich cultural mosaic.</p>
+          <button class="enquire-btn">   <a href="honeyform.html">Enquire Now</a></button>
+      </div>
+    </div>
+    
+    <div class="place-card">
+      <img src="TOURSANDSTAYS/vagamon-the-green.jpg" alt="Munnar">
+      <div class="place-info">
+        <h4>Vagamon</h4>
+        <p>Vagamon, often called Kerala’s hidden paradise, is a serene hill station draped in mist and greenery. Nestled in the Western Ghats, it offers rolling meadows, pine forests, and cascading waterfalls that create a dreamlike escape from city life.</p>
+        <button class="enquire-btn">   <a href="honeyform.html">Enquire Now</a></button>
+      </div>
+    </div>
+
+    <div class="place-card">
+      <img src="TOURSANDSTAYS/things-to-do-in-munroe-island-1024x576.webp" alt="Kumarakom">
+      <div class="place-info">
+        <h4>Munroe Island , kerala</h4>
+        <p>Munroe Island, a tranquil gem in Kerala’s backwaters, is where the Ashtamudi Lake meets a network of canals and lagoons. Known for its serene beauty, traditional coir-making villages.</p>
+          <button class="enquire-btn">   <a href="honeyform.html">Enquire Now</a></button>
+      </div>
+    </div>
+    
+    <div class="place-card">
+      <img src="TOURSANDSTAYS/Wayanad-1-1.jpg" alt="Munnar">
+      <div class="place-info">
+        <h4>Wayanadu,kerala</h4>
+        <p>Wayanad, the emerald jewel of Kerala, is a lush hill district adorned with misty mountains, dense forests, and cascading waterfalls. Known for its rich wildlife, spice plantations, and ancient tribal culture</p>
+  <button class="enquire-btn">   <a href="honeyform.html">Enquire Now</a></button>      </div>
+    </div>
+
+    <div class="place-card">
+      <img src="TOURSANDSTAYS/poovar.jpg" alt="Kumarakom">
+      <div class="place-info">
+        <h4>Poovar Island, Kerala</h4>
+        <p>Poovar, a serene coastal village in Kerala, is where the Neyyar River meets the Arabian Sea</p>
+  <button class="enquire-btn">   <a href="honeyform.html">Enquire Now</a></button>      </div>
+    </div>
+  </div>
+
+  <footer>
+    <h3>T Hill Tour & Stay</h3>
+    <p>Plan your dream Kerala vacation with us. Authentic experiences, scenic stays, and memories that last forever.</p>
+    <p>Contact: <a href="mailto:dpkome@gmail.com">dpkome@gmail.com</a> | Phone: <a href="tel:+919886254942">+91 9886254942</a></p>
+    <p>&copy; 2025 T Hill Tour & Stay. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>

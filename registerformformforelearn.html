@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Registration Form</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: #f8f9fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .register-box {
+      background: #fff;
+      padding: 25px 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      width: 320px;
+    }
+
+    .register-box h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    label {
+      font-size: 14px;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    button {
+      width: 100%;
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 15px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    .error {
+      color: red;
+      font-size: 13px;
+      margin-bottom: 10px;
+      display: none;
+    }
+
+    .success {
+      color: green;
+      text-align: center;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="register-box">
+    <h2>Register</h2>
+    <form id="registerForm">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" placeholder="Enter your name">
+
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="Enter your email">
+
+      <label for="phone">Phone Number</label>
+      <input type="text" id="phone" placeholder="Enter your phone number">
+
+      <div id="errorMsg" class="error"></div>
+      <button type="submit">Register</button>
+    </form>
+    <div id="successMsg" class="success"></div>
+  </div>
+
+  <script>
+    document.getElementById("registerForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const errorMsg = document.getElementById("errorMsg");
+      const successMsg = document.getElementById("successMsg");
+
+      // Clear previous messages
+      errorMsg.style.display = "none";
+      successMsg.innerText = "";
+
+      // Validation
+      if (!name || !email || !phone) {
+        errorMsg.innerText = "All fields are required!";
+        errorMsg.style.display = "block";
+        return;
+      }
+
+      const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+      const phonePattern = /^[0-9]{10}$/;
+
+      if (!emailPattern.test(email)) {
+        errorMsg.innerText = "Please enter a valid email address.";
+        errorMsg.style.display = "block";
+        return;
+      }
+
+      if (!phonePattern.test(phone)) {
+        errorMsg.innerText = "Phone number must be 10 digits.";
+        errorMsg.style.display = "block";
+        return;
+      }
+
+      // If validation passes
+      successMsg.innerText = "Registration Successful!";
+      document.getElementById("registerForm").reset();
+    });
+  </script>
+</body>
+</html>

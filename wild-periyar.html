@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PERIYAR-WILD - Kerala Heritage Hub</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Hero Image Section */
+    section.kovalamimage {
+      position: relative;
+      width: 100%;
+      height: 500px;
+      overflow: hidden;
+    }
+
+    .KOVALAMimagehere {
+      width: 100%;
+      height: 100%;
+    }
+
+    .KOVALAMimagehere img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+    }
+
+    .texthere {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+      background: linear-gradient(90deg, #006400, #f4a300a8, rgba(255, 255, 0, 0.568));
+      padding: 20px 40px;
+      border-bottom-left-radius: 30px;
+      border-top-right-radius: 30px;
+      z-index: 10;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    section.heading {
+      text-align: start;
+      margin-left: 30px;
+      margin-top: 40px;
+    }
+
+    .kovalam-container {
+      display: flex;
+      gap: 30px;
+      margin: 0 auto;
+      padding: 20px;
+      max-width: 1200px;
+      align-items: flex-start;
+    }
+
+    .paragraph-about-kovalam {
+      flex: 2;
+      text-align: justify;
+      padding: 30px;
+    }
+
+    .read-more-btn {
+      border: none;
+      background-color: transparent;
+      color: black;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .explorehere {
+      flex: 1;
+      padding: 20px;
+      background-color: rgba(95, 255, 47, 0.411);
+      border-radius: 8px;
+      text-align: start;
+      height: fit-content;
+    }
+
+    .explorehere h3 {
+      color: green;
+      margin-bottom: 15px;
+    }
+
+    .explorehere ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .explorehere li {
+      margin-bottom: 8px;
+      font-size: 16px;
+    }
+
+    /* WhatsApp Icon */
+    .whatsapp-container {
+      position: fixed;
+      bottom: 40px;
+      right: 40px;
+      z-index: 999;
+    }
+
+    .whatsapp-container i {
+      font-size: 50px;
+      color: rgb(47, 255, 116);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .whatsapp-container i:hover {
+      transform: scale(1.1);
+    }
+
+    /* Footer Section */
+    .footersection {
+      width: 100%;
+      background: linear-gradient(90deg, #006400a2, #f4a30062, rgba(255, 255, 0, 0.568));
+      color: black;
+      margin-top: 50px;
+      font-size: 16px;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 40px 20px;
+    }
+
+    .footer-box {
+      flex: 1;
+      min-width: 200px;
+      margin-bottom: 20px;
+    }
+
+    .footer-box h3 {
+      margin-bottom: 15px;
+      font-size: 20px;
+      color: black;
+    }
+
+    .footer-box ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footersection p,
+    .footersection a {
+      color: blue;
+      text-decoration: none;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .footersection a:hover {
+      text-decoration: underline;
+    }
+
+    .social-icons a {
+      margin-right: 10px;
+      font-size: 20px;
+      color: white;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding: 10px 0;
+      background: rgba(0, 0, 0, 0.2);
+      font-size: 14px;
+    }
+ header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg,#006400 , #f4a3004f, #ffeb99);
+
+  padding: 15px 30px;
+ 
+  position: relative;
+}
+
+div.logg h3 {
+ 
+ 
+  font-weight: 600;
+color: white !important;
+  font-style: oblique;
+}
+    /* Responsive */
+    @media (max-width: 768px) {
+      section.kovalamimage {
+        height: 300px;
+      }
+
+      .texthere {
+        padding: 10px 20px;
+        font-size: 14px;
+      }
+
+      .kovalam-container {
+        flex-direction: column;
+      }
+
+      .paragraph-about-kovalam, .explorehere {
+        width: 100%;
+        padding: 15px;
+      }
+
+      .whatsapp-container {
+        bottom: 20px;
+        right: 20px;
+      }
+
+      .whatsapp-container i {
+        font-size: 35px;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer-box {
+        min-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+ <header>
+  <div class="logg">
+    <h3><a style="text-decoration: none;color: white;" href="index.html">The Kerala Heritage Hub</a></h3>
+  </div>
+
+  
+
+ 
+
+</header>
+
+
+  <!-- Hero Image Section -->
+  <section class="kovalamimage">
+    <div class="KOVALAMimagehere">
+      <img src="PERIYAR-WILD/TGREESS.jpg" alt="Kovalam Beach, Kerala">
+    </div>
+    <div class="texthere" style="margin-top: 100PX;" >
+      <h1>Kerala: The Heritage Hub</h1>
+    </div>
+  </section>
+
+  <!-- Heading -->
+  <section class="heading">
+    <h1>Kovalam Beach</h1>
+  </section>
+
+  <!-- WhatsApp Icon -->
+  <div class="whatsapp-container">
+    <a href="https://wa.me/919886254942" target="_blank">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+  </div>
+
+  <!-- Kovalam Content & Highlights -->
+  <section class="kovalam-container">
+    <div class="paragraph-about-kovalam">
+      <p>
+      Periyar Tiger Reserve, located in Thekkady, Kerala, is one of India’s most famous wildlife sanctuaries. It’s home to tigers, elephants, leopards, and a wide variety of birds. Periyar Tiger Reserve is not just about tigers; it’s a treasure trove of wildlife. The sanctuary is home to elephants, leopards, wild boars, sambar deer, gaurs, and a variety of monkeys. The lush forests are alive with birds such as Malabar hornbills, kingfishers, and paradise flycatchers, making it a birdwatcher’s paradise. The reserve’s dense greenery provides natural habitats for reptiles, butterflies, and even elusive nocturnal animals.
+
+Guided treks and boat rides on Periyar Lake give you a chance to observe animals in their natural habitat, hear the calls of the wild, and feel the thrill of the forest. Every season brings a <span class="more-text" style="display:none;"> new spectacle—the monsoon fills the streams and waterfalls, attracting herds of elephants, while the dry season reveals animals gathering at watering points.
+
+It’s an ideal destination for wildlife photography, nature enthusiasts, and anyone seeking the serene yet thrilling beauty of India’s tropical forests. The reserve is also known for its scenic Periyar Lake, surrounded by lush forests and spice plantations. Visitors can enjoy guided wildlife safaris, bamboo rafting, trekking, and boat rides, making it an adventure-filled yet serene destination.
+
+
+        </span>
+      </p>
+      <button class="read-more-btn">Read More</button>
+    </div>
+
+    <div class="explorehere">
+      <h3>Periyar-Wildlife</h3>
+      <ul>
+   <ul>
+  <li><i class="fa-solid fa-paw"></i> Tiger & Wildlife Safari</li>
+
+  <li><i class="fa-solid fa-ship"></i> Boating on Periyar Lake</li>
+  <li><i class="fa-solid fa-tree"></i> Guided Forest Trails & Nature Walks</li>
+  <li><i class="fa-solid fa-binoculars"></i> Bird Watching & Photography</li>
+  <li><i class="fa-regular fa-calendar-days"></i> Best Time: Oct–May</li>
+</ul>
+
+
+
+      </ul>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footersection">
+      <div class="footer-content">
+        <div class="footer-box">
+          <h3>About Kerala Heritage Hub</h3>
+          <p>Discover the untamed beauty of Periyar Tiger Reserve, where dense tropical forests meet serene waters. </p>
+        </div>
+        <div class="footer-box">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">wildlife-periyar</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-box">
+          <h3>Contact Us</h3>
+          <p>Phone: +91 9886254942</p>
+          <p>Email: info@keralaheritagehub.com</p>
+          <a href="https://wa.me/919886254942" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+        </div>
+        <div class="footer-box">
+          <h3>Follow Us</h3>
+          <div class="social-icons">
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2025 Kerala Heritage Hub. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Read More Toggle -->
+  <script>
+    $(document).ready(function(){
+      $(".read-more-btn").click(function(){
+        const moreText = $(this).siblings("p").find(".more-text");
+        moreText.slideToggle();
+        $(this).text($(this).text() === "Read More" ? "Show Less" : "Read More");
+      });
+    });
+  </script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"></script>
+
+</body>
+</html>

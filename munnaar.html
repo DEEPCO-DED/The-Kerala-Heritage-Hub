@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Munnar - Kerala Heritage Hub</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    /* Hero Image Section */
+    section.munnarimage {
+      position: relative;
+      width: 100%;
+      height: 500px;
+      overflow: hidden;
+    }
+
+    .imagehere img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .texthere {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+      background: linear-gradient(90deg, #006400, #f4a300a8, rgba(255, 255, 0, 0.568));
+      padding: 20px 40px;
+      border-bottom-left-radius: 30px;
+      border-top-right-radius: 30px;
+      transition: transform 0.5s ease-in;
+      z-index: 999;
+    }
+
+    .texthere:hover {
+      background: linear-gradient(rgba(255, 255, 0, 0.568), #f4a300a8, #006400);
+    }
+
+    /* Heading */
+    section.heading {
+      text-align: start;
+      margin-left: 30px;
+      margin-top: 40px;
+    }
+
+    /* Munnar Content Container */
+    .munnar-container {
+      display: flex;
+      gap: 30px;
+      margin: 0 auto;
+      padding: 20px;
+      max-width: 1200px;
+      align-items: flex-start; /* Keep explorehere at top */
+    }
+
+    .paragraph-about-munnar {
+      width: 60%;
+      text-align: justify;
+      padding: 30px;
+      flex: 2;
+    }
+
+    .read-more-btn {
+      border: none;
+      background-color: transparent;
+      margin-left: 20px;
+      color: black;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    /* Highlights Section */
+    .explorehere {
+      flex: 1;
+      padding: 20px;
+      background-color: rgba(95, 255, 47, 0.411);
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      text-align: start;
+      justify-content: flex-start;
+      flex-shrink: 0;
+      min-height: 300px; /* Fixed height to prevent movement */
+    }
+
+    .explorehere h3 {
+      color: green;
+      margin-bottom: 15px;
+    }
+
+    .explorehere ul {
+      list-style: none;
+      padding-left: 0;
+      transition: transform 0.4s ease-in;
+    }
+
+    .explorehere ul:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .explorehere li {
+      margin-bottom: 8px;
+      font-size: 16px;
+    }
+
+    /* WhatsApp Icon */
+    .container {
+      position: fixed;
+      top: 200px;
+      left: 1150px;
+      z-index: 999;
+    }
+
+    .container i {
+      font-size: 40px;
+      color: rgb(47, 255, 116);
+      cursor: pointer;
+    }
+
+    /* Footer */
+    /* Footer Section */
+.footersection {
+  width: 100%;
+  background: linear-gradient(90deg, #006400a2, #f4a30062, rgba(255, 255, 0, 0.568));
+  color:black;
+  margin-top: 50px;
+  font-size: 16px;
+}
+
+.footersection .footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 40px 20px;
+}
+
+.footersection .footer-box {
+  flex: 1;
+  min-width: 200px;
+  margin-bottom: 20px;
+}
+
+.footersection h3 {
+  margin-bottom: 15px;
+  font-size: 20px;
+  color: black;
+}
+.footer-box ul{
+  list-style: none;
+}
+
+.footersection p,
+.footersection a {
+  color: blue;
+  text-decoration: none;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.footersection a:hover {
+  text-decoration: underline;
+}
+
+.footersection .social-icons a {
+  margin-right: 10px;
+  font-size: 20px;
+  color: white;
+}
+
+
+.footersection .footer-bottom {
+  text-align: center;
+  padding: 10px 0;
+  background: rgba(0,0,0,0.2);
+  font-size: 14px;
+}
+ header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg,#006400 , #f4a3004f, #ffeb99);
+
+  padding: 15px 30px;
+ 
+  position: relative;
+}
+
+div.logg h3 {
+ 
+ 
+  font-weight: 600;
+color: white !important;
+  font-style: oblique;
+}
+/* Responsive */
+@media (max-width: 768px) {
+  .footersection .footer-content {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+    flex-direction: column;
+    padding: 20px 10px;
+    text-align: center;
+
+  }
+
+  .footersection .footer-box {
+    min-width: 100%;
+  }
+}
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .munnar-container {
+        flex-direction: column;
+        padding: 10px;
+      }
+
+      .paragraph-about-munnar, .explorehere {
+        width: 100%;
+        padding: 15px;
+      }
+
+      .munnarimage {
+        height: 300px;
+      }
+
+      .texthere {
+        padding: 15px 20px;
+        font-size: 14px;
+      }
+
+      .container {
+        left: 80%;
+        top: 80%;
+      }
+
+      .container i {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logg">
+    <h3><a style="text-decoration: none;color: white;" href="index.html">The Kerala Heritage Hub</a></h3>
+  </div>
+
+  
+
+ 
+
+</header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Hero Image Section -->
+  <section class="munnarimage">
+    <div class="imagehere">
+      <img src="touristdestinations/munnar (2).jpg" class="img-fluid" alt="Munnar, Kerala">
+    </div>
+    <div class="texthere">
+      <h1>Kerala: The Heritage Hub</h1>
+      <p>Explore the serene hills of Munnar and the timeless beauty of Kerala</p>
+    </div>
+  </section>
+
+  <!-- Heading -->
+  <section class="heading">
+    <h1>Munnar</h1>
+  </section>
+
+  <!-- WhatsApp Icon -->
+  <div class="container">
+    <a href="https://wa.me/919886254942" target="_blank">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+  </div>
+
+  <!-- Munnar Content & Highlights -->
+  <section class="munnar-container">
+    <div class="paragraph-about-munnar">
+      <p>
+        Munnar, a serene hill station nestled in Kerala’s Idukki district, sits gracefully at an altitude of 1,600 meters above sea level. One of Kerala’s most beloved travel destinations, Munnar offers breathtaking views that seem straight out of a dream. With rolling hills draped in emerald-green tea gardens, mist-veiled valleys, cascading waterfalls, and the crisp scent of mountain air, this land feels like a painting come to life.
+
+        The name Munnar itself means “three rivers” in Malayalam — a fitting tribute to its location at the confluence of the Muthirapuzha, Nallathanni, and Kundala streams. For centuries, this region remained untouched until European planters arrived in the 19th century. A. H. Sharp, a pioneer among them, planted the first tea crops in 1880 across 50 acres, laying the foundation for what would become Munnar’s signature identity — endless hills blanketed in tea plantations.
+
+        The Tea <span class="more-text" style="display:none;">
+          Museum at the Nallathanni Estate of Tata Tea preserves this rich legacy, showcasing vintage equipment, photographs, and artifacts that tell the story of Munnar’s evolution from wilderness to plantation paradise.
+
+          But Munnar’s charm extends far beyond its tea. It is one of the few places in the world where the rare Neelakurinji blooms once every twelve years, painting the hills in a stunning shade of blue. The Eravikulam National Park, home to the endangered <strong>Nilgiri Tahr</strong>, offers the perfect vantage point to witness this natural spectacle. Within the park stands <strong>Anamudi Peak</strong>, South India’s tallest mountain, rising over 2700 px.
+
+          Nearby attractions include Mattupetty, famous for its dam, lake, and Indo-Swiss dairy farm; Pallivasal, the site of Kerala’s first hydroelectric project; and <strong>Chinnakanal</strong> and <strong>Anayirangal</strong>, where waterfalls and lush greenery captivate every visitor. The panoramic Top Station is another must-see, offering breathtaking views of the Western Ghats.
+
+          Munnar remains a timeless haven of peace — a place where the mist, the mountains, and the melody of nature come together to soothe the soul and awaken wonder in every traveler.
+        </span>
+      </p>
+      <button class="read-more-btn">Read More</button>
+    </div>
+
+    <div class="explorehere">
+      <h3>Munnar Highlights</h3>
+      <ul>
+        <li><i class="fa-solid fa-camera"></i> Tea Plantation and Waterfalls</li>
+        <li><i class="fa-solid fa-person-hiking"></i> Trekking & Nature Walk</li>
+        <li><i class="fa-solid fa-paw"></i> Eravikulam National Park</li>
+        <li><i class="fa-regular fa-calendar-days"></i> Best Time: Oct-Nov-Jan-May</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Footer -->
+<footer>
+  <div class="footersection">
+    <div class="footer-content">
+      
+      <!-- About -->
+      <div class="footer-box">
+        <h3>About Kerala Heritage Hub</h3>
+        <p>
+          Explore the serene hills, lush tea gardens, and timeless beauty of Kerala. Your gateway to Munnar and other hidden gems of God's Own Country.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-box">
+        <h3>Quick Links</h3>
+        <ul>
+          <li ><a href="#">Home</a></li>
+          <li><a href="#">Munnar</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="footer-box">
+        <h3>Contact Us</h3>
+        <p>Phone: +91 9886254942</p>
+        <p>Email: info@keralaheritagehub.com</p>
+        <a href="https://wa.me/919886254942" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+      </div>
+
+      <!-- Social -->
+      <div class="footer-box">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      &copy; 2025 Kerala Heritage Hub. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+
+
+  <!-- jQuery Read More Toggle -->
+  <script>
+    $(document).ready(function(){
+      $(".read-more-btn").click(function(){
+        var moreText = $(this).siblings("p").find(".more-text");
+        moreText.slideToggle(500);
+        $(this).text($(this).text() === "Read More" ? "Show Less" : "Read More");
+      });
+    });
+  </script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+{
+    "mostloved-destinations":{
+        "mostloved" : [
+            {"image":"munnar31.jpeg","caption":"Munnar: The Tea Garden Paradise","link": "munnaar.html"},
+            {"image":"kovalambeach.jpeg", "caption": "Kovalam :For The Beach Lover's ","link":"kovalam.html"},
+            { "image": "athirappally.jpg", "caption": "Athirapally:A breathtaking waterfall ","link":"ATHIRAPALLY.html"}
+         
+
+               
+        ]
+
+    },
+    "exotic-destinations":{ 
+        "exotic" : [
+              {"image":"kumarakom.jpeg" ,"caption": " kumarakom :The silence here is a symphony","link":"kumarakom.html" },
+            {"image":"tiger.jpeg" ,"caption": " Periyar : Wilderness and Wildlife at its Best","link":"wild-periyar.html" },
+            {"image":"bekalfort.jpeg" ,"caption": "Bekal Fort :A Historical Marvel by the Sea","link":"kovalam.html" }
+        ]
+    }
+    }

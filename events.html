@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kerala Heritage Hub - All Destinations</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* --- Header/Navigation Bar --- */
+        .navbar {
+  background: linear-gradient(90deg, #006405, #f4a30096, rgba(255, 255, 0, 0.699));
+        }
+        .navbar-brand, .nav-link {
+            color:black;
+            font-weight: bold;
+        }
+        .nav-link:hover {
+            color: #f4a300 !important; /* Orange hover */
+        }
+
+        /* --- Page Container Styles --- */
+        .page-content-wrapper {
+            /* Initially hide all content pages except one (handled by JS/initial state) */
+            display: none;
+      
+            padding-top: 0;
+        }
+        /* Make the default page (Munnar) visible on load */
+        #munnar-page {
+            display: block;
+        }
+
+        /* --- Hero Image Section (Common Styling) --- */
+        .hero-section {
+            position: relative;
+            width: 100%;
+            height: 500px; /* Default height for hero sections */
+            overflow: hidden;
+            margin-bottom: 30px;
+            /* Added Flexbox to ensure centering within the whole hero area */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        /* Ensures the container takes up the full space of the hero section */
+        .hero-image-container {
+            width: 100%;
+            height: 100%;
+        }
+
+        .hero-image-container img {
+            width: 100%;
+            height: 100%;
+            /* KEY FIX: object-fit: cover ensures the image fills the container (100% height, 100% width) 
+               without being stretched, maintaining its aspect ratio and cropping any excess.
+            */
+            object-fit: cover; 
+            object-position: center center; /* Centers the image content */
+            display: block;
+        }
+
+        .texthere {
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            background: linear-gradient(90deg, #006400, #f4a300a8, rgba(255, 255, 0, 0.568));
+            padding: 20px 40px;
+            border-bottom-left-radius: 30px;
+            border-top-right-radius: 30px;
+            transition: transform 0.5s ease-in;
+            z-index: 999;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .texthere:hover {
+            background: linear-gradient(rgba(255, 255, 0, 0.568), #f4a300a8, #006400);
+        }
+
+        /* --- Heading --- */
+        section.heading {
+            text-align: start;
+            margin-left: 30px;
+            margin-top: 40px;
+        }
+
+        /* --- Content Container (Common Styling) --- */
+        .content-container {
+            display: flex;
+            gap: 30px;
+            margin: 0 auto;
+            padding: 20px;
+            max-width: 1200px;
+            align-items: flex-start;
+            margin-bottom: 50px;
+        }
+
+        .paragraph-about {
+            flex: 2;
+            text-align: justify;
+            padding: 30px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+        }
+
+        .read-more-btn {
+            border: none;
+            background-color: transparent;
+            color: black;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+            margin-left: 20px; /* Adjusting margin for better alignment with text */
+        }
+
+        /* --- Highlights Section (Common Styling) --- */
+        .explorehere {
+            flex: 1;
+            padding: 20px;
+            background-color: rgba(95, 255, 47, 0.411);
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            text-align: start;
+            justify-content: flex-start;
+            flex-shrink: 0;
+            min-height: 300px;
+        }
+
+        .explorehere h3 {
+            color: green;
+            margin-bottom: 15px;
+        }
+
+        .explorehere ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .explorehere li {
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        /* --- WhatsApp Icon --- */
+        .whatsapp-container {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            z-index: 999;
+        }
+
+        .whatsapp-container i {
+            font-size: 50px;
+            color: rgb(47, 255, 116);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-container i:hover {
+            transform: scale(1.1);
+        }
+
+        /* --- Footer --- */
+        .footersection {
+            width: 100%;
+            background: linear-gradient(90deg, #006400a2, #f4a30062, rgba(255, 255, 0, 0.568));
+            color: black;
+            margin-top: 50px;
+            font-size: 16px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 40px 20px;
+        }
+
+        .footer-box {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 20px;
+        }
+
+        .footer-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footersection h3 {
+            margin-bottom: 15px;
+            font-size: 20px;
+            color: black;
+        }
+
+        .footersection p, .footersection a {
+            color: blue;
+            text-decoration: none;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .social-icons a {
+            margin-right: 10px;
+            font-size: 20px;
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 10px 0;
+            background: rgba(0, 0, 0, 0.2);
+            font-size: 14px;
+        }
+
+        /* --- Responsive Styles --- */
+        @media (max-width: 768px) {
+            .hero-section {
+                height: 300px;
+            }
+            .texthere {
+                padding: 15px 20px;
+                font-size: 14px;
+            }
+            .content-container {
+                flex-direction: column;
+                padding: 10px;
+            }
+            .paragraph-about, .explorehere {
+                width: 100%;
+                padding: 15px;
+            }
+            .explorehere {
+                min-height: auto;
+            }
+            .whatsapp-container {
+                bottom: 20px;
+                right: 20px;
+            }
+            .whatsapp-container i {
+                font-size: 35px;
+            }
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-box {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html" style="color: white;">Kerala Heritage Hub</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation;">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link page-link active" data-target="munnar-page" href="#">Munnar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link page-link" data-target="kovalam-page" href="#">Kovalam</a>
+            </li>
+             <li class="nav-item">
+              <a class="nav-link page-link" data-target="athirapally-page" href="#">Athirapally</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link page-link" data-target="kumarakom-page" href="#">Kumarakom</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link page-link" data-target="periyar-page" href="#">Periyar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link page-link" data-target="bekal-fort-page" href="#">Bekal Fort</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    <div class="whatsapp-container">
+        <a href="https://wa.me/919886254942" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <div id="munnar-page" class="page-content-wrapper">
+        <section class="hero-section munnar-hero">
+            <div class="hero-image-container">
+                <img src="touristdestinations/munnar (2).jpg" class="img-fluid" alt="Munnar, Kerala">
+            </div>
+            <div class="texthere">
+                <h1>Munnar: Tea Gardens & Mist</h1>
+                <p>Explore the serene hills of Munnar and the timeless beauty of Kerala</p>
+            </div>
+        </section>
+
+        <section class="heading">
+            <h1>Munnar</h1>
+        </section>
+
+        <section class="content-container munnar-content">
+            <div class="paragraph-about">
+                <p>
+                    Munnar, a serene hill station nestled in Kerala’s Idukki district, sits gracefully at an altitude of 1,600 meters above sea level. One of Kerala’s most beloved travel destinations, Munnar offers breathtaking views that seem straight out of a dream. With rolling hills draped in emerald-green tea gardens, mist-veiled valleys, cascading waterfalls, and the crisp scent of mountain air, this land feels like a painting come to life.
+                    <span class="more-text munnar-more" style="display:none;">
+                        The name Munnar itself means “three rivers” in Malayalam — a fitting tribute to its location at the confluence of the Muthirapuzha, Nallathanni, and Kundala streams. A. H. Sharp, a pioneer among planters, planted the first tea crops in 1880, leading to its signature identity: endless hills blanketed in tea plantations. The **Tea Museum** preserves this rich legacy. Munnar is also famous for the rare **Neelakurinji** bloom that happens once every twelve years. The **Eravikulam National Park**, home to the endangered **Nilgiri Tahr**, offers the perfect vantage point. Within the park stands **Anamudi Peak**, South India’s tallest mountain. Nearby attractions include Mattupetty Dam, Pallivasal, and the panoramic **Top Station**. Munnar remains a timeless haven of peace — a place where the mist, the mountains, and the melody of nature come together to soothe the soul.
+                    </span>
+                </p>
+                <button class="read-more-btn" data-target=".munnar-more">Read More</button>
+            </div>
+            <div class="explorehere">
+                <h3>Munnar Highlights</h3>
+                <ul>
+                    <li><i class="fa-solid fa-camera"></i> Tea Plantation and Waterfalls</li>
+                    <li><i class="fa-solid fa-person-hiking"></i> Trekking & Nature Walk</li>
+                    <li><i class="fa-solid fa-paw"></i> Eravikulam National Park</li>
+                    <li><i class="fa-regular fa-calendar-days"></i> Best Time: Oct-Nov-Jan-May</li>
+                </ul>
+            </div>
+        </section>
+    </div> <div id="kovalam-page" class="page-content-wrapper">
+        <section class="hero-section kovalam-hero">
+            <div class="hero-image-container">
+                <img src="KOVALAM/kovalam (1).jpg" alt="Kovalam Beach, Kerala">
+            </div>
+            <div class="texthere">
+                <h1>Kovalam Beach: Sun, Sand & Serenity</h1>
+                <p>Experience the famous coastline of Kerala</p>
+            </div>
+        </section>
+
+        <section class="heading">
+            <h1>Kovalam Beach</h1>
+        </section>
+
+        <section class="content-container kovalam-content">
+            <div class="paragraph-about">
+                <p>
+                    Kovalam Beach is where Kerala’s coastal magic truly comes alive. Once a sleepy fishing village, it has evolved into a world-class seaside retreat that perfectly blends serenity and adventure. The crescent-shaped coastline, divided into Lighthouse Beach, Hawah Beach, and Samudra Beach, offers something for every soul — from early morning yoga by the waves to fiery sunsets that paint the horizon in shades of gold and crimson.
+                    <span class="more-text kovalam-more" style="display:none;">
+                        The iconic red-and-white striped **lighthouse** at Vizhinjam stands as a proud guardian of the shore, offering panoramic views of the endless blue expanse. The gentle sea breeze carries the scent of coconut palms and the soft hum of waves, creating an atmosphere that feels both soothing and alive. Whether you’re savoring fresh seafood at a beachfront café, watching fishermen haul in their morning catch, or simply walking barefoot on the warm sands, Kovalam has a way of slowing down time — reminding you that paradise isn’t found, it’s felt.
+                    </span>
+                </p>
+                <button class="read-more-btn" data-target=".kovalam-more">Read More</button>
+            </div>
+            <div class="explorehere">
+                <h3>Kovalam Highlights</h3>
+                <ul>
+                    <li><i class="fa-solid fa-umbrella-beach"></i> Lighthouse Beach & Samudra Beach</li>
+                    <li><i class="fa-solid fa-water"></i> Surfing & Water Sports</li>
+                    <li><i class="fa-solid fa-fish"></i> Fresh Seafood & Beach Cafés</li>
+                    <li><i class="fa-regular fa-calendar-days"></i> Best Time: Sep–Mar</li>
+                </ul>
+            </div>
+        </section>
+    </div> <div id="athirapally-page" class="page-content-wrapper">
+        <section class="hero-section athirapally-hero">
+            <div class="hero-image-container">
+                <img src="ATHIRAPALLY/ATHIR.jpg" class="img-fluid" alt="Athirapally Waterfalls, Kerala">
+            </div>
+            <div class="texthere">
+                <h1>Athirapally: The Niagara of India</h1>
+                <p>Experience the majestic waterfall and surrounding forests</p>
+            </div>
+        </section>
+
+        <section class="heading">
+            <h1>Athirapally</h1>
+        </section>
+
+        <section class="content-container athirapally-content">
+            <div class="paragraph-about">
+                <p>
+                    Nestled in the lush greenery of Kerala’s Thrissur district, Athirappilly is home to the spectacular **Athirappilly Waterfalls**, cascading from a height of 80 feet and earning the nickname “Niagara of India.” Surrounded by dense tropical forests, this natural wonder offers a perfect blend of adventure and tranquility. Visitors can enjoy the mesmerizing roar of the falls, stroll along forest trails, spot exotic birds and wildlife, or simply soak in the serene beauty of the misty landscapes. Athirappilly is a paradise for nature lovers, photographers, and anyone seeking to reconnect with the soul of God’s Own Country.
+                </p>
+            </div>
+            <div class="explorehere">
+                <h3>Athirapally Highlights</h3>
+                <ul>
+                    <li><i class="fa-solid fa-water"></i> Athirappilly Waterfalls</li>
+                    <li><i class="fa-solid fa-tree"></i> Lush Green Forest Trails</li>
+                    <li><i class="fa-solid fa-camera"></i> Wildlife & Bird Watching</li>
+                    <li><i class="fa-regular fa-calendar-days"></i> Best Time: Jun–Feb</li>
+                </ul>
+            </div>
+        </section>
+    </div> <div id="kumarakom-page" class="page-content-wrapper">
+        <section class="hero-section kumarakom-hero">
+            <div class="hero-image-container">
+                <img src="KUMARAKOM/KUMARAKM.jpg" class="img-fluid" alt="Kumarakom Backwaters, Kerala">
+            </div>
+            <div class="texthere">
+                <h1>Kumarakom: Backwater Bliss</h1>
+                <p>Discover the serene backwaters of Kumarakom</p>
+            </div>
+        </section>
+
+        <section class="heading">
+            <h1>Kumarakom</h1>
+        </section>
+
+        <section class="content-container kumarakom-content">
+            <div class="paragraph-about">
+                <p>
+                    Kumarakom, located on the banks of **Vembanad Lake**, is a tranquil haven of backwaters, lush paddy fields, and swaying coconut palms. Kumarakom is a cluster of small islands on the Vembanad Lake, Kerala’s largest lake. Known for its tranquil backwaters, it offers an unmatched experience of nature and relaxation. The village is surrounded by lush paddy fields, coconut groves, and calm waters, making it perfect for those looking to escape city life. 
+                    <span class="more-text kumarakom-more" style="display: none;"> 
+                        Famous for its **houseboats**, visitors can glide through the calm waters, witnessing the everyday life of village communities and the rich flora and fauna along the shores. The **Kumarakom Bird Sanctuary** attracts migratory birds, making it a paradise for birdwatchers and nature enthusiasts. With its peaceful ambiance, beautiful sunsets, and traditional Kerala experiences, Kumarakom is the perfect escape for relaxation and rejuvenation.   
+                    </span>
+                </p>
+                <button class="read-more-btn" data-target=".kumarakom-more">Read More</button>
+            </div>
+            <div class="explorehere">
+                <h3>Kumarakom Highlights</h3>
+                <ul>
+                    <li><i class="fa-solid fa-water"></i> Backwater Houseboat Cruises</li>
+                    <li><i class="fa-solid fa-tree"></i> Lush Paddy Fields & Coconut Groves</li>
+                    <li><i class="fa-solid fa-camera"></i> Bird Watching at Kumarakom Bird Sanctuary</li>
+                    <li><i class="fa-regular fa-calendar-days"></i> Best Time: Sep–Mar</li>
+                </ul>
+            </div>
+        </section>
+    </div> <div id="periyar-page" class="page-content-wrapper">
+        <section class="hero-section periyar-hero">
+            <div class="hero-image-container">
+                <img src="PERIYAR-WILD/TGREESS.jpg" class="img-fluid" alt="Periyar Wildlife Reserve, Kerala">
+            </div>
+            <div class="texthere">
+                <h1>Periyar Wildlife Reserve</h1>
+                <p>Discover the untamed jungles of Thekkady</p>
+            </div>
+        </section>
+
+        <section class="heading">
+            <h1>Periyar Tiger Reserve</h1>
+        </section>
+
+        <section class="content-container periyar-content">
+            <div class="paragraph-about">
+                <p>
+                    Periyar Tiger Reserve, located in **Thekkady**, Kerala, is one of India’s most famous wildlife sanctuaries. It’s home to tigers, elephants, leopards, and a wide variety of birds. Periyar Tiger Reserve is not just about tigers; it’s a treasure trove of wildlife. The sanctuary is home to **elephants, leopards, wild boars, sambar deer, gaurs**, and a variety of monkeys. The lush forests are alive with birds such as Malabar hornbills, kingfishers, and paradise flycatchers, making it a birdwatcher’s paradise. The reserve’s dense greenery provides natural habitats for reptiles, butterflies, and even elusive nocturnal animals.
+                    <span class="more-text periyar-more" style="display:none;">
+                        Guided treks and boat rides on **Periyar Lake** give you a chance to observe animals in their natural habitat, hear the calls of the wild, and feel the thrill of the forest. Every season brings a new spectacle—the monsoon fills the streams and waterfalls, attracting herds of elephants, while the dry season reveals animals gathering at watering points. It’s an ideal destination for wildlife photography, nature enthusiasts, and anyone seeking the serene yet thrilling beauty of India’s tropical forests. The reserve is also known for its scenic Periyar Lake, surrounded by lush forests and spice plantations. Visitors can enjoy guided wildlife safaris, bamboo rafting, trekking, and boat rides, making it an adventure-filled yet serene destination.
+                    </span>
+                </p>
+                <button class="read-more-btn" data-target=".periyar-more">Read More</button>
+            </div>
+
+            <div class="explorehere">
+                <h3>Periyar Highlights</h3>
+                <ul>
+                    <li><i class="fa-solid fa-paw"></i> Tiger & Wildlife Safari</li>
+                    <li><i class="fa-solid fa-ship"></i> Boating on Periyar Lake</li>
+                    <li><i class="fa-solid fa-tree"></i> Guided Forest Trails & Nature Walks</li>
+                    <li><i class="fa-solid fa-binoculars"></i> Bird Watching & Photography</li>
+                    <li><i class="fa-regular fa-calendar-days"></i> Best Time: Oct–May</li>
+                </ul>
+            </div>
+        </section>
+    </div> <div id="bekal-fort-page" class="page-content-wrapper">
+        <section class="hero-section bekal-fort-hero">
+            <div class="hero-image-container">
+                <img src="BEKAL-FORT/bekal-for-aerial-view.jpg" class="img-fluid" alt="Bekal Fort, Kerala">
+            </div>
+            <div class="texthere">
+                <h1>Bekal Fort: History on the Coast</h1>
+                <p>Discover Kerala's largest and best-preserved fort</p>
+            </div>
+        </section>
+
+        <section class="heading">
+            <h1>Bekal Fort</h1>
+        </section>
+
+        <section class="content-container bekal-fort-content">
+            <div class="paragraph-about">
+                <p>
+                    Bekal Fort is one of Kerala’s most iconic historical landmarks, located in the Kasaragod district along the Arabian Sea. Built in the 17th century by the Keladi rulers, this massive seaside fort stretches over 4 acres and is known for its strategic architecture, including watchtowers, observation points, and an impressive well-planned fortification.
+                    
+                    The fort offers breathtaking panoramic views of the sea, making it a favorite spot for photographers and travelers alike. Its walls and bastions, partially covered by the greenery and coconut trees, give a sense of stepping back in time. The calm beaches surrounding Bekal Fort are perfect for evening strolls, and the fort itself has been featured in several films due to its cinematic backdrop.
+                    
+                    Visitors can explore the fort’s hidden tunnels, old cannons, and stone structures, all of which tell tales of Kerala’s rich maritime and military history. Bekal Fort is not just a historical site—it’s a blend of nature, history, and serenity, making it a must-visit destination in Kerala.
+                </p>
+            </div>
+
+            <div class="explorehere">
+                <h3>Bekal Fort Highlights</h3>
+                <ul>
+                    <li><i class="fa-solid fa-fort-awesome"></i> Explore the Ancient Fort & Watchtowers</li>
+                    <li><i class="fa-solid fa-water"></i> Panoramic Views of the Arabian Sea</li>
+                    <li><i class="fa-solid fa-camera"></i> Photography & Scenic Walks</li>
+                    <li><i class="fa-regular fa-calendar-days"></i> Best Time: Oct–Mar</li>
+                </ul>
+            </div>
+        </section>
+    </div> <footer>
+        <div class="footersection">
+            <div class="footer-content">
+                <div class="footer-box">
+                    <h3>About Kerala Heritage Hub</h3>
+                    <p> Explore the majestic waterfalls, serene backwaters, hills, beaches, wildlife, and historical forts of God's Own Country.</p>
+                </div>
+                <div class="footer-box">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a class="page-link" data-target="munnar-page" href="#">Munnar</a></li>
+                        <li><a class="page-link" data-target="kovalam-page" href="#">Kovalam</a></li>
+                        <li><a class="page-link" data-target="athirapally-page" href="#">Athirapally</a></li>
+                        <li><a class="page-link" data-target="kumarakom-page" href="#">Kumarakom</a></li>
+                        <li><a class="page-link" data-target="periyar-page" href="#">Periyar</a></li>
+                        <li><a class="page-link" data-target="bekal-fort-page" href="#">Bekal Fort</a></li>
+                    </ul>
+                </div>
+                <div class="footer-box">
+                    <h3>Contact Us</h3>
+                    <p>Phone: +91 9886254942</p>
+                    <p>Email: info@keralaheritagehub.com</p>
+                    <a href="https://wa.me/919886254942" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+                </div>
+                <div class="footer-box">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2025 Kerala Heritage Hub. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        $(document).ready(function(){
+            
+            // 1. Read More Toggle Logic
+            $(".read-more-btn").click(function(){
+                // Use the data-target attribute (e.g., .munnar-more) to find the correct more-text span
+                const targetSelector = $(this).data("target");
+                const moreText = $(targetSelector);
+                
+                // Toggle visibility and change button text
+                if (moreText.length) {
+                    moreText.slideToggle(500);
+                    $(this).text($(this).text() === "Read More" ? "Show Less" : "Read More");
+                }
+            });
+
+            // 2. Page Switching Logic
+            $(".page-link").click(function(e){
+                e.preventDefault(); // Stop the default anchor jump
+                
+                const targetId = $(this).data("target");
+
+                // Hide all page wrappers
+                $(".page-content-wrapper").hide();
+
+                // Show the target page
+                $("#" + targetId).show();
+
+                // Update active link state
+                $(".page-link").removeClass("active");
+                $(this).addClass("active");
+
+                // Scroll to the top of the page content
+                window.scrollTo(0, 0); 
+            });
+
+            // Ensure the initial active link matches the visible page
+            $('.page-link[data-target="munnar-page"]').addClass('active');
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

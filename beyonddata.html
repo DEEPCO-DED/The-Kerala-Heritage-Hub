@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SKILLLAB - Beyond Data</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      overflow-x: hidden;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #007BFF, #00C6FF);
+      background-position: center center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background: blue;
+      color: white;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 500;
+      margin-bottom: 5px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    nav ul li {
+      font-size: 15px;
+      font-weight: 400;
+      cursor: pointer;
+    }
+
+    nav ul li:hover {
+      text-decoration: underline;
+    }
+
+    header li b {
+      color: white;
+      padding: 10px;
+      border-radius: 20px;
+      font-size: 15px;
+    }
+
+    header li b:hover {
+    background: linear-gradient(90deg, #006400a2, #f4a30062, rgba(255, 255, 0, 0.568));
+
+    }
+
+    .card-body-glassaffect {
+      background: linear-gradient(
+        rgba(255, 223, 100, 0.5),
+        rgba(37, 99, 235, 0.5)
+      );
+      color: white;
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      border-radius: 10px;
+      padding: 20px;
+      height: 100%;
+    }
+
+    .card {
+      background: rgba(255, 255, 0, 0.192);
+      border: none;
+    }
+
+    .card-img-top {
+      object-fit: cover;
+      width: 100%;
+      height: 250px;
+      border-radius: 10px 10px 0 0;
+    }
+
+    .card-body h5 {
+      margin-top: 30px;
+      font-weight: 700;
+    }
+
+    .card-body ul {
+      padding-left: 20px;
+      margin-top: 15px;
+      list-style: none;
+    }
+
+    .card-body ul li {
+      margin-bottom: 10px;
+    }
+
+    footer.footer {
+      margin-top: auto;
+      width: 100%;
+      background: #1e3a8a;
+      color: #fff;
+      font-family: "Poppins", sans-serif;
+      padding: 50px 20px 20px 20px;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: 40px;
+      justify-content: space-between;
+    }
+
+    .footer-box {
+      flex: 1 1 220px;
+      min-width: 200px;
+    }
+
+    .footer-box h3 {
+      margin-bottom: 15px;
+      font-size: 18px;
+      color: #fff;
+    }
+
+    .footer-box ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-box ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-box a {
+      color: #fff;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .footer-box a:hover {
+      color: #f9f871;
+      text-decoration: underline;
+    }
+
+    .social-icons a {
+      display: inline-block;
+      margin-right: 15px;
+      font-size: 20px;
+      color: #fff;
+      transition: 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: #f9f871;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding: 15px 0;
+      width: 100%;
+      font-size: 14px;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 992px) {
+      .card-body h5 {
+        margin-top: 20px;
+        font-size: 20px;
+      }
+      .card-img-top {
+        height: 220px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+        padding: 10px;
+      }
+      nav ul {
+        justify-content: center;
+        gap: 10px;
+      }
+      .container {
+        padding: 10px;
+      }
+      .card-body-glassaffect {
+        padding: 15px;
+      }
+      .footer-container {
+        flex-direction:row;
+        align-items: center;
+        text-align: center;
+        
+       
+        padding: 0;
+      }
+      .footer-box {
+        min-width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo {
+        font-size: 22px;
+      }
+      nav ul li {
+        font-size: 13px;
+      }
+      .card-img-top {
+        height: 200px;
+      }
+      .card-body h5 {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo"><a href="E-learning.html" style="text-decoration: none; color: beige;">SKILLLAB</a></div>
+    <nav>
+      <ul>
+        <li><a href="beyonddata.html" style="color: white; text-decoration: none;">Beyond Data</a></li>
+        <li><a href="#foot" style="color: aliceblue; text-decoration: none;">Contact</a></li>
+        <li><a href="index.html"><b>Back to Hub</b></a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="container my-5 pt-5">
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+
+      <!-- Data Science Card -->
+      <div class="col" id="ds">
+        <div class="card-body-glassaffect">
+          <img src="coursess/beyond-data-science.png" class="card-img-top" alt="Data Science">
+          <div class="card-body">
+            <h5 class="card-title" style="color:darkblue;">DATA SCIENCE</h5>
+            <p class="card-text">
+              Unlock the Digital Goldmine: Data Science is the most in-demand skill of the 21st century. Our SkillLab course moves beyond theory, teaching you the essential blend of statistics, programming (Python/R), and domain knowledge needed to extract meaningful insights from massive datasets.
+            </p>
+            <ul>
+              <li>Predictive Modeling: Master techniques to build and evaluate models that forecast future trends and outcomes.</li>
+              <li>Big Data Tools: Gain hands-on experience with Python libraries (Pandas, NumPy) and cloud tools for handling large datasets.</li>
+              <li>Statistical Foundation: Understand the core statistical and mathematical principles that underpin data-driven decision-making.</li>
+              <li>Data Visualization: Learn to communicate complex findings effectively using tools like Matplotlib and Seaborn for executive reporting.</li>
+              <li>Career Portfolio: Build a collection of real-world projects to showcase your ability to solve business challenges.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Excel Card -->
+      <div class="col" id="eb">
+        <div class="card-body-glassaffect">
+          <img src="coursess/beyond-excel.png" class="card-img-top" alt="Excel for Business">
+          <div class="card-body">
+            <h5 class="card-title" style="color:yellowgreen;">EXCEL FOR BUSINESS</h5>
+            <p class="card-text">
+              Excel remains the single most important tool for business analysis, reporting, and decision-making globally. This SkillLab course transforms you from a user into a master.
+            </p>
+            <ul>
+              <li>Advanced Formulas: Quickly master powerful functions like VLOOKUP, INDEX/MATCH, and complex logical formulas.</li>
+              <li>Dynamic Reporting: Create robust, interactive PivotTables and Dashboards for instant analysis of large datasets.</li>
+              <li>Financial Modeling: Build essential business tools like budget trackers, cash flow statements, and financial projections.</li>
+              <li>Data Automation: Learn the basics of Macros/VBA to automate repetitive tasks and eliminate manual errors.</li>
+              <li>Data Integrity: Master techniques for cleaning, validating, and structuring raw data to ensure reliable reports.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Python Card -->
+      <div class="col" id="pn">
+        <div class="card-body-glassaffect">
+          <img src="coursess/beyond-python.png" class="card-img-top" alt="Python">
+          <div class="card-body">
+            <h5 class="card-title" style="color: green;">PYTHON</h5>
+            <p class="card-text">
+              Python is the world's most popular programming language, renowned for its simplicity, readability, and versatility. This SkillLab course provides the foundational knowledge needed to apply Python across almost any tech field.
+            </p>
+            <ul>
+              <li>Fundamental Coding: Grasp the core syntax, data structures, and control flow necessary for any software development task.</li>
+              <li>Problem-Solving: Develop computational thinking and algorithmic skills to break down and solve complex technical challenges.</li>
+              <li>Ecosystem Integration: Gain familiarity with key libraries (e.g., NumPy, Requests) for versatile applications in web, data, and scripting.</li>
+              <li>Object-Oriented Design (OOP): Learn to write clean, reusable, and scalable code using modern OOP principles.</li>
+              <li>Software Development: Build functional scripts and small applications.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- UI/UX Card -->
+      <div class="col" id="ux">
+        <div class="card-body-glassaffect">
+          <img src="coursess/beyond-uiux.png" class="card-img-top" alt="UI/UX">
+          <div class="card-body">
+            <h5 class="card-title" style="color: chocolate;">UI / UX</h5>
+            <p class="card-text">
+              UI/UX Design is the art and science of creating digital products that are not just beautiful, but also easy, efficient, and enjoyable to use. This SkillLab course teaches you the entire design process.
+            </p>
+            <ul>
+              <li>User Research & Empathy: Conduct effective interviews and create User Personas.</li>
+              <li>Wireframing & Prototyping: Master low- and high-fidelity prototypes using Figma or Sketch.</li>
+              <li>Information Architecture: Design clear and intuitive navigation flows (sitemaps) to ensure seamless user journeys.</li>
+              <li>Visual Hierarchy (UI): Master typography, color theory, spacing, and layout to create visually appealing and accessible interfaces.</li>
+            <li>Data-Driven Iteration: Use analytics and heat-mapping tools to measure the success of your designs and conduct A/B testing to inform continuous improvement.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  
+<footer class="footer" id="foot">
+  <div class="footer-container">
+    <div class="footer-box">
+      <h3>About SkillLab</h3>
+      <p>Your path to expertise starts here. Learn top courses and build skills demanded by today's market.</p>
+    </div>
+    <div class="footer-box">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Courses</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-box">
+      <h3>Contact</h3>
+      <p>Phone: +91 9886254942</p>
+      <p>Email: skilllab@gmail.com</p>
+      <a href="https://wa.me/919886254942" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+    <div class="footer-box">
+      <h3>Follow Us</h3>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2025 SkillLab. All rights reserved.
+  </div>
+</footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

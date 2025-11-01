@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout - Kerala Heritage Hub</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(90deg, #006400, #f4a3004f, #ffeb99);
+  color: #333;
+  padding: 40px;
+}
+.container {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 700px;
+  margin: auto;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+h2 { color: #006400; text-align:center; }
+.item { border-bottom: 1px solid #ddd; padding: 10px 0; }
+.item:last-child { border: none; }
+.total { font-weight: bold; text-align:right; margin-top: 20px; }
+button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #8b4513;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+button:hover { background-color: #a0522d; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h2>Checkout Summary</h2>
+  <div id="checkout-items"></div>
+  <div class="total" id="total-amount"></div>
+  <button onclick="confirmOrder()">Confirm Purchase</button>
+</div>
+
+<script>
+async function loadCheckout() {
+  const cart = JSON.parse(localStorage.getItem('myShoppingSiteCart')) || [];
+  const response = await fetch('product.json');
+  const allProducts = await response.json();
+  
+  const checkoutDiv = document.getElementById('checkout-items');
+  if (cart.length === 0) {
+    checkoutDiv.innerHTML = "<p>Your cart is empty!</p>";
+    return;
+  }
+
+  const counts = {};
+  cart.forEach(id => counts[id] = (counts[id] || 0) + 1);
+  let html = '';
+  let total = 0;
+  for (const id in counts) {
+    const p = allProducts.find(prod => prod.id === id);
+    if (p) {
+      const subtotal = p.price * counts[id];
+      html += `<div class="item">${p.name} (x${counts[id]}) - ₹${subtotal}</div>`;
+      total += subtotal;
+    }
+  }
+  checkoutDiv.innerHTML = html;
+  document.getElementById('total-amount').textContent = "Total: ₹" + total;
+}
+
+function confirmOrder() {
+  alert("✅ Order confirmed! Thank you for shopping at Kerala Heritage Hub.");
+  localStorage.removeItem('myShoppingSiteCart');
+  window.location.href = "index.html";
+}
+
+loadCheckout();
+</script>
+</body>
+</html>

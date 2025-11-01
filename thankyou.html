@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You for Enquiring</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            background-image: url(kumarakom.jpeg);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+        }
+        h1 {
+            color:white; /* Verdant Green */
+            margin-bottom: 10px;
+        }
+        p {
+            color: white; /* Charcoal */
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #FFC000; /* Rich Gold */
+            color: #36454F;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .back-button:hover {
+            background-color: #FFD700;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 id="thankYouHeader">Thank You!</h1>
+        <p id="thankYouMessage">Your enquiry has been successfully submitted. We will contact you soon!</p>
+        
+        <a href="#" class="back-button" onclick="window.history.back(); return false;">
+            ← Go Back to the Main Page
+        </a>
+        <p id="enquiryDetails" style="font-size: 0.9em; margin-top: 15px; color: #777;"></p>
+    </div>
+<script>
+   document.addEventListener('DOMContentLoaded', () => {
+    const userName = sessionStorage.getItem('enquiryName');
+    const userEmail = sessionStorage.getItem('enquiryEmail');
+    
+    // Check if we have the necessary data
+    if (userName && userEmail) {
+        // Personalize the header and message
+        document.getElementById('thankYouHeader').textContent = `Thank You, ${userName}!`;
+        document.getElementById('thankYouMessage').innerHTML = `Your enquiry has been successfully submitted. We have sent a confirmation to **${userEmail}**. We will contact you shortly to plan your trip!`;
+    } else {
+        // Default message if the user navigated directly or data was lost
+         document.getElementById('thankYouMessage').textContent = `Your enquiry has been successfully submitted. We will contact you soon!`;
+    }
+
+    // Clean up the storage so the welcome isn't shown again if they refresh
+    sessionStorage.removeItem('enquiryName');
+    sessionStorage.removeItem('enquiryEmail');
+});
+</script>
+</body>
+</html>

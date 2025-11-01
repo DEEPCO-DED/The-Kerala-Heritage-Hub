@@ -1,0 +1,78 @@
+{
+    "gallery-trending": [
+        { 
+            "src": "gemini refference (5).jpg",         
+            "title": "Paris: City of Lights" 
+        },
+        { 
+            "src": "gemini refference (3).jpg",         
+            "title": "Tokyo: Futuristic City" 
+        }
+    ],
+    "gallery-beach": [
+        { 
+            "src": "gemini refference (1).jpg",          
+            "title": "Bali: Island Paradise" 
+        },
+        { 
+            "src": "gemini refference (2).jpg",       
+            "title": "Default Beach" 
+        },
+        
+         { 
+            "src": "gemini refference (2).jpg",       
+            "title": "Default Beach" 
+        },
+        
+         { 
+            "src": "gemini refference (2).jpg",       
+            "title": "Default Beach" 
+        },
+         { 
+            "src": "gemini refference (2).jpg",       
+            "title": "Default Beach" 
+        }
+
+
+   
+    ],
+     "gallery-surfing":[
+
+        {
+            "src" : "gemini refference (1).jpg",
+             "title": "gemini refference (1).jpg"
+        
+        },
+        {
+            "src" : "gemini refference (1).jpg",
+             "title": "gemini refference (1).jpg"
+        
+        },
+        {
+            "src" : "gemini refference (1).jpg",
+             "title": "gemini refference (1).jpg"
+        
+        },
+        {
+            "src" : "gemini refference (1).jpg",
+             "title": "gemini refference (1).jpg"
+        
+        },
+        {
+            "src" : "gemini refference (1).jpg",
+             "title": "gemini refference (1).jpg"
+        
+        },
+           {
+            "src" : "gemini refference (1).jpg",
+             "title": "gemini refference (1).jpg"
+        
+        },
+           {
+            "src" : "gemini refference (1).jpg",
+             "title": "gemini refference (1).jpg"
+        
+        }
+
+     ]
+}

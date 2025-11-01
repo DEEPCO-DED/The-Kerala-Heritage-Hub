@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kerala Heritage Hub</title>
+  <!-- Bootstrap CSS for quick responsive design -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLMDJdU4iY9v30tYIPHzL+mK0L06LqU7tP4gG7U0jVvK9+E4lR9N6S3q4+i+R8A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    /* Reset default browser styling and box-sizing */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    a {
+      text-decoration: none;
+      /* Remove underline from all links */
+      color: inherit;
+      /* Optional: keep text color same as parent */
+    }
+
+    body {
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      overflow-x: hidden;
+      /* Prevent horizontal scroll */
+      margin: 0;
+      padding: 0;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      overflow-x: hidden;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(90deg, #006400, #f4a3004f, #ff9999);
+
+      padding: 20px 10px;
+
+      position: relative;
+    }
+
+    div.logg h3 {
+
+
+      font-weight: 600;
+      color: white !important;
+      font-style: oblique;
+    }
+
+    nav {
+      position: absolute;
+      left: 40%;
+      transform: translateX(-50% -90%);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+      font-style: normal;
+
+    }
+
+    nav ul li {
+      cursor: pointer;
+      font-weight: bold;
+
+    }
+
+    /* Hamburger always visible */
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: black;
+      /* You can fill/change these later */
+    }
+
+    /* Dropdown */
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 65px;
+      right: 30px;
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      width: 150px;
+      flex-direction: column;
+      padding: 30px 0;
+      z-index: 999;
+    }
+
+    .dropdown li {
+      padding: 10px 20px;
+      list-style: none;
+    }
+
+    .dropdown li:hover {
+      background-color: #006400;
+      color: white;
+    }
+
+
+
+
+    #carouselExampleAutoplaying {
+      height: 100vh !important;
+    }
+
+    #carouselExampleAutoplaying .carousel-item {
+      height: 100% !important;
+    }
+
+    .carousel-item img {
+      width: 100%;
+      height: 90vh;
+      object-fit: cover;
+    }
+
+    /* #carouselExampleAutoplaying img {
+    width: 100% !important;
+    height: -100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+} */
+
+    .carousel-inner {
+      transition: transform 0.8s ease-in-out !important;
+    }
+
+
+
+    /* Trending Section */
+    .whatstrending {
+      text-align: center;
+
+    }
+
+    .whatstrending h2 {
+      font-size: 2rem;
+    }
+
+    .whatstrending p {
+      font-style: italic;
+      font-size: 30PX;
+    }
+
+    /* Hero / Banner Section */
+    .education-hero {
+      position: relative;
+      width: 100%;
+      height: 500px;
+      overflow: hidden;
+      margin-top: 50px;
+    }
+
+    .education-hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 30PX;
+    }
+
+    .education-hero .hero-text {
+      position: absolute;
+      /* Place text on top of image */
+      top: 70%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      text-align: center;
+    }
+
+    .education-hero .hero-text h2 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .education-hero .hero-text h3 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+
+    /* Button in Hero Section */
+    .edu-btn {
+      display: inline-block;
+      padding: 12px 25px;
+      border-radius: 12px;
+      background: linear-gradient(90deg, #ffeb99, #f4a3004f, #006400);
+      color: white;
+      text-decoration: none;
+      /* Remove underline */
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .edu-btn:hover {
+
+      transform: scale(1.05);
+      /* Slight zoom on hover */
+    }
+
+    /* E-Learning Section */
+    #e-learn {
+      margin: 60px auto;
+      width: 90%;
+      max-width: 1000px;
+      text-align: center;
+    }
+
+    #e-learn p {
+      font-size: 1.2rem;
+      font-style: italic;
+    }
+
+    /* Inline button link inside paragraph */
+    #e-learn .inline-btn {
+      text-decoration: none;
+      /* Remove underline */
+      color: #006400;
+      font-weight: bold;
+    }
+
+    /* Destination Cards Grid */
+    .destination-grid {
+      display: flex;
+      justify-content: center;
+      /* center the row */
+      flex-wrap: wrap;
+      /* wrap to next line on smaller screens */
+      gap: 20px;
+      margin: 40px 0 60px 0;
+    }
+
+    /* Card Container */
+    .card {
+      position: relative;
+      width: 300px;
+      height: 400px;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    /* Card Image */
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    /* Overlay Text */
+    .card p {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      margin: 0;
+      padding: 12px 0;
+      background: rgba(0, 0, 0, 0.5);
+
+      font-size: 1.1em;
+      font-weight: 600;
+      text-align: center;
+      transition: 0.3s ease;
+
+    }
+
+    /* Hover Effects */
+    .card:hover {
+      transform: scale(1.05) translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .card:hover img {
+      transform: scale(1.05);
+    }
+
+    .card:hover p {
+      background: rgba(0, 128, 0, 0.411);
+      /* light green overlay */
+      color: #000;
+      /* optional: dark text for contrast */
+    }
+
+
+    /* Section heading */
+    /* General layout */
+
+    /* Section styles */
+    .events-section {
+      text-align: center;
+      padding: 50px 20px;
+      background-color: #f9f9f9;
+    }
+
+    .events-section h2 {
+      font-size: 2em;
+      color: #006400;
+      margin-bottom: 10px;
+    }
+
+    .events-section p {
+      color: #555;
+      font-style: italic;
+      margin-bottom: 30px;
+    }
+
+    /* Event cards container */
+    .events {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    /* Individual event card */
+    .event-card {
+      position: relative;
+      width: 300px;
+      aspect-ratio: 3 / 2;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      background-color: #ddd;
+    }
+
+    /* Image setup */
+
+    .event-card img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      display: block;
+    }
+
+
+
+    /* Overlay text */
+    .event-card h3 {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      margin: 0;
+      padding: 12px 0;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      font-size: 1.1em;
+      font-weight: 600;
+      text-align: center;
+      backdrop-filter: blur(3px);
+    }
+
+    /* Hover effects */
+    .event-card:hover {
+      transform: scale(1.05);
+    }
+
+    .event-card:hover h3 {
+      background: rgba(0, 100, 0, 0.75);
+    }
+
+    @media (max-width: 760px) {
+      .event-card {
+        width: 50%;
+      }
+
+      .events {
+        gap: 15px;
+      }
+
+      .events-section h2 {
+        font-size: 1.6em;
+      }
+    }
+
+    @media (max-width:768px) {
+      nav ul {
+        display: none;
+      }
+    }
+
+
+    .youthframe {
+      display: flex;
+      justify-content: center;
+      margin: 50px 0;
+    }
+
+    .youthframe iframe {
+      width: 90%;
+      max-width: 800px;
+      height: 450px;
+      border-radius: 15px;
+    }
+
+
+    .footersection {
+      width: 100%;
+      background: linear-gradient(90deg, #006400a2, #f4a30062, rgba(255, 255, 0, 0.568));
+      color: black;
+      margin-top: 50px;
+      font-size: 16px;
+    }
+
+    .footersection .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 40px 20px;
+    }
+
+    .footersection .footer-box {
+      flex: 1;
+      min-width: 200px;
+      margin-bottom: 20px;
+    }
+
+    .footersection h3 {
+      margin-bottom: 15px;
+      font-size: 20px;
+      color: black;
+    }
+
+    .footer-box ul {
+      list-style: none;
+    }
+
+    .footersection p,
+    .footersection a {
+      color: blue;
+      text-decoration: none;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .footersection a:hover {
+      text-decoration: underline;
+    }
+
+    .footersection .social-icons a {
+      margin-right: 10px;
+      font-size: 20px;
+      color: white;
+    }
+
+
+    .footersection .footer-bottom {
+      text-align: center;
+      padding: 10px 0;
+      background: rgba(0, 0, 0, 0.2);
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .footersection .footer-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 20px 10px;
+        text-align: center;
+
+      }
+
+      .footersection .footer-box {
+        min-width: 100%;
+      }
+
+    }
+
+    @media (max-width: 768px) {
+
+      .destination-grid,
+      .events {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .card {
+        width: 90%;
+        max-width: 350px;
+      }
+
+      .events .event-card img {
+        width: 90%;
+        height: auto;
+      }
+    }
+
+    /* newly made chnge */
+    .whatstrending {
+      text-align: center;
+      padding: 40px 0;
+      background-color: #fff;
+    }
+
+    .trending-card {
+      position: relative;
+      width: 100%;
+      height: 450px;
+      overflow: hidden;
+      margin-top: 20px;
+      cursor: pointer;
+      border-radius: 30px;
+    }
+
+    .trending-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+
+    }
+
+    .trending-card .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      transition: 0.3s ease;
+    }
+
+    .trending-card:hover .overlay {
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    .trending-card h3 {
+      font-size: 2em;
+      margin-bottom: 10px;
+      color: #ffeb99;
+    }
+
+    .trending-card p {
+      font-style: italic;
+      margin-bottom: 15px;
+    }
+
+    .trending-card .btn {
+      background-color: #006400;
+      color: #fff;
+      padding: 12px 25px;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+
+    .trending-card .btn:hover {
+      background-color: #228B22;
+    }
+
+    .trending-card .card {
+      border: none;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+
+
+    /* faq newly created using js */
+    #faq {
+
+      padding: 40px;
+      border-radius: 10px;
+      font-family: "Georgia", serif;
+      color: #3e2f1c;
+    }
+
+    #faq h2 {
+      text-align: center;
+      color: #5b3b1e;
+      font-size: 2em;
+      border-bottom: 2px solid #d4a373;
+      display: inline-block;
+      padding-bottom: 10px;
+      margin-bottom: 30px;
+    }
+
+    .faqq {
+      background: #fffaf2;
+      border: 1px solid #e2c290;
+      margin-bottom: 15px;
+      padding: 15px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .faqq:hover {
+      background-color: #f3e2c7;
+    }
+
+    .faqq h3 {
+
+      font-size: 1.2em;
+      margin-bottom: 8px;
+    }
+
+    .faqq p {
+      font-size: 1em;
+      display: none;
+    }
+
+    .faqq.active p {
+      display: block;
+      animation: fadeIn 0.4s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-5px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header / Navigation -->
+  <header>
+    <div class="logg">
+      <h3>The Kerala Heritage Hub</h3>
+    </div>
+
+    <nav>
+      <ul>
+        <li style="font-size: 20px;"><a href="hotelbooking.html"><b
+              style="color:green; font-size: 30px;font-style: oblique;">T Hill</b></a></li>
+        <li><a href="shopping.html"
+            style="text-decoration: none; color: #006400;font-style: oblique;font-size: 30px;">Kerala Finds</a></li>
+      </ul>
+    </nav>
+
+
+    <div class="hamburger" onclick="toggleDropdown()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+
+
+    <ul class="dropdown" id="dropdownMenu">
+
+
+      <li><a href="#faq">Faqs</a></li>
+      <li><a href="E-learning.html">E-Learning</a></li>
+      <LI><a href="shopping.html">Shopping</a></LI>
+      <li><a href="beyonddata.html">Beyond Data</a></li>
+      <li><a href="hotelbooking.html">Bookings</a></li>
+      <li><a href="eventtime.html">Vibes</a></li>
+
+      <li><a style="text-decoration: none; color: black;" href="formlogin.html">Login</a></li>
+      <li><a href="CONTACT&ABOUT.html">About</a></li>
+    </ul>
+  </header>
+
+
+  <!-- 1ST SLIDE -->
+  <div class="container-fluid p-0">
+    <video autoplay loop muted class="w-100" style="object-fit: cover; height: 100vh;">
+      <source src="heritagevedio.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+
+
+  <!-- 1STEND -->
+  <!-- Trending Section -->
+  <section class="whatstrending">
+    <h2>What's Trending Now</h2>
+    <p>Your Quick Look at What’s Trending in God’s Own Country</p>
+
+    <div class="trending-card">
+      <a href="iframevediosinklht.html">
+        <img src="TOURSANDSTAYS/onam.jpg" alt="Kerala Festivals">
+        <div class="overlay">
+          <h3>Explore Kerala’s 5 Most Celebrated Festivals</h3>
+          <p>Step into the colorful world of Onam, Theyyam, Thrissur Pooram, and more!</p>
+          <span class="btn">Click to Explore</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- <div class="festivalseason">
+  
+  <div class="card text-bg-dark">
+    <img src="TOURSANDSTAYS/onam.jpg" class="card-img" alt="Kerala Festivals">
+    <div class="card-img-overlay">
+      <h5 class="card-title">5 Most Celebrated Festivals in Kerala You Can’t Miss</h5>
+      <p class="card-text">
+        Experience the vibrant culture of Kerala through its grand festivals — Onam’s floral beauty, Vishu’s golden prosperity, Thrissur Pooram’s magnificent elephants, Theyyam’s divine dance, and the Nehru Trophy Boat Race’s thrilling spirit. Each festival reflects Kerala’s timeless traditions and joyous unity.
+      </p>
+      <p class="card-text"><small><a style="text-decoration: none; padding: 20px; color: yellow;background-color: #006400" href="iframevediosinklht.html"><h3 style="background-color: ;">Click Here</h3></a></small></p>
+    </div>
+  </div>
+</div> -->
+
+  <!-- Hero / Banner Section -->
+  <section class="education-hero">
+    <img src="education.png" alt="Education Hero Image" />
+    <div class="hero-text">
+      <h2>E-Learning</h2>
+      <h3>Empower Your Skills with Our Courses</h3>
+      <a href="E-learning.html" class="edu-btn">Click Here</a>
+    </div>
+  </section>
+
+  <!-- E-Learning Info Section -->
+  <section id="e-learn">
+    <p>
+      We see the results of the celebrated Kerala Model in the state's amazing education story:
+      a population that's already highly skilled. This strong human base is why advanced initiatives, especially
+      <a href="E-learning.html" class="inline-btn">E-Learning</a> can take root and thrive here so quickly.
+    </p>
+  </section>
+
+  <!-- Most Loved Destinations -->
+  <!-- Most Loved Destinations -->
+  <section id="most-loved">
+    <h2 style="text-align:center;color: #006400;">Most Loved Destinations</h2>
+    <p style="text-align:center; font-style: italic;">Explore the Most Loved Destinations in God's Own Country</p>
+    <div id="mostLoved-container" class="destination-grid"></div>
+  </section>
+
+  <!-- Exotic Destinations -->
+  <section id="exotic">
+    <h2 style="text-align:center;color: green ;">Exotic Destinations</h2>
+    <p style="text-align:center; font-style: italic;">Discover Hidden Gems and Unique Experiences</p>
+    <div id="exotic-container" class="destination-grid"></div>
+  </section>
+
+
+  <!-- Events Section -->
+  <section class="events-section">
+    <h2>Major Kerala Events</h2>
+    <p>Experience the vibrant festivals and traditions of God's Own Country</p>
+
+    <div class="events">
+      <div class="event-card">
+        <a href="eventtime.html#pay"> <img src="BOATRACE.webp" alt="Payippad Boat Race"></a>
+        <h3>Payippad Boat Race</h3>
+      </div>
+
+      <div class="event-card">
+        <a href="eventtime.html#alp"> <img src="events/pexels-nandhukumar-27489412.jpg" alt="Alpashi"></a>
+        <h3>Alpashi Utsavam</h3>
+      </div>
+
+      <div class="event-card">
+        <a href="eventtime.html#peru"> <img src="parumala-perunnal.webp" alt="Parumala Perunnal"></a>
+        <h3>Parumala Perunnal</h3>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Embedded YouTube Video -->
+  <section class="youthframe">
+    <iframe src="https://www.youtube.com/embed/vmT6WfrQCU0" title="YouTube video player" frameborder="0"
+      allowfullscreen></iframe>
+  </section>
+
+  <section class="simpl" id="faqqqq"></section>
+  <!-- faq using  js -->
+  <section id="faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faqq" onclick="toggleFAQ(this)">
+      <h3>What is The Kerala Heritage Hub?</h3>
+      <p>
+        The Kerala Heritage Hub is a digital platform dedicated to preserving, promoting, and celebrating the
+        rich cultural, historical, and artistic legacy of Kerala. It serves as a one-stop resource for exploring
+        Kerala’s traditions, architecture, festivals, and local stories.
+      </p>
+    </div>
+
+    <div class="faqq" onclick="toggleFAQ(this)">
+      <h3>What kind of content can I find on the platform?</h3>
+      <p>
+        You can explore detailed articles, documentaries, virtual tours, photo galleries, interviews with artisans,
+        festival highlights, and research-based insights into Kerala’s cultural heritage and art forms.
+      </p>
+    </div>
+
+    <div class="faqq" onclick="toggleFAQ(this)">
+      <h3>Who can use The Kerala Heritage Hub?</h3>
+      <p>
+        The platform is open to everyone—students, researchers, travelers, history enthusiasts, and cultural
+        organizations interested in learning about Kerala’s heritage and traditions.
+      </p>
+    </div>
+
+    <div class="faqq" onclick="toggleFAQ(this)">
+      <h3>Is the platform free to access?</h3>
+      <p>
+        Yes, most sections of The Kerala Heritage Hub are freely accessible. However, premium content such as curated
+        documentaries, expert-led workshops, and research resources may require a subscription or one-time access fee.
+      </p>
+    </div>
+
+    <div class="faqq" onclick="toggleFAQ(this)">
+      <h3>Can users contribute their own content?</h3>
+      <p>
+        Absolutely! We welcome local historians, photographers, storytellers, and researchers to submit articles,
+        photographs, or videos that align with our mission to preserve Kerala’s heritage.
+      </p>
+    </div>
+
+    <div class="faqq" onclick="toggleFAQ(this)">
+      <h3>Does The Kerala Heritage Hub collaborate with cultural institutions?</h3>
+      <p>
+        Yes. We partner with museums, universities, tourism boards, and art institutions to curate authentic and
+        educational content that reflects Kerala’s diverse cultural identity.
+      </p>
+    </div>
+
+    <div class="faqq" onclick="toggleFAQ(this)">
+      <h3>Is there an offline or mobile app version available?</h3>
+      <p>
+        A mobile-friendly version is available for all devices, and an app is currently under development to
+        allow offline access to selected content and personalized learning experiences.
+      </p>
+    </div>
+
+    <div class="faqq" onclick="toggleFAQ(this)">
+      <h3>How does The Kerala Heritage Hub support local artisans?</h3>
+      <p>
+        We feature artisan stories, promote handcrafted products through virtual exhibitions, and provide visibility
+        to local craftspeople by connecting them with global audiences and buyers.
+      </p>
+    </div>
+
+    <div class="faqq" onclick="toggleFAQ(this)">
+      <h3>Can I visit physical heritage sites listed on the platform?</h3>
+      <p>
+        Yes. Each listed site includes detailed location data, visiting guidelines, and historical context, allowing
+        visitors to plan in-person experiences while respecting cultural and environmental guidelines.
+      </p>
+    </div>
+
+    <div class="faqq" onclick="toggleFAQ(this)">
+      <h3>How can I get involved or support the project?</h3>
+      <p>
+        You can volunteer, donate, collaborate as a content contributor, or participate in our cultural programs.
+        Visit the “Get Involved” section to learn more about partnership opportunities.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- script -->
+  <script>
+    function toggleFAQ(element) {
+      element.classList.toggle("active");
+    }
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Footer -->
+  <footer>
+    <div class="footersection">
+      <div class="footer-content">
+
+        <!-- About -->
+        <div class="footer-box">
+          <h3>About Kerala Heritage Hub</h3>
+          <p>
+            Explore the serene hills, lush tea gardens, and timeless beauty of Kerala. Your gateway to Munnar and other
+            hidden gems of God's Own Country.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-box">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Munnar</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- ---------------------- -->
+        <div class="footer-box">
+          <h3>Contact Us</h3>
+          <p>Phone: +91 9886254942</p>
+          <p>Email: info@keralaheritagehub.com</p>
+          <a style="color:green;" href="https://wa.me/919886254942" target="_blank"><i
+              class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+        </div>
+
+        <!-- Social -->
+        <div class="footer-box">
+          <h3>Follow Us</h3>
+          <div class="social-icons">
+            <a style="color: rgba(0, 0, 255, 0.712);" href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a style="color: rgb(255, 102, 0);" href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        &copy; 2025 Kerala Heritage Hub. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleDropdown() {
+      const menu = document.getElementById('dropdownMenu');
+      menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
+    }
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      fetch("keralamostloveddes.json")
+        .then(res => res.json())
+        .then(data => {
+          // --- Populate Most Loved Destinations dynamically ---
+          const mostLoved = data["mostloved-destinations"].mostloved;
+          const mostLovedContainer = document.getElementById("mostLoved-container");
+
+          mostLovedContainer.innerHTML = mostLoved.map(item => `
+          <a href="${item.link}" class="destination-link">
+            <div class="card">
+              <img src="${item.image}" alt="${item.caption}">
+              <p>${item.caption || "Beautiful Destination"}</p>
+            </div>
+          </a>
+        `).join(''); // The <a> tag now wraps the entire card structure
+
+          // --- Populate Exotic Destinations dynamically ---
+          const exotic = data["exotic-destinations"].exotic;
+          const exoticContainer = document.getElementById("exotic-container");
+
+          exoticContainer.innerHTML = exotic.map(item => `
+          <a href="${item.link}" class="destination-link">
+            <div class="card">
+              <img src="${item.image}" alt="${item.caption}">
+              <p>${item.caption || "Beautiful Destination"}</p>
+            </div>
+          </a>
+        `).join(''); // The <a> tag now wraps the entire card structure
+
+        })
+        .catch(err => console.error("Error loading JSON:", err));
+    });
+  </script>
+
+  <!-- Bootstrap JS Bundle for components -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

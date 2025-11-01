@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kerala Festival Videos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* CSS Color Palette Reference */
+        /* Gold: #FFC000 | Green: #006400 | Terracotta/Brown: #A52A2A | Dark Text: #36454F */
+
+        body {
+            font-family: sans-serif;
+            margin: 0; 
+        }
+        
+        /* --- HEADER ALIGNMENT AND COLOR FIXES --- */
+        header {
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+            /* IMPLEMENTED: Background gradient with Green, Terracotta (Brown), and Gold (Yellow) */
+          background: linear-gradient(90deg,  #006400, #f4a3004f, #ffeb99 );
+
+            padding: 15px 30px;
+            position: relative;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+        }
+
+        div.logg h3 {
+            font-weight: 600;
+            color:white ; /* Logo Text Color set to Gold for contrast */
+            font-style: oblique;
+            margin: 0; 
+        }
+        
+        /* Primary Navigation Centering */
+        nav {
+            position: absolute; 
+            left: 50%;
+            transform: translateX(-50%); 
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            padding: 0; 
+            margin: 0; 
+        }
+
+        nav ul li {
+            cursor: pointer;
+            font-weight: bold;
+            color: white; 
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white; /* Navigation link color set to White for contrast */
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #FFC000; /* Change to Gold on hover */
+        }
+
+
+        /* Hamburger always visible */
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            order: 3; 
+            
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: white; /* Hamburger icon color set to white for visibility */
+        }
+
+        /* Dropdown */
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 65px;
+            right: 30px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            width: 150px;
+            flex-direction: column;
+            padding: 30px 0;
+            z-index: 1000; 
+            list-style: none; 
+        }
+
+        .dropdown li {
+            padding: 10px 20px;
+            white-space: nowrap;
+        }
+        .dropdown li a {
+                color: black;
+                text-decoration: none;
+        }
+
+        .dropdown li:hover {
+            background-color: #006400;
+            color: white;
+        }
+        .dropdown li:hover a {
+                color: white !important; 
+        }
+        /* END HEADER ALIGNMENT AND COLOR FIXES */
+        
+        
+        /* --- Video Section Container Styling --- */
+        .video-section {
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        /* Styling for each alternating video row */
+        .video-row {
+            display: flex;
+            align-items: center; 
+            gap: 40px;
+            margin-bottom: 60px;
+            padding: 20px;
+            border: 1px solid #FFC000; /* Gold border */
+            border-radius: 10px;
+            background-color: #FFFFFF; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .video-content, .video-iframe {
+            flex: 1; 
+        }
+
+        .video-content h3 {
+            color: #006400; 
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+            border-bottom: 2px solid #A52A2A; 
+            padding-bottom: 5px;
+        }
+
+        .video-content p {
+            color: #36454F;
+            line-height: 1.6;
+            margin-bottom: 15px; 
+        }
+
+        /* Iframe Wrapper for Responsive Video Embedding */
+        .video-iframe {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; 
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+        .video-iframe iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* CSS to Reverse the order for the alternating layout */
+        .video-row.reverse {
+            flex-direction: row-reverse;
+        }
+
+        /* --- Footer Styles --- */
+        .footersection {
+            width: 100%;
+            /* IMPLEMENTED: Subtle footer background matching the header palette */
+            background: linear-gradient(90deg, #00640099, #A52A2A55, #FFC00088);
+            color:black;
+            margin-top: 50px;
+            font-size: 16px;
+        }
+
+        .footersection .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 40px 20px;
+        }
+
+        .footersection .footer-box {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 20px;
+        }
+
+        .footersection h3 {
+            margin-bottom: 15px;
+            font-size: 20px;
+            color: black;
+        }
+        .footer-box ul{
+            list-style: none;
+            padding: 0;
+        }
+
+        .footersection p,
+        .footersection a {
+            color: blue;
+            text-decoration: none;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .footersection a:hover {
+            text-decoration: underline;
+        }
+
+        .footersection .social-icons a {
+            margin-right: 10px;
+            font-size: 20px;
+            color: white;
+        }
+
+
+        .footersection .footer-bottom {
+            text-align: center;
+            padding: 10px 0;
+            background: rgba(0,0,0,0.2);
+            font-size: 14px;
+        }
+
+        /* Media Queries for Small Screens (Mobile Responsiveness) */
+        @media (max-width: 768px) {
+            
+            /* Header adjustments for mobile */
+            nav {
+                display: none; 
+            }
+            header {
+                justify-content: space-between; 
+            }
+            .dropdown {
+                right: 15px; 
+            }
+            
+            /* Video section adjustments */
+            .video-row, .video-row.reverse {
+                flex-direction: column; 
+                gap: 20px;
+                padding: 15px;
+            }
+            .video-content {
+                order: 2; 
+            }
+            .video-iframe {
+                order: 1; 
+            }
+
+            /* Footer adjustments */
+            .footersection .footer-content {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                padding: 20px 10px;
+                text-align: center;
+
+            }
+            .footersection .footer-box {
+                min-width: 100%;
+            }
+            .footer-box ul {
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+<header >
+    <div class="logg">
+        <h3 style="color:white" ><a style="text-decoration: none;" href="index.html">The Kerala Heritage Hub</a></h3>
+    </div>
+
+    <nav>
+        
+    </nav>
+    
+    <div class="hamburger" onclick="toggleDropdown()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+
+    <ul class="dropdown" id="dropdownMenu">
+        <li>LetsGo</li>
+        <li><a href="eventtime.html">Vibes</a></li>
+        <LI><a href="events.html">Events</a></LI>
+        <li>Faqs</li>
+        <li><a href="E-learning.html">E-Learning</a></li>
+        <LI><a href="shopping.html">Shopping</a></LI>
+        <li><a href="beyonddata.html">Beyond Data</a></li>
+        <li>Bookings</li>
+        <li><a style="text-decoration: none; color: black;" href="formlogin.html">Login</a></li>
+    </ul>
+</header>
+
+<script>
+    function toggleDropdown() {
+        const dropdown = document.getElementById('dropdownMenu');
+        dropdown.style.display = dropdown.style.display === 'flex' ? 'none' : 'flex';
+    }
+</script>
+
+<div class="video-section">
+    <div class="video-row">
+        <div class="video-content">
+            <h3>Onam: Kerala's Grand Harvest Festival</h3>
+            <p>
+                Onam is the most significant annual festival in Kerala, celebrating the legendary homecoming of the mythical King Mahabali. The ten-day festival is marked by elaborate **Pookalams** (flower carpets), thrilling **Vallamkali** (snake boat races) in the backwaters, and the magnificent **Onasadya**, a nine-course feast served on a banana leaf.
+            </p>
+            <p>
+                This video captures the spirit of **Thrikkakara Appan** worship and the traditional Kaikottikali (clap dance), showcasing the unity and cultural richness of the state. It is a time of immense joy, prosperity, and cultural revival.
+            </p>
+            <p>
+                Travel Tip: The best place to witness the traditional Sadya is in a local home or a temple, while the most stunning boat races are held in Aranmula or Alappuzha. The entire month of Chingam (August/September) offers numerous cultural performances associated with Onam across the state.
+            </p>
+        </div>
+        <div class="video-iframe">
+           
+               <iframe width="560" height="315" src="https://www.youtube.com/embed/IqL-zVoxCzI?si=YtFDrfi4ZVyph2cN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          
+        </div>
+    </div>
+
+    <div class="video-row reverse">
+        <div class="video-content">
+            <h3>Vishu: The Astrological New Year</h3>
+            <p>
+                Vishu marks the beginning of the Malyalam Calendar year and is celebrated with great devotion and enthusiasm. The central event is the **Vishukkani** (the first sight of the New Year), where auspicious items like rice, gold coins, fruits, and the Kani Konna flowers (Golden Shower) are arranged and viewed first thing in the morning to ensure prosperity for the year ahead.
+            </p>
+            <p>
+                The video highlights the traditional **Kaineettam** (giving money to children) and the lighting of oil lamps and firecrackers, embodying hope and new beginnings.
+            </p>
+            <p>
+                Cultural Insight: The Kani Konna flower is intrinsic to Vishu; its brilliant yellow symbolizes prosperity. Visiting temples like Sabarimala or Guruvayur during Vishu (April) is highly recommended for a truly spiritual experience of the festival's customs.
+            </p>
+        </div>
+        <div class="video-iframe">
+           <iframe width="560" height="315" src="https://www.youtube.com/embed/dimrJmPNdgA?si=99uTdiuvEL2-WJpU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="video-row">
+        <div class="video-content">
+            <h3>Christmas: Celebrating the Season of Joy</h3>
+            <p>
+                With a significant Christian population, Christmas is celebrated across Kerala with unique regional fervor. Churches, especially the historical ones in Kochi and Kottayam, are magnificently decorated. The celebration includes midnight mass, carol singing (star bands), and preparing special traditional dishes like **Achappam** (rose cookies) and plum cake.
+            </p>
+            <p>
+                This visual journey showcases the beautiful Nativity scenes, the lighting of Christmas stars across towns, and the communal spirit that brings all communities together during the festive season.
+            </p>
+            <p>
+                Must-See Location: Fort Kochi and its heritage churches are known for their grand Christmas decorations and traditional celebrations, often blending European and Kerala customs, including spectacular fireworks after the midnight mass.
+            </p>
+        </div>
+        <div class="video-iframe">
+           <iframe width="560" height="315" src="https://www.youtube.com/embed/BKXIBoaISWQ?si=ia1UK7ywpeDXqAx0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="video-row reverse">
+        <div class="video-content">
+            <h3>Thrissur Pooram: The Mother of All Festivals</h3>
+            <p>
+                The Thrissur Pooram is arguably the most spectacular temple festival in Kerala, celebrated in the heart of Thrissur. It is a competition between two temple groups, culminating in the Kudamattam (a quick exchange of large parasols on elephant back). The event is famous for its display of caparisoned elephants, mesmerizing rhythmic drumming (Chenda Melam), and one of the largest firework displays in India.
+            </p>
+            <p>
+                This powerful visual experience demonstrates the scale and historical grandeur of Kerala's religious and cultural pride.
+            </p>
+            <p>
+                Planner's Note: Pooram typically falls in April/May. Book accommodations and viewing spots near the Thekkinkadu Maidan well in advance. The sheer volume and intensity of the Chenda Melam performances alone are worth the trip.
+            </p>
+        </div>
+        <div class="video-iframe">
+           <iframe width="560" height="315" src="https://www.youtube.com/embed/MRVUZjTRCmc?si=Fff6HBOGqE3haCQ2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+    
+    <div class="video-row">
+        <div class="video-content">
+            <h3>Pongal Festival: A Celebration of the Harvest Sun</h3>
+            <p>
+                While primarily a Tamil festival, **Pongal** is widely celebrated in regions of Kerala bordering Tamil Nadu, particularly by the Tamil speaking population, and it signifies the harvest. It is a four-day festival, beginning with **Bhogi** and featuring the ceremonial boiling of the **Pongal** dish (rice, milk, and jaggery) outdoors, symbolizing prosperity.
+            </p>
+            <p>
+                The celebration focuses on offering thanks to the Sun God (Surya) and the cattle (Maattu Pongal). This segment explores the shared cultural tapestry and the rich traditions of offering prayers for a bountiful harvest.
+            </p>
+            <p>
+                Local Connection: In Palakkad and Thiruvananthapuram, you can observe the blending of Kerala and Tamil customs during this festival (mid-January). Look out for the colorful Kolam (rangoli) decorations made from rice flour outside homes.
+            </p>
+        </div>
+        <div class="video-iframe">
+           <iframe width="560" height="315" src="https://www.youtube.com/embed/is-_IVBOa5w?si=vAHNCjCFrCu31bsy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="footersection">
+        <div class="footer-content">
+            
+            <div class="footer-box">
+                <h3>About Kerala Heritage Hub</h3>
+                <p>
+                    Explore the serene hills, lush tea gardens, and timeless beauty of Kerala. Your gateway to Munnar and other hidden gems of God's Own Country.
+                </p>
+            </div>
+
+            <div class="footer-box">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li ><a href="#">Home</a></li>
+                    <li><a href="#">Munnar</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-box">
+                <h3>Contact Us</h3>
+                <p>Phone: +91 9886254942</p>
+                <p>Email: info@keralaheritagehub.com</p>
+                <a style="color:green;" href="https://wa.me/919886254942" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+            </div>
+
+            <div class="footer-box">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a style="color: rgba(0, 0, 255, 0.712);" href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a style="color: rgb(255, 102, 0);" href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            &copy; 2025 Kerala Heritage Hub. All rights reserved.
+        </div>
+    </div>
+</footer>
+</body>
+</html>

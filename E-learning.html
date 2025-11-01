@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E-learning</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <style>
+    /* Global base resets */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background: white;
+      background-size: 400% 400%;
+      animation: shimmer 12s ease infinite;
+      font-family: 'Poppins', sans-serif;
+      min-height: 100vh;
+    }
+    @keyframes shimmer {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    /* Header */
+    header {
+      background-color: whitesmoke;
+      height: 80px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 50px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      flex-wrap: wrap;
+    }
+    .LOG1 h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #1e3a8a;
+      letter-spacing: 2px;
+    }
+    header ul {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+      color: black;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    header ul li:hover {
+      color: #2563eb;
+    }
+    header ul li a {
+      text-decoration: none;
+      color: inherit;
+    }
+    header ul li[style] {
+      color: #2563eb !important;
+    }
+    header ul li:last-child {
+      background-color: #2563eb;
+      color: white;
+      padding: 5px 15px;
+      border-radius: 35px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Scrollbar styling */
+    ::-webkit-scrollbar {
+      width: 20px;
+      height: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: linear-gradient(135deg, #93c5fd, #60a5fa, #3b82f6);
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(135deg, #60a5fa, #3b82f6, #2563eb);
+    }
+
+    /* Intro Section */
+    .INTRO-SECTION {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 40px 50px;
+      gap: 40px;
+      flex-wrap: wrap;
+      background: transparent;
+    }
+    .INTROH1 {
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .INTRO-SECTION h1 {
+      font-size: 30px;
+      font-weight: 700;
+      color: #1e3a8a;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      line-height: 1.2;
+      margin: 0;
+      text-align: left;
+    }
+    .INTRO-SECTION h3 {
+      font-style: italic;
+      font-size: 20px;
+      font-weight: 500;
+      color: #1e3a8a;
+      opacity: 0.85;
+      line-height: 1.5;
+      margin: 0;
+      text-align: left;
+    }
+    .INTRO-SECTION button {
+      padding: 10px 25px;
+      background: #2563eb;
+      color: #ffffff;
+      font-size: 16px;
+      border-radius: 20px;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s ease;
+      width: 300px;
+      max-width: 100%;
+      align-self: flex-start;
+    }
+    .INTRO-SECTION button:hover {
+      background: blue;
+    }
+    .INTRO-SECTION img {
+      height: 400px;
+      border-top-right-radius: 30px;
+      border-bottom-left-radius: 30px;
+      object-fit: cover;
+      filter: brightness(1.2) opacity(0.9);
+      width: 100%;
+      max-width: 450px;
+    }
+
+    /* Marquee */
+    .MARQUE {
+      max-width: 50%;
+      overflow: hidden;
+      background: white;
+      padding: 20px 0;
+      margin-left: 25%;
+      border-radius: 10px;
+    }
+    .MARQUE-FLOW {
+      display: flex;
+      gap: 30px;
+      width: 100%;
+      animation: scroll 20s linear infinite;
+    }
+    .MARQUE-FLOW::after {
+      content: '';
+      display: flex;
+      gap: 30px;
+      width: 100%;
+    }
+    .MARQUE-FLOW img {
+      height: 100px;
+      border-radius: 20px;
+      object-fit: cover;
+    }
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* Skill Development */
+    .skilldevelopment {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      height: auto;
+      border: 10px goldenrod;
+      text-align: center;
+      font-style: italic;
+      max-width: 400px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+    .skilldevelopment h2 {
+      color: blue;
+    }
+    .skilldevelopment h3 {
+      color: rgba(0, 0, 255, 0.63);
+      font-size: 20px;
+    }
+
+    .alinebelow {
+      border: none;
+      height: 3px;
+      background-color: goldenrod;
+      width: 50%;
+      margin: 20px auto;
+      border-radius: 2px;
+    }
+
+    /* Courses */
+    .COURSES {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 20px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .COURSES H1 {
+      color: #1e3a8a;
+      width: 100%;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .COURSE-IMG img {
+      height: 300px;
+      max-width: 100%;
+      border-radius: 15px;
+    }
+    .FIND-OUR-BEST {
+      max-width: 400px;
+      width: 100%;
+      padding: 10px;
+    }
+    .FIND-OUR-BEST input {
+      width: 100%;
+      border-radius: 30px;
+      border: 1px solid blue;
+      padding: 10px 12px;
+      font-size: 16px;
+    }
+
+    /* Horizontal scroll container */
+    .scroll-container {
+      position: relative;
+      width: 90%;
+      margin: 30px auto;
+    }
+    .scroll-container h1 {
+      color: #1e3a8a;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .scrollingsection {
+      display: flex;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      gap: 20px;
+      padding: 20px;
+      scrollbar-width: none;
+    }
+    .scrollingsection::-webkit-scrollbar {
+      display: none;
+    }
+    .scrolling {
+      flex-shrink: 0;
+      width: 180px;
+      height: 180px;
+      overflow: hidden;
+      border-radius: 15px;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+    .scrolling img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 15px;
+      transition: transform 0.3s ease;
+      display: block;
+    }
+    .scrolling img:hover {
+      transform: scale(1.08);
+    }
+    .scroll-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: goldenrod;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      border-radius: 50%;
+      font-size: 20px;
+      z-index: 2;
+      transition: 0.3s;
+    }
+    .scroll-btn:hover {
+      background: darkgoldenrod;
+    }
+    .scroll-btn.left {
+      left: 5px;
+    }
+    .scroll-btn.right {
+      right: 5px;
+    }
+
+    /* Invest section */
+    .invest {
+      background: lightgrey;
+      padding: 30px 20px;
+    }
+    .invest ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 40px;
+      padding: 0;
+      margin: 0;
+    }
+    .invest li {
+      max-width: 250px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      height: 200px;
+      padding: 0 10px;
+    }
+    .invest li i {
+      font-size: 25px;
+      margin-bottom: 20px;
+      color: goldenrod;
+    }
+    .invest li p {
+      font-size: 14px;
+      color: black;
+      line-height: 1.4;
+    }
+
+    /* Kids section */
+    .forkids {
+      padding: 30px;
+      color: #2563eb;
+      text-align: center;
+    }
+    .kids {
+      background-image: url(kids-learningcd.png);
+      border-top-left-radius: 20px;
+      height: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    .kidscourses ul {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      
+      padding: 15px;
+      border-top-left-radius: 10px;
+      list-style: none;
+      background-color: #f9f9f9b6;
+      width: 250px;
+      height: 100%;
+      overflow: auto;
+    }
+    .kidscourses li {
+      margin: 10px 0;
+    }
+    .kidscourses li h4 {
+      font-size: 18px;
+      color: blue;
+      margin-bottom: 5px;
+    }
+    .kidscourses li p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    /* Impact */
+    .impact {
+      text-align: start;
+      padding: 20px;
+      margin-top: 30px;
+      color: blue;
+    }
+    .reviews {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 20px;
+      padding: 20px;
+    }
+    .review {
+      border: 1px solid goldenrod;
+      padding: 20px;
+      border-top-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      max-width: 350px;
+      flex: 1 1 300px;
+      background: white;
+    }
+    .review h3 {
+      color: #3b82f6;
+    }
+    .review p {
+      color: gray;
+      font-style: italic;
+      text-align: start;
+    }
+
+    /* Career change */
+    .career-change {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: lightgray;
+      width: 90%;
+      max-width: 1000px;
+      border-radius: 10px;
+      margin: 40px auto;
+      padding: 20px 30px;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .career-change h2 {
+      color: blue;
+      flex-basis: 100%;
+      text-align: center;
+    }
+    .career-change button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px 50px;
+      border-radius: 15px;
+      border: none;
+      cursor: pointer;
+      background: rgba(0, 0, 255, 0.493);
+      color: white;
+      margin: 10px auto;
+      transition: 0.3s ease;
+      flex-shrink: 0;
+    }
+    .career-change button:hover {
+      background-color: blue;
+    }
+    .BUILDCAREER-IMG {
+      position: relative;
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+    .img-card {
+      position: relative;
+      width: 220px;
+      height: 200px;
+      overflow: hidden;
+      border-radius: 15px;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .img-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .img-card:hover img {
+      transform: scale(1.1);
+    }
+    .TEXT {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 10px;
+      background: rgba(0, 0, 255, 0.616);
+      color: white;
+      font-size: 20px;
+      text-align: center;
+      border-bottom-left-radius: 15px;
+      border-bottom-right-radius: 15px;
+      transition: 0.2s ease;
+      user-select: none;
+    }
+    .img-card:hover .TEXT {
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    /* Talk to us */
+    .talktous {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      width: 90%;
+      padding: 40px 20px;
+      background-color: #3b82f6;
+      border-radius: 40px;
+      margin-left: 5%;
+      gap: 30px;
+      color: white;
+      text-align: center;
+    }
+   
+    .talktous 
+    .enteryour-details input,
+    .talktous 
+    .enteryour-details textarea {
+      width: 100%;
+      padding: 12px 15px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      outline: none;
+      margin-bottom: 10px;
+      resize: vertical;
+    }
+    .talktous .enteryour-details button {
+      padding: 12px 20px;
+      border-radius: 12px;
+      cursor: pointer;
+      background: rgb(255, 187, 0);
+      border: none;
+      margin-top: 6px;
+      width: 100%;
+      font-weight: 600;
+    }
+    .talktous .talk h3,
+    .talktous .email h3 {
+      margin-bottom: 10px;
+    }
+    .talktous .email p {
+      margin: 4px 0;
+    }
+
+    /* FAQ */
+    #faq {
+      display: flex;
+      flex-direction: column;
+      padding: 100px 20px;
+      justify-content: center;
+      margin: 20px auto;
+      text-align: center;
+      max-width: 800px;
+    }
+    #faq h2 {
+      margin-bottom: 30px;
+      color: blue;
+    }
+    .faqq {
+      border-bottom: 1px solid #ccc;
+      margin-bottom: 10px;
+      cursor: pointer;
+      padding: 10px 0;
+    }
+    .faqq h3 {
+      transition: color 0.3s;
+      color: #2563eb;
+      font-size: 18px;
+      margin: 0;
+    }
+    .faqq h3:hover {
+      color: #1e40af;
+    }
+    .faqq p {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.4s ease;
+      margin: 0;
+      color: black;
+      font-size: 16px;
+      line-height: 1.5;
+      padding: 0 10px;
+      text-align: left;
+    }
+    .faqq.active p {
+      max-height: 500px;
+      padding: 10px 10px;
+    }
+
+    /* Footer */
+    .footersection {
+      width: 100%;
+      background: #2563eb;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      padding: 32px 20px 10px;
+    }
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .footer-box {
+      flex: 1 1 220px;
+      min-width: 200px;
+    }
+    .footer-box h3 {
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+    .footer-box p,
+    .footer-box ul li a {
+      font-size: 14px;
+      color: #fff;
+    }
+    .footer-box ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .footer-box ul li a:hover {
+      text-decoration: underline;
+    }
+    .social-icons a {
+      margin-right: 10px;
+      font-size: 18px;
+      color: inherit;
+    }
+    .footer-bottom {
+      text-align: center;
+      padding: 10px 0;
+      background: rgba(0, 0, 0, 0.15);
+      font-size: 13px;
+      margin-top: 20px;
+    }
+
+    /* Button link reset inside button */
+    button a {
+      color: white;
+      text-decoration: none;
+      display: inline-block;
+      width: 100%;
+    }
+    .thehub{
+    margin-top: 2px;
+    }
+    .thehub button{
+      padding: 10PX;
+      border: none;
+        background: linear-gradient(90deg, #006400, #f4a300e0, #99ffb32a, #006400);
+        font-family:sans-serif;
+        background-size: 300% 100%;
+        animation: moveGradient 1s linear infinite;
+        color: #ffffff; 
+    font-weight: bold;
+    border-bottom-right-radius: 10PX;
+    }
+    @keyframes moveGradient {
+    0% {
+        background-position: 0% 50%; 
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+    
+
+
+
+    /* Responsive breakpoints */
+    @media (max-width: 1024px) {
+      header {
+        height: auto;
+        padding: 15px;
+      }
+      .INTRO-SECTION {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+      }
+      .INTRO-SECTION h1,
+      .INTRO-SECTION h3 {
+        text-align: center;
+      }
+      .INTRO-SECTION button {
+        align-self: center;
+        width: 100%;
+        max-width: 350px;
+      }
+      .INTRO-SECTION img {
+        width: 100%;
+        height: auto;
+        max-width: 400px;
+      }
+      .MARQUE {
+        max-width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .career-change {
+        flex-direction: column;
+        align-items: center;
+      }
+      .BUILDCAREER-IMG {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .talktous {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+      }
+      .scroll-container {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .LOG1 h1 {
+        font-size: 22px;
+      }
+      header ul {
+        gap: 15px;
+      }
+      .INTRO-SECTION h1 {
+        font-size: 22px;
+      }
+      .INTRO-SECTION h3 {
+        font-size: 16px;
+      }
+      .scrollingsection img {
+        width: 150px;
+        height: 150px;
+      }
+      .skilldevelopment {
+        padding: 10px;
+        font-size: 14px;
+        max-width: 100%;
+      }
+      .footer-content {
+        flex-direction: row;
+        text-align: center;
+      }
+    }
+    @media (max-width: 420px) {
+      .INTRO-SECTION button {
+        width: 100%;
+      }
+      .review {
+        font-size: 14px;
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="LOG1">
+      <h1>SKILL LAB</h1>
+    </div>
+    <ul>
+      <li style="color: #2563eb;">HOME</li>
+      <li><a href="elearning-about.html">ABOUT US</a></li>
+      <li><a href="#kids">KIDS</a></li>
+      <li><a href="#coursess">COURSE</a></li>
+      <li><a href="#talktos">TALK TO US</a></li>
+
+      <li><a href="#career-changes">CAREERS</a></li>
+      <li><a href="#faqqq" style="font-size: 20px;">FaQs</a></li>
+      <li><a href="formlogin.html">LOGIN</a></li>
+    </ul>
+  </header>
+   <!-- hyperlink -->
+  
+    <div class="thehub">
+      <BUtton>  <I><a href="index.html">Back to Hub</a></I> </BUtton>
+    </div>
+
+
+
+
+
+
+  <!-- INTRO SECTION -->
+  <div class="INTRO-SECTION">
+    <div class="INTROH1">
+      <h1>Empowering Future Innovators Through Technology Education</h1>
+      <h3>
+        "We inspire and equip the next generation of innovators with the skills,
+        knowledge, and creativity needed to thrive in a rapidly evolving
+        technological Through hands-on learning and real world projects, we turn
+        curiosity into innovation and ideas into impact"
+      </h3>
+      <button><a href="registerformformforelearn.html">Register Now</a></button>
+    </div>
+    <div class="INTROIMG">
+      <img src="IMAGEHERE.png" alt="Tech Learning" />
+    </div>
+  </div>
+
+  <!-- Marquee -->
+  <div class="MARQUE">
+    <div class="MARQUE-FLOW">
+      <img src="HTML5_logo_and_wordmark.svg.png" alt="HTML5" />
+      <img src="icon-html5-6.jpg" alt="HTML5 icon" />
+      <img src="JavaScript-Logo-500x313.jpg" alt="JavaScript" />
+      <img src="JQ.jpg" alt="jQuery" />
+      <img src="OIP.webp" alt="Image 1" />
+      <img src="BTSTRP.jpeg" alt="Bootstrap" />
+      <img src="HTML5_logo_and_wordmark.svg.png" alt="HTML5 repeat" />
+      <img src="icon-html5-6.jpg" alt="HTML5 icon repeat" />
+      <img src="JavaScript-Logo-500x313.jpg" alt="JavaScript repeat" />
+      <img src="JQ.jpg" alt="jQuery repeat" />
+      <img src="OIP.webp" alt="Image 1 repeat" />
+      <img src="BTSTRP.jpeg" alt="Bootstrap repeat" />
+    </div>
+  </div>
+
+  <!-- Mission -->
+  <div class="skilldevelopment">
+    <h2>Our Mission</h2>
+    <h3>
+      “In today’s fast-changing world, developing IT and professional skills is key
+      to staying competitive. We are here to train you, helping you gain the
+      knowledge and practical expertise needed to succeed and grow in your career.”
+    </h3>
+  </div>
+  <div class="alinebelow"></div>
+
+  <!-- Courses -->
+  <div class="COURSES">
+    <div class="COURSE-IMG">
+      <img src="THINK.png" alt="Thinking" />
+    </div>
+    <div class="FIND-OUR-BEST">
+      <h1>Find Our Best Courses Online <br /> & Become The Master</h1>
+      <div class="SEARCHBOX">
+        <input type="search" placeholder="Search Courses . . ." />
+      </div>
+    </div>
+  </div>
+
+  <!-- Horizontal scroll -->
+  <div class="scroll-container" id="coursess">
+    <h1>Choose A Course</h1>
+    <button class="scroll-btn left" id="btnLeft" aria-label="Scroll left">&#8592;</button>
+    <div class="scrollingsection" id="scrollBox">
+      <a href="e-learningcourses.html#software-testing" class="scrolling"
+        ><img src="ST.png" alt="Software Testing" /></a
+      >
+      <a href="e-learningcourses.html#business-analyst" class="scrolling"
+        ><img src="BS.png" alt="Business Analyst" /></a
+      >
+      <a href="e-learningcourses.html#python" class="scrolling"
+        ><img src="PYTHON.png" alt="Python" /></a
+      >
+      <a href="e-learningcourses.html#mern-stack" class="scrolling"
+        ><img src="MERNSTAFCK.png" alt="MERN Stack" /></a
+      >
+      <a href="e-learningcourses.html#data-analytics" class="scrolling"
+        ><img src="DATA AN.png" alt="Data Analytics" /></a
+      >
+      <a href="e-learningcourses.html#robotics" class="scrolling"
+        ><img src="ROBO.png" alt="Robotics" /></a
+      >
+      <a href="e-learningcourses.html#web-dev" class="scrolling"
+        ><img src="coursess/wedb.png" alt="Web Development" /></a
+      >
+    </div>
+    <button class="scroll-btn right" id="btnRight" aria-label="Scroll right">&#8594;</button>
+  </div>
+
+  <div class="invest">
+    <ul>
+      <li>
+        <i class="fa-solid fa-up-right-from-square fa-2x"></i>
+        <h3>Unlock Your Potential</h3>
+        <p>Access 10,000+ courses in AI, business, technology, and more.</p>
+      </li>
+      <li>
+        <i class="fa-solid fa-check fa-2x"></i>
+        <h3>Gain Recognized Certifications</h3>
+        <p>
+          Get certificates for every course you finish and boost your chances of
+          getting hired after your trial ends at no additional cost.
+        </p>
+      </li>
+      <li>
+        <i class="fa-solid fa-thumbs-up fa-2x"></i>
+        <h3>Guidance from Industry Pros</h3>
+        <p>
+          Take your skills to the next level with expert-led courses and Coursera
+          Coach, your AI-powered guide.
+        </p>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Young Learners -->
+  <div class="forkids">
+    <h1>Young Learners’ Hub</h1>
+  </div>
+  <div class="kids" id="kids" style="margin-top: 20px;">
+    <div class="kidscourses">
+      <ul>
+        <li>
+          <h4>Math for Kids</h4>
+          Fun activities to develop counting and problem-solving skills.
+        </li>
+        <li>
+          <h4>Science Explorers</h4>
+          Experiments and activities to spark curiosity.
+        </li>
+        <li>
+          <h4>Creative Arts</h4>
+          Drawing, painting, and craft ideas for young learners.
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Impact reviews -->
+  <div class="impact">
+    <h1>How Learning Is Making an Impact</h1>
+  </div>
+  <div class="reviews">
+    <div class="review">
+      <h3>Nihal</h3>
+      <p>
+        "I recently completed my BSc and wanted to gain practical skills that
+        would make me job-ready. This Python course was exactly what I needed! The
+        lessons are clear, step-by-step, and easy to follow even for beginners. I
+        loved how each concept was reinforced with hands-on exercises and small
+        projects.
+      </p>
+    </div>
+    <div class="review">
+      <h3>Siyadh</h3>
+      <p>
+        "I wanted to dive into web development, and this JavaScript course was
+        perfect. The lessons are structured so that even complex topics like
+        closures and asynchronous programming feel easy to understand
+      </p>
+    </div>
+    <div class="review">
+      <h3>Riyan</h3>
+      <p>
+        "I recently finished my PUC and wanted to start learning programming. This
+        course made everything easy to understand, even for a beginner like me
+      </p>
+    </div>
+  </div>
+
+  <!-- Career Change -->
+  <div class="career-change" id="career-changes">
+    <div class="BUILDCAREER">
+      <h2>Skills That Power Your Career</h2>
+      <button><a href="beyonddata.html">Apply</a></button>
+    </div>
+    <div class="BUILDCAREER-IMG">
+      <div class="img-card">
+        <img src="CAREERS/DTATSCIE.png" alt="Data Science" />
+        <div class="TEXT"><a href="beyonddata.html#ds">Data Science</a></div>
+      </div>
+      <div class="img-card">
+        <img src="CAREERS/EXCEL FOR BUSINESS.png" alt="Excel for Business" />
+        <div class="TEXT"><a href="beyonddata.html#es">Excel for Business</a></div>
+      </div>
+      <div class="img-card">
+        <img src="CAREERS/INTRODUCTION TO PWITHP&.png" alt="Python Programming" />
+        <div class="TEXT"><a href="beyonddata.html#pn">Python Programming</a></div>
+      </div>
+      <div class="img-card">
+        <img src="CAREERS/UIUX.png" alt="UI/UX Design" />
+        <div class="TEXT"><a href="beyonddata.html#ux">UI/UX Design</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Section -->
+  <div class="talktous" id="talktos">
+    <div class="talk">
+      <h3>Schedule A Free Demo</h3>
+      <h3>Request A Call Back</h3>
+      <p>
+        Mon–Fri: 10:00 AM – 6:00 PM <br />
+        Sat: 10:00 AM – 2:00 PM <br />
+      </p>
+    </div>
+    <div class="email">
+      <h3>Email Us : <span style="color: white;">Skilllab@gmail.com</span></h3>
+      <p>Contact : +919886254942</p>
+      <p>Address:Calicut,Near National Hospital</p>
+      <p>Pin: 673001</p>
+    </div>
+    <div class="enteryour-details">
+      <input type="text" placeholder="Enter Your Name" /><br />
+      <input type="email" placeholder="Enter Your Email ID" /><br />
+      <textarea placeholder="message" rows="5"></textarea>
+      <button type="submit">Submit</button>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faqq" id="faqqq" onclick="toggleFAQ(this)">
+      <h3>Do I need Prior Experience to Enroll in a Course?</h3>
+      <p>
+        No prior experience is required for most of our courses. Our programs
+        are designed for beginners as well as those looking to enhance their
+        existing skills.
+      </p>
+    </div>
+    <div class="faqq" onclick="toggleFAQ(this)">
+      <h3>Do you provide certificates after course completion?</h3>
+      <p>
+        Yes! Upon successfully completing a course, you will receive a digital
+        certificate that verifies your achievement. The certificate can be shared
+        on professional networks like LinkedIn, included in your resume, or used
+        to showcase your skills to potential employers.
+      </p>
+    </div>
+    <div class="faqq" onclick="toggleFAQ(this)">
+      <h3>What is Skill Lab and what kind of courses do you offer?</h3>
+      <p>
+        Skill Lab is a modern eLearning platform that provides practical,
+        career-focused courses in the IT and technology fields. We offer a
+        variety of programs ranging from Web Development, UI/UX Design, Python
+        &amp; AI, Data Analytics, to business tools like Excel.
+      </p>
+    </div>
+    <div class="faqq" onclick="toggleFAQ(this)">
+      <h3>Can I access the courses on mobile devices?</h3>
+      <p>
+        Yes! All courses on Skill Lab are fully accessible on mobile devices,
+        tablets, and desktops. You can learn anytime, anywhere, without being
+        tied to a computer.
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footersection">
+      <div class="footer-content">
+        <div class="footer-box">
+          <h3>SKILLLAB</h3>
+          <p>Your path to expertise starts here.</p>
+          <p>Join our community of learners</p>
+          <p>build the skills demanded by today's global market.</p>
+        </div>
+        <div class="footer-box">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="E-learning.html">Home</a></li>
+            <li><a href="elearning-about.html">About Us</a></li>
+            <li><a href="#faqqq">FAQs</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-box">
+          <h3>Support</h3>
+          <p>Phone: +91 9886254942</p>
+          <p>Email: skilllab@gmail.com</p>
+          <a style="color: green;" href="https://wa.me/919886254942" target="_blank"
+            ><i class="fa-brands fa-whatsapp"></i> WhatsApp</a
+          >
+        </div>
+        <div class="footer-box">
+          <h3>Follow Us</h3>
+          <div class="social-icons">
+            <a style="color: rgba(0, 0, 255, 0.712);" href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a style="color: rgb(255, 102, 0);" href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2025 Kerala Heritage Hub. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+   
+    function toggleFAQ(element) {
+      element.classList.toggle("active");
+    }
+
+    // Scroll Buttons Logic
+    document.addEventListener("DOMContentLoaded", () => {
+      const scrollBox = document.getElementById("scrollBox");
+      const btnLeft = document.getElementById("btnLeft");
+      const btnRight = document.getElementById("btnRight");
+
+      if (!scrollBox || !btnLeft || !btnRight) return;
+
+      function getScrollAmount() {
+        const item = scrollBox.querySelector(".scrolling");
+        const style = getComputedStyle(item);
+        const gap = parseFloat(getComputedStyle(scrollBox).gap || 20);
+        const width = item.getBoundingClientRect().width;
+        return Math.round(width + gap);
+      }
+
+      btnLeft.addEventListener("click", () => {
+        const amount = getScrollAmount();
+        scrollBox.scrollBy({ left: -amount, behavior: "smooth" });
+      });
+
+      btnRight.addEventListener("click", () => {
+        const amount = getScrollAmount();
+        scrollBox.scrollBy({ left: amount, behavior: "smooth" });
+      });
+
+      // Disable buttons at edges
+      function updateButtons() {
+        btnLeft.disabled = scrollBox.scrollLeft <= 0;
+        btnRight.disabled =
+          Math.ceil(scrollBox.scrollLeft + scrollBox.clientWidth) >= scrollBox.scrollWidth;
+      }
+      scrollBox.addEventListener("scroll", updateButtons);
+      window.addEventListener("resize", updateButtons);
+      updateButtons();
+
+      // Keyboard arrows support
+      scrollBox.tabIndex = 0;
+      scrollBox.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowLeft") {
+          e.preventDefault();
+          btnLeft.click();
+        } else if (e.key === "ArrowRight") {
+          e.preventDefault();
+          btnRight.click();
+        }
+      });
+    });
+  </script>
+</body>
+</html>

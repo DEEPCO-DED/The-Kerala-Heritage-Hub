@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kerala Heritage Hub</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+  <style>
+    html, body {
+      scroll-behavior: smooth;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      font-family: "Poppins", sans-serif;
+      background: rgba(165, 136, 42, 0.178);
+      color: #333;
+    }
+    main {
+      flex: 1;
+    }
+    header {
+      background-color: rgba(255, 255, 0, 0.432);
+      height: 100px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 40px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      top: 0;
+      width: 100%;
+      z-index: 999;
+    }
+    .LOG1 h1 a {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #0d7735;
+      text-decoration: none;
+    }
+    header ul {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+      color: #6b4226;
+      font-size: 16px;
+      font-weight: 600;
+      margin: 0;
+      padding: 0;
+    }
+    header ul li a {
+      color: #6b4226;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    header ul li a:hover {
+      color: #0d7735;
+    }
+    .festival-banner {
+      position: relative;
+      overflow: hidden;
+      border: none;
+      border-radius: 0;
+      height: 550px;
+      margin-top: 40px;
+    }
+    .festival-banner .card-img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+      filter: brightness(65%);
+      transition: transform 0.6s ease;
+    }
+    .festival-banner:hover .card-img {
+      transform: scale(1.05);
+    }
+    .festival-banner .card-img-overlay {
+      background: rgba(0, 0, 0, 0.4);
+      color: white;
+      padding: 0 15%;
+    }
+    .festival-banner .card-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .festival-banner .card-text {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #f1f1f1;
+    }
+    .course-card {
+      display: flex;
+      align-items: center;
+      padding: 30px;
+      margin: 90px auto;
+      background: linear-gradient(90deg, #00640052, #f4a3003d, rgba(255, 255, 0, 0.568));
+      border-radius: 12px;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+      max-width: 1200px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      height: 500px;
+    }
+    .course-card:hover {
+      transform: scale(1.01);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+    .course-card img {
+      width: 100%;
+      height: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    .card-body {
+      padding: 20px 30px;
+    }
+    .card-body h5 {
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: #5a3921;
+    }
+    .card-body p {
+      font-size: 20px;
+      line-height: 1.6;
+      color: black;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    .footersection {
+      width: 100%;
+      background: linear-gradient(90deg, #006400a2, #f4a30062, rgba(255, 255, 0, 0.568));
+      color: #333;
+      margin-top: 60px;
+      font-size: 16px;
+    }
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 40px 20px;
+    }
+    .footer-box {
+      flex: 1;
+      min-width: 220px;
+      margin-bottom: 20px;
+    }
+    .footersection h3 {
+      margin-bottom: 15px;
+      font-size: 20px;
+      color: #5a3921;
+    }
+    .footer-box ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .footer-box ul li {
+      margin-bottom: 8px;
+    }
+    .footersection p,
+    .footersection a {
+      color: white;
+      text-decoration: none;
+      display: block;
+    }
+    .footersection a:hover {
+      text-decoration: underline;
+      color: #0d7735;
+    }
+    .social-icons a {
+      margin-right: 10px;
+      font-size: 20px;
+      color: #5a3921;
+      transition: color 0.3s;
+    }
+    .social-icons a:hover {
+      color: #0d7735;
+    }
+    .footer-bottom {
+      text-align: center;
+      padding: 12px 0;
+      background: rgba(0,0,0,0.05);
+      font-size: 14px;
+    }
+    @media (max-width: 992px) {
+      .course-card {
+        flex-direction: column;
+        text-align: center;
+        height: auto;
+      }
+      .course-card img {
+        margin-bottom: 20px;
+        max-height: 250px;
+      }
+      .festival-banner {
+        height: 400px;
+      }
+      .festival-banner .card-title {
+        font-size: 1.8rem;
+      }
+      .festival-banner .card-text {
+        font-size: 1rem;
+      }
+    }
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        height: auto;
+        padding: 15px;
+      }
+      header ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 10px;
+      }
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      .festival-banner {
+        height: 300px;
+      }
+      .festival-banner .card-title {
+        font-size: 1.4rem;
+      }
+      .festival-banner .card-text {
+        font-size: 0.9rem;
+      }
+    }
+    
+  </style>
+</head>
+<body>
+  <header>
+    <div class="LOG1">
+      <h1><a href="index.html">KERALA HERITAGE HUB</a></h1>
+    </div>
+    <ul>
+      
+      <li><a href="#"><a href="iframevediosinklht.html">Festivals</a></li>
+      <li><a href="#foot">Contact</a></li>
+    </ul>
+  </header>
+  
+  
+    <div class="card w-100 course-card" id="#peru">
+      <div class="row g-0 align-items-center">
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5>Perumal Perunnal</h5>
+            <p>The Perumal Perunnal, celebrated with immense devotion at Parumala Church in Pathanamthitta, honors Saint Geevarghese Mar Gregorios, affectionately known as Parumala Thirumeni. The festival begins with solemn prayers and culminates in a majestic procession carrying the saint’s relics. Pilgrims dressed in white throng the churchyard, singing hymns and lighting candles. Traditional music bands and colorful parasols add grandeur to the celebration, transforming the entire village into a sea of faith and festivity. The event beautifully blends spirituality, cultural artistry, and communal harmony.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <img src="events/Parumala-Church-perunnal.webp" alt="Perumal Perunnal">
+        </div>
+      </div>
+    </div>
+    <div class="card w-100 course-card" id="alp">
+      <div class="row g-0 align-items-center flex-row-reverse">
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5>Alpashi Utsavam</h5>
+            <p>Alpashi Utsavam, observed during the Malayalam month of Thulam (October–November), is one of Kerala’s most significant temple festivals, especially at the iconic Sree Padmanabhaswamy Temple in Thiruvananthapuram. The festival features ten days of rituals, including the grand Aarattu (holy bath) procession, where the deity is taken to the Shankhumugham Beach for ceremonial immersion. Accompanied by caparisoned elephants, traditional percussion ensembles, and chants, this sacred spectacle draws devotees and tourists alike. The event reflects Kerala’s deep-rooted royal traditions and its seamless blend of devotion and artistry.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <img src="events/pexels-nandhukumar-27489412.jpg" alt="Alpashi Utsavam">
+        </div>
+      </div>
+    </div>
+    <div class="card w-100 course-card" id="pay">
+      <div class="row g-0 align-items-center">
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5>Payippad Boat Race</h5>
+            <p>The Payippad Boat Race, held on the shimmering Payippad Lake near Haripad, is a thrilling fusion of devotion, teamwork, and tradition. Dedicated to Lord Subramanya, the race commemorates the legend of devotees transporting the deity’s idol by boat to the Haripad Temple. Hundreds of oarsmen in vibrant uniforms row in rhythmic unison to the beat of drums and the chants of “Vanchipattu” (boat songs), as thousands of spectators cheer from the banks. Beyond its competitive spirit, the festival reflects Kerala’s riverine culture and the unity of its people, embodying the essence of communal celebration.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <img src="events/boat-races-of-kerala-1727230946_36db1d2132b7098cc2bd.webp" alt="Payippad Boat Race">
+        </div>
+      </div>
+    </div>
+    <div class="card w-100 course-card">
+      <div class="row g-0 align-items-center flex-row-reverse">
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5>Kottapuram Boat Race</h5>
+            <p>The Kottapuram Boat Race, hosted on the serene backwaters of Kodungallur, showcases the breathtaking energy of Kerala’s famed Chundan Vallams (snake boats). Each boat, stretching over 100 feet, glides like a serpent through the water, powered by synchronized rowers and accompanied by the thunderous rhythm of traditional percussion. Villages along the banks come alive with decorations, food stalls, and cultural programs, transforming the day into a carnival of colors and sound. The event is not just a race — it’s a heartfelt tribute to Kerala’s age-old maritime legacy and spirit of camaraderie.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <img src="events/istockphoto-1544866334-612x612.jpg" alt="Kottapuram Boat Race">
+        </div>
+      </div>
+    </div>
+    <div class="card w-100 course-card">
+      <div class="row g-0 align-items-center">
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5>Kalpathi Rathotsavam</h5>
+            <p>The Kalpathi Rathotsavam, celebrated in the historic Tamil Brahmin village of Kalpathi near Palakkad, is one of the most colorful chariot festivals in South India. The ten-day event culminates with grand processions where exquisitely decorated wooden chariots carrying the idols of Lord Vishwanatha and Goddess Parvathy are pulled through the streets by thousands of devotees. The air resonates with the sound of conch shells, Nadaswaram music, and Vedic chants, creating an atmosphere of divine ecstasy. The festival is a magnificent expression of unity, faith, and traditional craftsmanship that has endured for centuries.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <img src="events/kalpathy-cover.webp" alt="Kalpathi Rathotsavam">
+        </div>
+      </div>
+    </div>
+    <div class="card w-100 course-card">
+      <div class="row g-0 align-items-center flex-row-reverse">
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5>Guruvayur Ekadashi</h5>
+            <p>Guruvayur Ekadashi is one of the holiest days for devotees of Lord Krishna, observed with unmatched devotion at the renowned Guruvayur Temple. The festival includes a series of religious rituals, devotional recitals, and a solemn procession of the deity’s idol atop a richly adorned elephant. The temple town awakens before dawn, with devotees observing fasts and engaging in continuous prayer. The highlight of the festival is the “Vilakku Ekadashi,” when thousands of lamps illuminate the temple premises, creating a breathtaking spectacle of light and faith. It’s an experience that embodies Kerala’s spiritual heart and its timeless cultural identity.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <img src="events/guruvayoor.jpeg" alt="Guruvayur Ekadashi">
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer id="foot">
+    <div class="footersection">
+      <div class="footer-content">
+        <div class="footer-box">
+          <h3>About Kerala Heritage Hub</h3>
+          <p>Explore the serene hills, lush tea gardens, and timeless beauty of Kerala. Your gateway to cultural experiences, festivals, and traditional celebrations of God's Own Country.</p>
+        </div>
+        <div class="footer-box">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Festivals</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-box">
+          <h3>Contact Us</h3>
+          <p>Phone: +91 9886254942</p>
+          <p>Email: info@keralaheritagehub.com</p>
+          <a href="https://wa.me/919886254942" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+        </div>
+        <div class="footer-box">
+          <h3>Follow Us</h3>
+          <div class="social-icons">
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2025 Kerala Heritage Hub. All rights reserved.
+      </div>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

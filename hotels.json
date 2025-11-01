@@ -1,0 +1,422 @@
+[
+  {
+    "id": 1,
+    "location": "munnar",
+    "title": "Eravikulam National Park",
+    "category": "Nature & Wildlife",
+    "description": "Home to the endangered Nilgiri Tahr, this park offers stunning trekking routes through rolling grasslands and shola forests. It's the highest peak in South India."
+  },
+  {
+    "id": 2,
+    "location": "munnar",
+    "title": "TATA Tea Museum",
+    "category": "Culture & History",
+    "description": "Discover the history of tea cultivation in Munnar. Witness the journey from leaf plucking to the final processing stage, complete with tastings."
+  },
+  {
+    "id": 3,
+    "location": "munnar",
+    "title": "Mattupetty Dam & Lake",
+    "category": "Scenery & Recreation",
+    "description": "A concrete gravity dam built for water conservation and power generation. The calm lake offers speed boating and is often visited by wild elephants."
+  },
+  {
+    "id": 4,
+    "location": "wayanad",
+    "title": "Edakkal Cave",
+    "category": "History & Adventure",
+    "description": "Explore ancient Neolithic-era rock carvings inside a natural cave on Ambukuthi Mala. A short, moderately challenging trek leads to the entrance."
+  },
+  {
+    "id": 5,
+    "location": "wayanad",
+    "title": "Soochipara Waterfalls (Sentinel Rock Falls)",
+    "category": "Nature & Waterfalls",
+    "description": "A stunning three-tiered waterfall surrounded by dense green forest, perfect for trekking down to the pool for a refreshing dip."
+  },
+  {
+    "id": 6,
+    "location": "wayanad",
+    "title": "Chembra Peak",
+    "category": "Trekking & Views",
+    "description": "The highest peak in Wayanad, offering breathtaking views of the surrounding area. The trail includes the famous heart-shaped Hridaya Thadakam lake."
+  },
+  {
+    "id": 7,
+    "location": "cochin",
+    "title": "Fort Kochi",
+    "category": "History & Architecture",
+    "description": "Explore the colonial heritage area with Portuguese, Dutch, and British architectural influences, including St. Francis Church and colorful streets."
+  },
+  {
+    "id": 8,
+    "location": "cochin",
+    "title": "Chinese Fishing Nets",
+    "category": "Iconic Landmark",
+    "description": "Witness the iconic, cantilevered fishing nets in action at sunset along the coast of Fort Kochi, a unique sight brought by Chinese traders."
+  },
+  {
+    "id": 9,
+    "location": "cochin",
+    "title": "Jew Town & Paradesi Synagogue",
+    "category": "Culture & Shopping",
+    "description": "Wander through the historic lane of antique shops in Jew Town, leading to the beautifully preserved 16th-century Paradesi Synagogue."
+  },
+  {
+    "id": 10,
+    "location": "kovalam",
+    "title": "Lighthouse Beach",
+    "category": "Beach & Landmark",
+    "description": "The main crescent-shaped beach of Kovalam, famed for the striped lighthouse that provides panoramic views of the coast."
+  },
+  {
+    "id": 11,
+    "location": "kovalam",
+    "title": "Hawa Beach (Eve’s Beach)",
+    "category": "Beach & Relaxation",
+    "description": "A quieter, slightly secluded stretch of golden sand adjacent to Lighthouse Beach, popular for morning walks and peaceful sunbathing."
+  },
+  {
+    "id": 12,
+    "location": "kovalam",
+    "title": "Samudra Beach",
+    "category": "Beach & Fishing",
+    "description": "The northernmost beach, separated by a promontory. It's often less crowded and frequented by local fishermen, offering an authentic coastal scene."
+  },
+  {
+    "id": 13,
+    "location": "thekkady",
+    "title": "Periyar Wildlife Sanctuary",
+    "category": "Wildlife Safari",
+    "description": "Home to elephants, tigers, and diverse birdlife. The best way to explore is via a boat ride on the Periyar Lake, where animals come to drink."
+  },
+  {
+    "id": 14,
+    "location": "thekkady",
+    "title": "Spice Plantations Tours",
+    "category": "Agri-Tourism",
+    "description": "Walk through lush farms to learn about the cultivation of cardamom, pepper, cinnamon, and cloves, and enjoy the exotic aromas."
+  },
+  {
+    "id": 15,
+    "location": "thekkady",
+    "title": "Kadathanadan Kalari Centre",
+    "category": "Culture & Martial Arts",
+    "description": "Experience a thrilling evening performance of Kalaripayattu, the ancient martial art form of Kerala, showcasing incredible agility and skill."
+  },
+  {
+    "id": 16,
+    "location": "munnar",
+    "title": "Top Station Viewpoint",
+    "category": "Viewpoint & Scenery",
+    "description": "The highest point in Munnar offering a panoramic vista of the Western Ghats and the neighboring state of Tamil Nadu. Perfect for sunrises."
+  },
+  {
+    "id": 17,
+    "location": "munnar",
+    "title": "Lakkam Waterfalls",
+    "category": "Nature & Waterfalls",
+    "description": "A stunning, pristine waterfall originating from the Eravikulam Plateau. The water cascades down rocky cliffs near the Marayoor region."
+  },
+  {
+    "id": 18,
+    "location": "munnar",
+    "title": "Kolukkumalai Tea Estate Trek",
+    "category": "Trekking & Views",
+    "description": "Visit the world's highest organic tea plantation. The journey requires an off-road jeep trip and rewards you with spectacular views and a vintage factory tour."
+  },
+  {
+    "id": 19,
+    "location": "munnar",
+    "title": "Anayirangal Dam & Reservoir",
+    "category": "Scenery & Photography",
+    "description": "Located amidst dense tea plantations, this reservoir is a tranquil spot. 'Anayirangal' means 'where the elephants come down'—a common sighting area."
+  },
+  {
+    "id": 20,
+    "location": "munnar",
+    "title": "Marayoor Sandalwood Forest",
+    "category": "Nature & History",
+    "description": "The only natural sandalwood forest in Kerala. Explore the protected groves and learn about the rare, aromatic wood."
+  },
+  {
+    "id": 21,
+    "location": "munnar",
+    "title": "Pothamedu Viewpoint",
+    "category": "Viewpoint & Trekking",
+    "description": "Offers expansive views of the surrounding coffee, tea, and cardamom plantations. A great spot for light trekking and watching the mist roll in."
+  },
+  {
+    "id": 22,
+    "location": "munnar",
+    "title": "Attukal Waterfalls",
+    "category": "Waterfalls & Picnic",
+    "description": "A stunning cascade located between Munnar and Pallivasal. Its high volume makes it an impressive sight, especially after the monsoon."
+  },
+  {
+    "id": 23,
+    "location": "wayanad",
+    "title": "Banasura Sagar Dam",
+    "category": "Scenery & Recreation",
+    "description": "India's largest earth dam and the second largest in Asia. It features numerous small islands and offers speed boating and serene views."
+  },
+  {
+    "id": 24,
+    "location": "wayanad",
+    "title": "Pookode Lake",
+    "category": "Recreation & Nature",
+    "description": "A natural freshwater lake nestled among forested hills. Ideal for paddle boating, fishing, and visiting the adjacent freshwater aquarium."
+  },
+  {
+    "id": 25,
+    "location": "wayanad",
+    "title": "Kuruva Island",
+    "category": "Nature & River",
+    "description": "A protected river delta on the Kabini River, known for its dense population of flora and fauna. Accessed via bamboo rafting or ferry."
+  },
+  {
+    "id": 26,
+    "location": "wayanad",
+    "title": "Thirunelli Temple",
+    "category": "Pilgrimage & Architecture",
+    "description": "An ancient temple dedicated to Lord Vishnu, known as the 'Kasi of the South.' It is beautifully situated among the Brahmagiri hills."
+  },
+  {
+    "id": 27,
+    "location": "wayanad",
+    "title": "Wayanad Heritage Museum",
+    "category": "Culture & History",
+    "description": "Houses an extensive collection of tribal artifacts, including ancient tools, weaponry, and pottery, offering insight into Wayanad's indigenous culture."
+  },
+  {
+    "id": 28,
+    "location": "wayanad",
+    "title": "Lakkidi View Point",
+    "category": "Viewpoint & Scenery",
+    "description": "The gateway to Wayanad, offering a magnificent aerial view of the serpentine ghat road, deep valleys, and the surrounding lush hills."
+  },
+  {
+    "id": 29,
+    "location": "wayanad",
+    "title": "Phantom Rock (Cheengeri Mala)",
+    "category": "Nature & Geology",
+    "description": "A unique skull-shaped rock formation created by natural geological processes, popular for trekking and photography in the Wayanad hills."
+  },
+  {
+    "id": 30,
+    "location": "wayanad",
+    "title": "Karapuzha Dam",
+    "category": "Scenery & Recreation",
+    "description": "One of the largest earth dams in India. The surrounding wetlands are a haven for various species of migratory birds."
+  },
+  {
+    "id": 31,
+    "location": "cochin",
+    "title": "Hill Palace Museum",
+    "category": "History & Royalty",
+    "description": "The largest archaeological museum in Kerala, this former administrative office and royal residence of the Kochi Maharaja houses hundreds of artifacts and crowns."
+  },
+  {
+    "id": 32,
+    "location": "cochin",
+    "title": "Marine Drive",
+    "category": "Urban & Recreation",
+    "description": "A popular waterfront promenade facing the backwaters. Famous for its spectacular views of the sunset and the bustling Kochi Harbor."
+  },
+  {
+    "id": 33,
+    "location": "cochin",
+    "title": "Santa Cruz Cathedral Basilica",
+    "category": "Architecture & History",
+    "description": "One of the nine basilicas in Kerala, known for its stunning Gothic architecture and historical significance dating back to the Portuguese era."
+  },
+  {
+    "id": 34,
+    "location": "cochin",
+    "title": "Kerala Folklore Museum",
+    "category": "Culture & Art",
+    "description": "A three-story building showcasing the architectural style of Kerala, housing over 4,000 artifacts, masks, and traditional art forms."
+  },
+  {
+    "id": 35,
+    "location": "cochin",
+    "title": "Vasco da Gama Square",
+    "category": "History & Culture",
+    "description": "A beautiful promenade in Fort Kochi, known for the Chinese Fishing Nets and small shops selling fresh catch and spices."
+  },
+  {
+    "id": 36,
+    "location": "cochin",
+    "title": "Mattancherry Palace (Dutch Palace)",
+    "category": "History & Art",
+    "description": "Known for its exquisite murals depicting scenes from the Hindu epics, Ramayana and Mahabharata. Built by the Portuguese and renovated by the Dutch."
+  },
+  {
+    "id": 37,
+    "location": "cochin",
+    "title": "Backwater Cruise to Vypeen Island",
+    "category": "Backwaters & Scenery",
+    "description": "Take a ferry across the backwaters to Vypeen Island, offering serene views, local life, and access to Cherai Beach."
+  },
+  {
+    "id": 38,
+    "location": "cochin",
+    "title": "Pardesi Synagogue",
+    "category": "Culture & History",
+    "description": "The oldest active synagogue in the Commonwealth, located in Jew Town. Famous for its exquisite Chinese porcelain tiles and Belgian chandeliers."
+  },
+  {
+    "id": 39,
+    "location": "cochin",
+    "title": "Wonderla Amusement Park",
+    "category": "Recreation & Family",
+    "description": "A large and popular amusement park offering high-thrill rides, water slides, and family-friendly entertainment, located just outside the city."
+  },
+  {
+    "id": 40,
+    "location": "cochin",
+    "title": "Kathakali Performance Center",
+    "category": "Culture & Art",
+    "description": "Witness the vibrant and traditional classical Kerala dance-drama, Kathakali, including the elaborate make-up process before the show."
+  },
+  {
+    "id": 41,
+    "location": "kovalam",
+    "title": "Vizhinjam Lighthouse",
+    "category": "Landmark & View",
+    "description": "Climb the red-and-white striped lighthouse on Lighthouse Beach for spectacular 360-degree views of the Kovalam coastline and Arabian Sea."
+  },
+  {
+    "id": 42,
+    "location": "kovalam",
+    "title": "Chowara Beach",
+    "category": "Relaxation & Scenery",
+    "description": "A quiet, unspoiled stretch of golden sand south of Kovalam, known for its small fishing village and the ancient Chowara Ayyappa Temple on a hillock."
+  },
+  {
+    "id": 43,
+    "location": "kovalam",
+    "title": "Thiruvallam Backwaters",
+    "category": "Backwaters & Boating",
+    "description": "Located close to Kovalam, this spot offers serene canoeing, kayaking, and houseboat rides away from the main tourist bustle."
+  },
+  {
+    "id": 44,
+    "location": "kovalam",
+    "title": "Valiathura Pier",
+    "category": "Iconic & Fishing",
+    "description": "An old, abandoned pier extending 700 feet into the sea. A popular spot for local fishermen and an excellent place for quiet viewing."
+  },
+  {
+    "id": 45,
+    "location": "kovalam",
+    "title": "Aazhimala Siva Temple",
+    "category": "Pilgrimage & Sculpture",
+    "description": "Famous for its massive, imposing, and intricately carved 58-foot tall statue of Lord Shiva in the Gangadhareshwara form, overlooking the sea."
+  },
+  {
+    "id": 46,
+    "location": "kovalam",
+    "title": "Vellayani Lake",
+    "category": "Nature & Scenery",
+    "description": "The largest freshwater lake in Thiruvananthapuram district. Best visited during the annual Onam boat race."
+  },
+  {
+    "id": 47,
+    "location": "kovalam",
+    "title": "Ashoka Beach (South Kovalam)",
+    "category": "Beach & Hidden Gem",
+    "description": "Tucked away near the main crescent beaches, offering more privacy and a beautiful, rocky coastline ideal for photography."
+  },
+  {
+    "id": 48,
+    "location": "kovalam",
+    "title": "Karamana River",
+    "category": "Nature & Boating",
+    "description": "Offers tranquil country boat rides along the river banks, showcasing traditional Kerala village life and coconut groves."
+  },
+  {
+    "id": 49,
+    "location": "kovalam",
+    "title": "Vizhinjam Rock Cut Cave Temple",
+    "category": "History & Architecture",
+    "description": "A small 8th-century rock-cut temple that houses a single cell with a sculpture of Lord Shiva and an unfinished relief of the Hindu Goddess Durga."
+  },
+  {
+    "id": 50,
+    "location": "kovalam",
+    "title": "Kovalam Fish Market",
+    "category": "Culture & Cuisine",
+    "description": "Experience the local fishing culture, where fishermen sell their morning catch directly on the beach. Great for fresh seafood lovers."
+  },
+  {
+    "id": 51,
+    "location": "thekkady",
+    "title": "Gavi Eco-Tourism",
+    "category": "Nature & Adventure",
+    "description": "An intense jungle safari experience through dense, evergreen forest. Offers off-road jeep safaris, bamboo rafting, and stay packages."
+  },
+  {
+    "id": 52,
+    "location": "thekkady",
+    "title": "Mangala Devi Kannagi Temple",
+    "category": "History & Pilgrimage",
+    "description": "An ancient temple dedicated to the goddess Kannagi, situated in a remote spot on the border of Kerala and Tamil Nadu. Open only once a year."
+  },
+  {
+    "id": 53,
+    "location": "thekkady",
+    "title": "The Bamboo Rafting Program",
+    "category": "Adventure & Nature",
+    "description": "A full-day eco-tourism program involving trekking through dense forest followed by a unique bamboo raft ride across the Periyar Lake."
+  },
+  {
+    "id": 54,
+    "location": "thekkady",
+    "title": "Murikkady Spice Plantations",
+    "category": "Agri-Tourism",
+    "description": "Known for its sprawling coffee and cardamom plantations. Visitors can take guided walks to learn about the entire spice growing and processing cycle."
+  },
+  {
+    "id": 55,
+    "location": "thekkady",
+    "title": "Chellarkovil Viewpoint",
+    "category": "Viewpoint & Sunset",
+    "description": "Located high up in the hills, this point offers a stunning panoramic view of the cascading waterfalls and the plains of Tamil Nadu."
+  },
+  {
+    "id": 56,
+    "location": "thekkady",
+    "title": "Thekkady Elephant Junction",
+    "category": "Wildlife & Recreation",
+    "description": "Offers various elephant interaction activities, including riding, bathing, and feeding the gentle giants in a natural setting."
+  },
+  {
+    "id": 57,
+    "location": "thekkady",
+    "title": "Pullumedu Hill Station",
+    "category": "Scenery & Trekking",
+    "description": "Famous for its beautiful meadows, rolling hills, and rare flora. Access is often restricted, but the surrounding views are exceptional."
+  },
+  {
+    "id": 58,
+    "location": "thekkady",
+    "title": "Vandiperiyar",
+    "category": "Agri-Tourism & River",
+    "description": "Famous for pepper and coffee cultivation along the Periyar riverbanks. A great place to experience the local planting and harvesting processes."
+  },
+  {
+    "id": 59,
+    "location": "thekkady",
+    "title": "Pandalasala Local Crafts Center",
+    "category": "Culture & Shopping",
+    "description": "A center for local artisans where you can find handmade crafts, spices, and unique souvenirs from the Thekkady region."
+  },
+  {
+    "id": 60,
+    "location": "thekkady",
+    "title": "Border Hiking (Periyar Tiger Reserve)",
+    "category": "Trekking & Adventure",
+    "description": "A specialized, intense, and guided trekking program offered by the forest department, following the boundaries of the tiger reserve."
+  }
+]

@@ -1,0 +1,571 @@
+[
+    {
+        "id" : "TRAD001",
+        "name": "Kerala  Wear",
+        "category_id":"mens",
+        "type" : "traditional",
+        "price" : 850,
+        "availability": true,
+     "image_url": "abcd/adc(1).jpg"
+
+    },
+    {
+
+        "id" :"TRAD002",
+        "name":"Kerala  Wear",
+        "category_id":"mens",
+        "type":"traditional",
+        "price":850,
+        "availability" : true,
+     "image_url": "abcd/adc(2).jpg"
+
+      },
+      {
+        "id":"TRAD003",
+        "name" :"Kerala  Wear",
+        "category_id":"mens",
+        "type":"traditional",
+        "price" :850,
+        "availability":true,
+       "image_url": "abcd/adc(3).jpg"
+      },
+      {
+         "id":"TRAD004",
+        "name" :"Kerala  Wear",
+        "category_id":"mens",
+        "type":"traditional",
+        "price" :850,
+        "availability":true,
+ "image_url": "abcd/adc(4).jpg"
+      },
+      {
+         "id":"TRAD005",
+        "name" :"Kerala  Wear",
+        "category_id":"mens",
+        "type":"traditional",
+        "price" :850,
+        "availability":true,
+       "image_url": "abcd/adc(5).jpg"
+      },
+      {
+         "id":"TRAD006",
+        "name" :"Kerala  Wear",
+        "category_id":"mens",
+        "type":"traditional",
+        "price" :850,
+        "availability":true,
+       "image_url": "abcd/adc(6).jpg"
+      },
+      {
+         "id":"TRAD007",
+        "name" :"Kerala  Wear",
+        "category_id":"mens",
+        "type":"traditional",
+        "price" :850,
+        "availability":true,
+    "image_url": "abcd/adc(7).jpg"
+      },
+
+      {
+        "id":"TRAD008",
+        "name":"Kerala  Wear",
+        "category_id":"mens",
+        "type":"traditional",
+        "price":850,
+        "availability":true,
+       "image_url": "abcd/adc(8).jpg"
+      },
+      {
+        "id":"TRAD009",
+        "name":"Kerala  Wear",
+        "category_id":"mens",
+        "type":"traditional",
+        "availability":true,
+        "price":850,
+    "image_url": "abcd/adc(9).jpg"
+      },
+      {
+        "id":"TRAD0010",
+        "name":"Kerala  Wear",
+        "category_id":"mens",
+        "type":"traditional",
+        "availability":true,
+         "price":850,
+  "image_url": "abcd/adc(10).jpg"
+        
+      },
+      {
+         "id":"TRAD0011",
+        "name":"Kerala  Wear",
+        "category_id":"mens",
+        "type":"traditional",
+        "availability":true,
+         "price":850,
+       "image_url": "abcd/adc(11).jpg"
+      },
+      {
+         "id":"TRAD0012",
+        "name":"Kerala  Wear",
+        "category_id":"mens",
+        "type":"traditional",
+        "availability":true,
+         "price":850,
+     "image_url": "abcd/adc(12).jpg"
+      },
+      {
+         "id":"TRAD0013",
+        "name":"Kerala  Wear",
+        "category_id":"mens",
+        "type":"traditional",
+        "availability":true,
+         "price":850,
+       "image_url": "abcd/adc(13).jpg"
+      },
+      {
+         "id":"TRAD0014",
+        "name":"Kerala  Wear",
+        "category_id":"mens",
+        "type":"traditional",
+        "availability":true,
+         "price":850,
+       "image_url": "abcd/adc(14).jpg"
+      },
+      {
+         "id":"TRAD0015",
+        "name":"Kerala  Wear",
+        "category_id":"mens",
+        "type":"traditional",
+        "availability":true,
+         "price":850,
+      "image_url": "abcd/adc(15).jpg"
+      },
+       {
+         "id":"TRAD0016",
+        "name":"Kerala  Wear",
+        "category_id":"mens",
+        "type":"traditional",
+        "availability":true,
+         "price":850,
+       "image_url": "abcd/dhothi.jpg"
+      },
+      {
+        "id":"TRAD0017",
+        "name":"Kasavu Saree (Single Piece)",
+        "category_id":"womans",
+        "type":"traditional",
+        "availability":true,
+        "price":1800,
+        "image_url": "abcd/grl(2)(1).jpg"
+    }, 
+    
+    {
+        "id":"TRAD0018",
+        "name":"Set Mundu (Two Piece Drape)",
+        "category_id":"womans",
+        "type":"traditional",
+        "availability":true,
+        "price":1500,
+        "image_url": "abcd/grl(2).jpg"
+    },
+    
+    {
+        "id":"TRAD0019",
+        "name":"Pattu Pavadai (Girls' Wear)",
+        "category_id":"womans",
+        "type":"traditional",
+        "availability":true,
+        "price":1200,
+        "image_url": "abcd/grl(3).jpg"
+    },
+    {
+        "id":"TRAD0017",
+        "name":"Kasavu Saree (Single Piece)",
+        "category_id":"womans",
+        "type":"traditional",
+        "availability":true,
+        "price":1800,
+        "image_url": "abcd/grl(4).jpg"
+    }, 
+    
+    {
+        "id":"TRAD0018",
+        "name":"Set Mundu (Two Piece Drape)",
+        "category_id":"womans",
+        "type":"traditional",
+        "availability":true,
+        "price":1500,
+        "image_url": "abcd/grl(5).jpg"
+    },
+    
+    {
+        "id":"TRAD0019",
+        "name":"Pattu Pavadai (Girls' Wear)",
+        "category_id":"womans",
+        "type":"traditional",
+        "availability":true,
+        "price":1200,
+        "image_url": "abcd/grl(6).jpg"
+    },
+    {
+        "id":"TRAD0017",
+        "name":"Kasavu Saree (Single Piece)",
+        "category_id":"womans",
+        "type":"traditional",
+        "availability":true,
+        "price":1800,
+        "image_url": "abcd/grl(7).jpg"
+    }, 
+    
+    {
+        "id":"TRAD0018",
+        "name":"Set Mundu (Two Piece Drape)",
+        "category_id":"womans",
+        "type":"traditional",
+        "availability":true,
+        "price":1500,
+        "image_url": "abcd/grl(8).jpg"
+    },
+    
+    {
+        "id":"TRAD0019",
+        "name":"Pattu Pavadai (Girls' Wear)",
+        "category_id":"womans",
+        "type":"traditional",
+        "availability":true,
+        "price":1200,
+        "image_url": "abcd/grl(9).jpg"
+    },
+
+       {
+        "id":"TRAD0018",
+        "name":"Set Mundu (Two Piece Drape)",
+        "category_id":"womans",
+        "type":"traditional",
+        "availability":true,
+        "price":1500,
+        "image_url": "abcd/grl(10).jpg"
+    },
+    
+    {
+        "id":"TRAD0019",
+        "name":"Pattu Pavadai (Girls' Wear)",
+        "category_id":"womans",
+        "type":"traditional",
+        "availability":true,
+        "price":1200,
+        "image_url": "abcd/grl(11).jpg"
+    },
+      {
+        "id":"TRAD0018",
+        "name":"Set Mundu (Two Piece Drape)",
+        "category_id":"womans",
+        "type":"traditional",
+        "availability":true,
+        "price":1500,
+        "image_url": "abcd/grl(12).jpg"
+    },
+    
+    {
+        "id":"TRAD0019",
+        "name":"Pattu Pavadai (Girls' Wear)",
+        "category_id":"womans",
+        "type":"traditional",
+        "availability":true,
+        "price":1200,
+        "image_url": "abcd/grl(13).jpg"
+    },
+    {
+        "id":"TRAD0018",
+        "name":"Set Mundu (Two Piece Drape)",
+        "category_id":"womans",
+        "type":"traditional",
+        "availability":true,
+        "price":1500,
+        "image_url": "abcd/grl(14).jpg"
+    },
+    
+    {
+        "id":"TRAD0019",
+        "name":"Pattu Pavadai (Girls' Wear)",
+        "category_id":"womans",
+        "type":"traditional",
+        "availability":true,
+        "price":1200,
+        "image_url": "abcd/grl(15).jpg"
+    },
+    
+    {
+        "id":"ANTI001",
+        "name":"Nettur Petti (Large)",
+        "category_id":"antique",
+        "type":"historical_artifact",
+        "availability":true,
+        "price":15500,
+        "image_url": "AC/pett.jpg"
+    },
+   
+    {
+        "id":"ANTI003",
+        "name":"Bell Metal Kindi Vessel",
+        "category_id":"antique",
+        "type":"historical_artifact",
+        "availability":true,
+        "price":8900,
+        "image_url": "AC/bellmetal.jpg"
+    },
+    {
+        "id":"ANTI004",
+        "name":"Vaal Kannadi (Bronze Mirror)",
+        "category_id":"antique",
+        "type":"historical_artifact",
+        "availability":true,
+        "price":9500,
+        "image_url": "AC/valkannadi.jpg"
+    },
+    {
+        "id":"ANTI005",
+        "name":"Ornate Nilavilakku (4ft)",
+        "category_id":"antique",
+        "type":"historical_artifact",
+        "availability":true,
+        "price":11200,
+        "image_url": "AC/nilavilaku.jpg"
+    },
+    {
+        "id":"ANTI006",
+        "name":"Wooden Cheppu (Spice Box)",
+        "category_id":"antique",
+        "type":"historical_artifact",
+        "availability":true,
+        "price":8000,
+        "image_url": "AC/CheppuOrange.jpg"
+    },
+    {
+        "id":"ANTI007",
+        "name":"Rosewood Elephant Wall Panel",
+        "category_id":"antique",
+        "type":"historical_artifact",
+        "availability":true,
+        "price":18900,
+        "image_url": "AC/RosewoodGaneshaStatue_1800x1800..jpg"
+    },
+    {
+        "id":"ANTI008",
+        "name":"Bird Thookkuvilakku (Hanging Lamp)",
+        "category_id":"antique",
+        "type":"historical_artifact",
+        "availability":true,
+        "price":10800,
+        "image_url": "AC/hanging.jpg"
+    },
+    {
+        "id":"ANTI009",
+        "name":"Vintage Kathakali Headgear",
+        "category_id":"antique",
+        "type":"historical_artifact",
+        "availability":true,
+        "price":14000,
+        "image_url": "AC/kathakai.jpg"
+    },
+    {
+        "id":"ANTI010",
+        "name":"Bell Metal Para (Prosperity Vessel)",
+        "category_id":"antique",
+        "type":"historical_artifact",
+        "availability":true,
+        "price":9900,
+        "image_url": "AC/bellmetal.jpg"
+    },
+    {
+        "id":"ANTI011",
+        "name":"Temple Mural Scroll Art",
+        "category_id":"antique",
+        "type":"historical_artifact",
+        "availability":true,
+        "price":25000,
+        "image_url": "AC/templemural.jpg"
+    },
+    {
+        "id":"ANTI012",
+        "name":"Teakwood Miniature Snake Boat",
+        "category_id":"antique",
+        "type":"historical_artifact",
+        "availability":true,
+        "price":16500,
+        "image_url": "AC/taekowondo.jpg"
+    },
+    {
+        "id":"ANTI013",
+        "name":"Brass Kolambi (Aristocrat's Spittoon)",
+        "category_id":"antique",
+        "type":"historical_artifact",
+        "availability":true,
+        "price":8500,
+        "image_url": "AC/brass-handcrafted-lekshmi-bell_650x..jpg"
+    },
+    {
+        "id":"ANTI014",
+        "name":"Iron-Banded Wooden Storage Trunk",
+        "category_id":"antique",
+        "type":"historical_artifact",
+        "availability":true,
+        "price":19800,
+        "image_url": "AC/wooden-cheppu_1800x1800..jpg"
+    },
+
+    
+    {
+        "id":"CRAFT001",
+        "name":"Kathakali Mask (Paper Mache)",
+        "category_id":"crafts",
+        "type":"handicraft",
+        "availability":true,
+        "price":4500,
+        "image_url": "AC/kathakali-figurine-bhima-20-inch..jpg"
+    },
+    {
+        "id":"CRAFT002",
+        "name":"Sandalwood Elephant Figurine",
+        "category_id":"crafts",
+        "type":"handicraft",
+        "availability":true,
+        "price":6200,
+        "image_url": "AC/elephant.jpg"
+    },
+    {
+        "id":"CRAFT003",
+        "name":"Hand-Woven Natural Coir Mat",
+        "category_id":"crafts",
+        "type":"handicraft",
+        "availability":true,
+        "price":4000,
+        "image_url": "AC/screwpine_mat.jpg"
+    },
+    {
+        "id":"CRAFT004",
+        "name":"Bamboo Storage Basket Set (3)",
+        "category_id":"crafts",
+        "type":"handicraft",
+        "availability":true,
+        "price":4100,
+        "image_url": "AC/bamboo.jpg"
+    },
+    {
+        "id":"CRAFT005",
+        "name":"Coconut Shell Tea Set (4 Cups)",
+        "category_id":"crafts",
+        "type":"handicraft",
+        "availability":true,
+        "price":4800,
+        "image_url": "AC/cocunutshell.jpg"
+    },
+    {
+        "id":"CRAFT006",
+        "name":"Banana Fibre Wall Hanging",
+        "category_id":"crafts",
+        "type":"handicraft",
+        "availability":true,
+        "price":5500,
+        "image_url": "AC/banana-fibre-handmade.jpg"
+    },
+    {
+        "id":"CRAFT007",
+        "name":"Screw Pine Woven Rug",
+        "category_id":"crafts",
+        "type":"handicraft",
+        "availability":true,
+        "price":4300,
+        "image_url": "AC/screwpine_mat.jpg"
+    },
+    {
+        "id":"CRAFT008",
+        "name":"Handloom Kasavu Stole",
+        "category_id":"crafts",
+        "type":"handicraft",
+        "availability":true,
+        "price":6500,
+        "image_url": "AC/handloomkasavu.jpg"
+    },
+    {
+        "id":"CRAFT009",
+        "name":"Large Terracotta Urn",
+        "category_id":"crafts",
+        "type":"handicraft",
+        "availability":true,
+        "price":4900,
+        "image_url": "AC/largeterra.jpg"
+    },
+    {
+        "id":"CRAFT010",
+        "name":"Wooden Kathakali Dolls (Pair)",
+        "category_id":"crafts",
+        "type":"handicraft",
+        "availability":true,
+        "price":7500,
+        "image_url": "AC/cloth.jpg"
+    },
+    {
+        "id":"CRAFT011",
+        "name":"Buffalo Horn Flower Vase",
+        "category_id":"crafts",
+        "type":"handicraft",
+        "availability":true,
+        "price":5800,
+        "image_url": "AC/buffalohorn.jpg"
+    },
+    {
+        "id":"CRAFT012",
+        "name":"Miniature Wooden Houseboat",
+        "category_id":"crafts",
+        "type":"handicraft",
+        "availability":true,
+        "price":5200,
+        "image_url": "AC/taekowondo.jpg"
+    },
+    {
+        "id":"CRAFT013",
+        "name":"Lacquerware Jewellery Box",
+        "category_id":"crafts",
+        "type":"handicraft",
+        "availability":true,
+        "price":6800,
+        "image_url": "AC/lakare.jpg"
+    },
+    {
+        "id":"CRAFT014",
+        "name":"Brass Peacock Statue (8 Inch)",
+        "category_id":"crafts",
+        "type":"handicraft",
+        "availability":true,
+        "price":7900,
+        "image_url": "AC/brasspeacock.jpg"
+    }
+]
+       
+    
+    
+    
+    
+    
+    
+
+
+   
+    
+     
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+

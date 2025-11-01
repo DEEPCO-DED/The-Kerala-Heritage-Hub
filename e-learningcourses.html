@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkillLab Courses</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      font-family: "Poppins", sans-serif;
+      background-color: #f8fafc;
+    }
+
+    main {
+      flex: 1; /* pushes footer to bottom */
+    }
+
+    header {
+      background-color: whitesmoke;
+      height: 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 50px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 999;
+    }
+
+    .LOG1 h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #1e3a8a;
+      letter-spacing: 2px;
+    }
+
+    header ul {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+      color: #1e3a8a;
+      font-size: 16px;
+      font-weight: 600;
+      margin: 0;
+      cursor: pointer;
+    }
+
+    header ul li:hover {
+      color: #2563eb;
+    }
+
+    .bottom-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #1e3a8a;
+      color:white;
+      padding: 15px 0;
+      gap: 30px;
+      position: fixed;
+      top:50px;
+      width: 100%;
+      z-index: 999;
+      font-size: 17px;
+    }
+
+    .bottom-nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .bottom-nav a:hover {
+      text-decoration: underline;
+      transform: scale(1.1);
+    }
+
+    .course-card {
+      height: calc(100vh - 100px); /* header + bottom-nav */
+      display: flex;
+      align-items: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      padding: 20px;
+      margin-top: 100px;
+    }
+
+    .course-card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    .course-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .course-card .card-body {
+      padding: 2rem;
+    }
+
+    .card {
+      border: none;
+      margin-bottom: 0;
+    }
+
+    .card-body h5 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .card-body p {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .btn-primary {
+      background-color: #1e3a8a;
+      border: none;
+      transition: 0.3s;
+    }
+
+    .btn-primary:hover {
+      background-color: #2563eb;
+    }
+
+    .feature {
+      margin-top: 10px;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+    }
+
+    .feature i {
+      color: #2563eb;
+      margin-right: 8px;
+    }
+
+    footer.footer {
+     
+      background: #1e3a8a;
+      color: #fff;
+      font-family: "Poppins", sans-serif;
+   width: 100%;
+      margin-bottom: 0;
+    }
+
+    .footer-container {
+      display: flex;
+
+      margin: 0 auto;
+      gap: 40px;
+      justify-content: space-between;
+      width: 100%;
+      padding: 10PX 20PX 20PX 10PX;
+    }
+
+    .footer-box {
+      flex: 1 1 220px;
+      min-width: 200px;
+    }
+
+    .footer-box h3 {
+      margin-bottom: 15px;
+      font-size: 18px;
+      color: #fff;
+    }
+
+    .footer-box ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-box ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-box a {
+      color: #fff;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .footer-box a:hover {
+      color: #f9f871;
+      text-decoration: underline;
+    }
+
+    .social-icons a {
+      display: inline-block;
+      margin-right: 15px;
+      font-size: 20px;
+      color: #fff;
+      transition: 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: #f9f871;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding: 15px 0;
+      
+      width: 100%;
+      font-size: 14px;
+      margin-top: 20px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+    #faq{
+  display: flex;
+  flex-direction: column;
+  padding: 100px;
+  justify-content: center;
+  margin: 20px auto;
+  text-align: center;
+ 
+ 
+
+}
+.faqq {
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+.faqq h3 {
+  cursor: pointer;
+  margin: 0;
+  padding: 15px 0;
+  font-size: 18px;
+  transition: color 0.3s;
+  text-align: center;
+}
+
+.faqq h3:hover {
+  color: #2563eb;
+ 
+}
+
+.faqq p {
+  max-height: 0;              
+  overflow: hidden;
+  transition: 0.4s ease;
+  margin: 0;
+  padding: 0 0;
+  color:black;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.faqq.active p {
+  max-height: 500px;           
+  padding: 10px 0;             
+}
+#faq h2{
+  margin-bottom: 30px;
+  color: blue;
+}
+@media (max-width: 768px) {
+    /* Header Adjustments */
+    header {
+        padding: 0 15PX;
+        height: 50px; /* Slightly taller header for better touch targets */
+    }
+
+    header ul {
+      
+    }
+    
+    .LOG1 h1 {
+        font-size: 20px;
+    }
+
+    /* Bottom Navigation Adjustments */
+    .bottom-nav {
+        display: flex; /* Maintain flex display for horizontal alignment */
+        flex-wrap: wrap; /* ⭐ Allows links to wrap to a new row */
+        justify-content: center; /* Center the wrapped links */
+        align-items: center;
+        
+        /* Your requested mobile sizing properties */
+        padding: 10px 10px;
+        gap: 25px 20px; 
+        top: 50px; /* Aligns right under the 50px header */
+        height: auto; /* ⭐ Allows height to expand for wrapping rows */
+        font-size: 14px; /* Setting the font size for wrapped links */
+    }
+
+    .bottom-nav a {
+        white-space: nowrap; /* Prevents long link names from breaking */
+    }
+    
+    /* Course Card Adjustments */
+    .course-card {
+        height: auto; /* Crucial for responsiveness - let content dictate height */
+        margin-top: 0;
+        padding: 10px;
+        padding-top: 150px; /* Adjust top padding for fixed nav overlap */
+        display: block; /* Stack content vertically */
+    }
+
+    .course-card:nth-child(2) {
+        padding-top: 10px; /* Remove excessive padding from the second card onwards */
+    }
+    
+    .course-card .row {
+        flex-direction: column-reverse; /* Reorder text-image for mobile (optional but common) */
+    }
+    
+    .course-card:nth-of-type(even) .row {
+        flex-direction: column; /* Keep image on top for alternating cards */
+    }
+
+    .course-card .card-body {
+        padding: 1.5rem 1rem;
+    }
+    
+    .card-body h5 {
+        font-size: 24px;
+    }
+
+    .card-body p {
+        font-size: 14px;
+    }
+    
+    .course-card img {
+        height: auto; /* Let image height be automatic */
+        max-height: 250px; /* Max height for images on mobile */
+    }
+    
+    /* FAQ Adjustments */
+    #faq {
+        padding: 50px 10px;
+        margin-top: 20px;
+    }
+    
+    /* Footer Adjustments (Main focus of the request) */
+    footer.footer {
+        padding: 30px 15px 10px 15px; /* Added horizontal padding to fit edge-to-edge */
+        
+        /* Ensure it covers the full width */
+        width: 100%; 
+        left: 0;
+        right: 0;
+    }
+    
+    .footer-container {
+        flex-direction: column; /* Stack footer boxes vertically */
+        gap: 25px; /* Space between stacked boxes */
+    }
+    
+    .footer-box {
+        flex: 1 1 100%; /* Make boxes take full width */
+        min-width: unset;
+        text-align: center; /* Center content in stacked layout */
+    }
+
+    .footer-box ul {
+        text-align: center; /* Center list items */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .social-icons {
+        text-align: center;
+    }
+}
+
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="LOG1" style="cursor: pointer;"><h1><a style="text-decoration: none;" href="E-learning.html">SKILLLAB</a></h1></div>
+    <ul>
+      <li><a href="beyonddata.html">BEYOND DATA</a></li>
+      <li>FAQs</li>
+      <li><a href="#foot" style="text-decoration: none; color: #1e3a8a;">Contact</a></li>
+    </ul>
+  </header>
+
+  <div class="bottom-nav">
+    <a onclick="scrollToCourse('data-science')">Data Science</a>
+    <a onclick="scrollToCourse('python')">Python</a>
+    <a onclick="scrollToCourse('data-analytics')">Data Analytics</a>
+    <a onclick="scrollToCourse('web-dev')">Web Development</a>
+    <a onclick="scrollToCourse('mern-stack')">Mern Stack</a>
+    <a onclick="scrollToCourse('software-testing')">Software Testing</a>
+    <a onclick="scrollToCourse('robotics')">Robotics</a>
+    <a onclick="scrollToCourse('business-analyst')">Business Analyst</a>
+  </div>
+
+  <main class="container-fluid px-0">
+
+    <!-- Data Science -->
+    <div id="data-science" class="card w-100 course-card">
+      <div class="row g-0 h-100">
+        <div class="col-md-8 d-flex align-items-center">
+          <div class="card-body">
+            <h5 class="card-title">Data Science Basics</h5>
+            <p class="card-text">Learn Python, statistics, and visualization. Master data cleaning, exploratory data analysis, and visualization techniques.</p>
+            <div class="feature"><i class="fa-solid fa-check"></i> Duration: 8 Months</div>
+            <div class="feature"><i class="fa-solid fa-check"></i> Level: Beginner</div>
+            <div class="feature"><i class="fa-solid fa-briefcase"></i> Career: Data Analyst, Data Scientist</div>
+            <div class="feature"><i class="fa-solid fa-flask"></i> Projects: Real-world data analysis & visualization projects</div>
+            <div class="feature"><i class="fa-solid fa-gears"></i> Prerequisites: Basic programming and math</div>
+            <a href="#" class="btn btn-primary mt-3">Enroll Now</a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <img src="coursess/dt.png" class="img-fluid rounded-end" alt="Data Science">
+        </div>
+      </div>
+    </div>
+
+    <!-- Python -->
+    <div id="python" class="card w-100 course-card">
+      <div class="row g-0 h-100">
+        <div class="col-md-4">
+          <img src="coursess/python.png" class="img-fluid rounded-start" alt="Python">
+        </div>
+        <div class="col-md-8 d-flex align-items-center">
+          <div class="card-body">
+            <h5 class="card-title">Python Programming</h5>
+            <p class="card-text">Master Python from beginner to advanced, including OOP, modules, and real-world projects.</p>
+            <div class="feature"><i class="fa-solid fa-check"></i> Duration: 6 Months</div>
+            <div class="feature"><i class="fa-solid fa-check"></i> Level: Beginner to Advanced</div>
+            <div class="feature"><i class="fa-solid fa-briefcase"></i> Career: Python Developer, Automation Engineer</div>
+            <div class="feature"><i class="fa-solid fa-flask"></i> Projects: Automation scripts, Python web apps</div>
+            <div class="feature"><i class="fa-solid fa-gears"></i> Prerequisites: Basic logic understanding</div>
+            <a href="#" class="btn btn-primary mt-3">Enroll Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Data Analytics -->
+    <div id="data-analytics" class="card w-100 course-card">
+      <div class="row g-0 h-100">
+        <div class="col-md-8 d-flex align-items-center">
+          <div class="card-body">
+            <h5 class="card-title">Data Analytics</h5>
+            <p class="card-text">Analyze datasets, perform statistical tests, and generate actionable insights for business decisions.</p>
+            <div class="feature"><i class="fa-solid fa-check"></i> Duration: 6 Months</div>
+            <div class="feature"><i class="fa-solid fa-check"></i> Level: Intermediate</div>
+            <div class="feature"><i class="fa-solid fa-briefcase"></i> Career: Business Analyst, Data Analyst</div>
+            <div class="feature"><i class="fa-solid fa-flask"></i> Projects: Business dashboards, data visualizations</div>
+            <div class="feature"><i class="fa-solid fa-gears"></i> Prerequisites: Basic Python & Excel</div>
+            <a href="#" class="btn btn-primary mt-3">Enroll Now</a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <img src="coursess/dataaa.png" class="img-fluid rounded-end" alt="Data Analytics">
+        </div>
+      </div>
+    </div>
+
+    <!-- Web Development -->
+    <div id="web-dev" class="card w-100 course-card">
+      <div class="row g-0 h-100">
+        <div class="col-md-4">
+          <img src="coursess/wedb.png" class="img-fluid rounded-start" alt="Web Development">
+        </div>
+        <div class="col-md-8 d-flex align-items-center">
+          <div class="card-body">
+            <h5 class="card-title">Web Development</h5>
+            <p class="card-text">Build responsive websites with HTML, CSS, JS, and Bootstrap. Learn front-end frameworks and deploy projects online.</p>
+            <div class="feature"><i class="fa-solid fa-check"></i> Duration: 10 Weeks</div>
+            <div class="feature"><i class="fa-solid fa-check"></i> Level: Beginner to Intermediate</div>
+            <div class="feature"><i class="fa-solid fa-briefcase"></i> Career: Front-end Developer, Full-stack Developer</div>
+            <div class="feature"><i class="fa-solid fa-flask"></i> Projects: Portfolio websites, web apps</div>
+            <div class="feature"><i class="fa-solid fa-gears"></i> Prerequisites: Basic HTML/CSS knowledge</div>
+            <a href="#" class="btn btn-primary mt-3">Enroll Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MERN Stack -->
+    <div id="mern-stack" class="card w-100 course-card">
+      <div class="row g-0 h-100">
+        <div class="col-md-8 d-flex align-items-center">
+          <div class="card-body">
+            <h5 class="card-title">MERN Stack Development</h5>
+            <p class="card-text">Learn MongoDB, Express, React, Node.js. Build full-stack web applications with hands-on projects.</p>
+            <div class="feature"><i class="fa-solid fa-check"></i> Duration: 6 Months</div>
+            <div class="feature"><i class="fa-solid fa-check"></i> Level: Intermediate</div>
+            <div class="feature"><i class="fa-solid fa-briefcase"></i> Career: Full-stack Developer</div>
+            <div class="feature"><i class="fa-solid fa-flask"></i> Projects: E-commerce, Social Media Apps</div>
+            <div class="feature"><i class="fa-solid fa-gears"></i> Prerequisites: HTML, CSS, JS basics</div>
+            <a href="#" class="btn btn-primary mt-3">Enroll Now</a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <img src="coursess/mern.png" class="img-fluid rounded-end" alt="MERN Stack">
+        </div>
+      </div>
+    </div>
+
+    <!-- Software Testing -->
+    <div id="software-testing" class="card w-100 course-card">
+      <div class="row g-0 h-100">
+        <div class="col-md-4">
+          <img src="coursess/st.png" class="img-fluid rounded-start" alt="Software Testing">
+        </div>
+        <div class="col-md-8 d-flex align-items-center">
+          <div class="card-body">
+            <h5 class="card-title">Software Testing</h5>
+            <p class="card-text">Learn manual and automated testing. Understand QA methodologies and testing tools.</p>
+            <div class="feature"><i class="fa-solid fa-check"></i> Duration: 4 Months</div>
+            <div class="feature"><i class="fa-solid fa-check"></i> Level: Beginner to Intermediate</div>
+            <div class="feature"><i class="fa-solid fa-briefcase"></i> Career: QA Engineer, Test Analyst</div>
+            <div class="feature"><i class="fa-solid fa-flask"></i> Projects: Test scripts, bug reports</div>
+            <div class="feature"><i class="fa-solid fa-gears"></i> Prerequisites: Basic computer knowledge</div>
+            <a href="#" class="btn btn-primary mt-3">Enroll Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Robotics -->
+    <div id="robotics" class="card w-100 course-card">
+      <div class="row g-0 h-100">
+        <div class="col-md-8 d-flex align-items-center">
+          <div class="card-body">
+            <h5 class="card-title">Robotics</h5>
+            <p class="card-text">Learn robotics fundamentals, sensors, and microcontrollers. Build robots and automate simple tasks.</p>
+            <div class="feature"><i class="fa-solid fa-check"></i> Duration: 5 Months</div>
+            <div class="feature"><i class="fa-solid fa-check"></i> Level: Beginner to Intermediate</div>
+            <div class="feature"><i class="fa-solid fa-briefcase"></i> Career: Robotics Engineer, Automation Specialist</div>
+            <div class="feature"><i class="fa-solid fa-flask"></i> Projects: Line-following robots, robot arms</div>
+            <div class="feature"><i class="fa-solid fa-gears"></i> Prerequisites: Basic electronics & programming</div>
+            <a href="#" class="btn btn-primary mt-3">Enroll Now</a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <img src="coursess/robotics.png" class="img-fluid rounded-end" alt="Robotics">
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    <div id="business-analyst" class="card w-100 course-card">
+      <div class="row g-0 h-100">
+        <div class="col-md-4">
+          <img src="coursess/ba.png" class="img-fluid rounded-start" alt="Software Testing">
+        </div>
+        <div class="col-md-8 d-flex align-items-center">
+          <div class="card-body">
+            <h5 class="card-title">Business Analyst</h5>
+<p class="card-text">
+  Master the skills to analyze business needs, document requirements, and bridge the gap between IT and management. Learn tools like Excel, Power BI, and Agile methods.
+</p>
+<div class="feature"><i class="fa-solid fa-check"></i> Duration: 5 Months</div>
+<div class="feature"><i class="fa-solid fa-check"></i> Level: Beginner to Advanced</div>
+<div class="feature"><i class="fa-solid fa-briefcase"></i> Career: Business Analyst, Data Consultant</div>
+<div class="feature"><i class="fa-solid fa-chart-line"></i> Projects: Case studies, workflow models, data dashboards</div>
+<div class="feature"><i class="fa-solid fa-gears"></i> Prerequisites: Basic understanding of business processes</div>
+<a href="#" class="btn btn-primary mt-3">Enroll Now</a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+<script>
+function scrollToCourse(id) {
+  const element = document.getElementById(id);
+  if(element) {
+    const offset = 100; // header + bottom nav height
+    const topPos = element.getBoundingClientRect().top + window.pageYOffset - offset;
+    window.scrollTo({
+      top: topPos,
+      behavior: "smooth"
+    });
+  }
+}
+</script>
+
+<!-- SCRIPT FOR FAQ -->
+ <!-- faqs -->
+<section id="faq">
+  <h2>Frequently Asked Questions</h2> 
+  <div class="faqq" id="faqqq">
+    <h3>Do I need Prior Experience to Enroll in a Course?</h3>
+     <p>No prior experience is required for most of our courses. Our programs are designed for beginners as well as those looking to enhance their existing skills.</p>
+  </div>
+  <div class="faqq">
+    <h3>Do you provide certificates after course completion?</h3>
+  <p>Yes! Upon successfully completing a course, you will receive a digital certificate that verifies your achievement. The certificate can be shared on professional networks like LinkedIn, included in your resume, or used to showcase your skills to potential employers.</p>
+  </div>
+
+  <div class="faqq">
+    <h3>What is Skill Lab and what kind of courses do you offer?</h3>
+    <p>Skill Lab is a modern eLearning platform that provides practical, career-focused courses in the IT and technology fields. We offer a variety of programs ranging from Web Development, UI/UX Design, Python & AI, Data Analytics, to business tools like Excel.</p>
+  </div>
+
+<div class="faqq">
+  <h3>Can I access the courses on mobile devices?</h3>
+  <p>Yes! All courses on Skill Lab are fully accessible on mobile devices, tablets, and desktops. You can learn anytime, anywhere, without being tied to a computer.</p>
+</div>
+
+<div class="faqq">
+  <h3>What is the core difference between the Data Science and Data Analytics courses?</h3>
+  <p>The Data Analytics course focuses on descriptive and diagnostic analysis to interpret historical data and generate actionable business insights (often using tools like Tableau/Power BI and Excel). The Data Science course goes further, focusing on predictive and prescriptive modeling using statistics and machine learning (primarily with Python libraries like Scikit-learn) to forecast future trends.</p>
+</div>
+
+<div class="faqq">
+  <h3>Which specific tools and libraries are covered in the Data Science and Data Analytics programs?</h3>
+  <p>In Data Science, you'll master essential Python libraries like NumPy, Pandas, Matplotlib, and Scikit-learn. In Data Analytics, the focus is often on tools for business intelligence, such as SQL, Excel, and Power BI or Tableau (depending on the course outline).</p>
+</div>
+
+<div class="faqq">
+  <h3>Is the Python course focused purely on basics, or does it cover advanced topics?</h3>
+  <p>Our Python course takes you beyond the basics. While we start with fundamentals, a significant portion is dedicated to Object-Oriented Programming (OOP), advanced data structures, and best coding practices, preparing you for intermediate-level developer roles.</p>
+</div>
+
+<div class="faqq">
+  <h3>Will I learn how to use Python for web development or strictly for data manipulation?</h3>
+  <p>The primary focus of this specific program is data manipulation, scripting, and automation**. We introduce modules and concepts that are transferable, but the course is geared toward a data/automation career path, not full-stack web development (for which we offer the MERN Stack course).</p>
+</div>
+
+<div class="faqq">
+  <h3>Do I need prior JavaScript experience before enrolling in the MERN Stack course?</h3>
+  <p>Yes, having a solid foundational knowledge of JavaScript (ES6+ features) is strongly recommended. The MERN Stack course moves quickly into advanced concepts for MongoDB, Express, React, and Node.js, assuming you are comfortable with core JS syntax and asynchronous programming.</p>
+</div>
+
+<div class="faqq">
+  <h3>Will the MERN Stack course cover state management libraries like Redux or Context API?</h3>
+  <p>Absolutely. To build scalable, professional React applications, we include comprehensive coverage of React Context API and, in the advanced module, how to use Redux Toolkit for complex application state management.</p>
+</div>
+
+</section>
+
+
+
+
+
+
+
+
+
+<footer class="footer" id="foot">
+  <div class="footer-container">
+    <div class="footer-box">
+      <h3>About SkillLab</h3>
+      <p>Your path to expertise starts here. Learn top courses and build skills demanded by today's market.</p>
+    </div>
+    <div class="footer-box">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Courses</a></li>
+      </ul>
+    </div>
+    <div class="footer-box">
+      <h3>Contact</h3>
+      <p>Phone: +91 9886254942</p>
+      <p>Email: skilllab@gmail.com</p>
+      <a href="https://wa.me/919886254942" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+    <div class="footer-box">
+      <h3>Follow Us</h3>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2025 SkillLab. All rights reserved.
+  </div>
+</footer>
+
+
+
+
+
+<script>
+  document.querySelectorAll('.faqq h3').forEach((question) => {
+  question.addEventListener('click', () => {
+    question.parentElement.classList.toggle('active');
+  });
+});
+
+</script>
+
+<!-- faqs -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
