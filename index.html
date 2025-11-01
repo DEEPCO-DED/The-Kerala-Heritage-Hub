@@ -127,11 +127,11 @@
       height: 100vh !important;
     }
 
-    #carouselExampleAutoplaying .carousel-item {
+    /* #carouselExampleAutoplaying .carousel-item {
       height: 100% !important;
-    }
+    } */
 
-    .carousel-item img {
+    .carousel-item video{
       width: 100%;
       height: 90vh;
       object-fit: cover;
@@ -144,10 +144,7 @@
     object-position: center !important;
 } */
 
-    .carousel-inner {
-      transition: transform 0.8s ease-in-out !important;
-    }
-
+    
 
 
     /* Trending Section */
@@ -651,6 +648,14 @@
         transform: translateY(0);
       }
     }
+    .container-fluid-section1 video{
+
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      object-fit: cover;
+    }
   </style>
 </head>
 
@@ -696,13 +701,12 @@
 
 
   <!-- 1ST SLIDE -->
-  <div class="container-fluid p-0">
-    <video autoplay loop muted class="w-100" style="object-fit: cover; height: 100vh;">
-      <source src="heritagevedio.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </div>
-
+   <div class="container-fluid-section1">
+  <video autoplay muted loop playsinline>
+  <source src="heritagevedio.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+</div>
 
 
   <!-- 1STEND -->
