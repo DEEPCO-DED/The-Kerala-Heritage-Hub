@@ -3,132 +3,271 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Athirapally- Kerala Heritage Hub</title>
+  <title>Athirapally — Kerala Heritage Hub</title>
 
- 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
+    :root {
+      --forest: #0f2d1a;
+      --leaf:   #1e5c35;
+      --mid:    #2d7a50;
+      --gold:   #c8922a;
+      --amber:  #e8b84b;
+      --cream:  #faf7f0;
+      --paper:  #f3ede0;
+      --dark:   #0a1c10;
+      --text:   #1c1c1c;
+      --muted:  #6b6b6b;
+      --radius: 12px;
     }
 
-   
-    section.kovalamimage {
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    a { text-decoration: none; color: inherit; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ══ HEADER ══ */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--forest);
+      padding: 0 5%;
+      height: 68px;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      border-bottom: 1px solid rgba(200,146,42,0.25);
+    }
+
+    .logg h3 a {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      font-style: italic;
+      color: var(--amber);
+      letter-spacing: 0.03em;
+    }
+
+    /* ══ HERO ══ */
+    .kovalamimage {
       position: relative;
       width: 100%;
-      height: 500px;
+      height: 92vh;
       overflow: hidden;
+      margin-top: 68px;
     }
 
-    .KOVALAMimagehere {
-      width: 100%;
-      height: 100%;
+    .kovalamimage::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(10,28,16,0.2) 0%,
+        rgba(10,28,16,0.1) 40%,
+        rgba(10,28,16,0.7) 100%
+      );
     }
+
+    .KOVALAMimagehere { width: 100%; height: 100%; }
 
     .KOVALAMimagehere img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center center;
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center;
       display: block;
+      transition: transform 8s ease;
     }
+
+    .kovalamimage:hover .KOVALAMimagehere img { transform: scale(1.04); }
 
     .texthere {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      color: white;
-      background: linear-gradient(90deg, #006400, #f4a300a8, rgba(255, 255, 0, 0.568));
-      padding: 20px 40px;
-      border-bottom-left-radius: 30px;
-      border-top-right-radius: 30px;
-      z-index: 10;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      bottom: 10%; left: 7%;
+      z-index: 2;
+      max-width: 580px;
+      animation: fadeUp 1s ease both;
     }
 
-    section.heading {
-      text-align: start;
-      margin-left: 30px;
-      margin-top: 40px;
+    .texthere-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 0.8rem;
     }
 
+    .texthere-eyebrow::before {
+      content: '';
+      width: 22px; height: 1px;
+      background: var(--amber);
+    }
+
+    .texthere h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 700;
+      line-height: 1.1;
+      color: #fff;
+      margin-bottom: 0.7rem;
+    }
+
+    .texthere h1 em { font-style: italic; color: var(--amber); }
+
+    .texthere p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.65;
+    }
+
+    /* ══ SECTION HEADING ══ */
+    .dest-heading { padding: 3rem 7% 0; }
+
+    .dest-heading .sec-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 0.5rem;
+    }
+
+    .dest-heading .sec-eyebrow::before {
+      content: '';
+      width: 20px; height: 1px;
+      background: var(--mid);
+    }
+
+    .dest-heading h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 700;
+      color: var(--forest);
+      line-height: 1.2;
+    }
+
+    /* ══ CONTENT ══ */
     .kovalam-container {
       display: flex;
-      gap: 30px;
+      gap: 2rem;
       margin: 0 auto;
-      padding: 20px;
-      max-width: 1200px;
+      padding: 2rem 7% 4rem;
+      max-width: 1280px;
       align-items: flex-start;
     }
 
     .paragraph-about-kovalam {
       flex: 2;
-      text-align: justify;
-      padding: 30px;
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 2rem 2.2rem;
+      border: 1px solid rgba(0,0,0,0.07);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
     }
 
-  
+    .paragraph-about-kovalam p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.85;
+      text-align: justify;
+    }
+
+    /* ══ HIGHLIGHTS ══ */
     .explorehere {
       flex: 1;
-      padding: 20px;
-      background-color: rgba(95, 255, 47, 0.411);
-      border-radius: 8px;
-      text-align: start;
-      height: fit-content;
+      flex-shrink: 0;
+      min-width: 240px;
+      background: var(--forest);
+      border-radius: var(--radius);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 8px 28px rgba(15,45,26,0.2);
     }
 
     .explorehere h3 {
-      color: green;
-      margin-bottom: 15px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--amber);
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.7rem;
+      border-bottom: 1px solid rgba(200,146,42,0.25);
     }
 
     .explorehere ul {
       list-style: none;
-      padding-left: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
     }
 
     .explorehere li {
-      margin-bottom: 8px;
-      font-size: 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.7rem;
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.4;
+      transition: color 0.2s;
     }
 
-    /* WhatsApp Icon */
+    .explorehere li:hover { color: var(--amber); }
+
+    .explorehere li i {
+      color: var(--amber);
+      font-size: 0.85rem;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    /* ══ WHATSAPP ══ */
     .whatsapp-container {
       position: fixed;
-      bottom: 40px;
-      right: 40px;
+      bottom: 32px; right: 32px;
       z-index: 999;
     }
 
-    .whatsapp-container i {
-      font-size: 50px;
-      color: rgb(47, 255, 116);
-      cursor: pointer;
-      transition: transform 0.3s ease;
+    .whatsapp-container a {
+      display: flex; align-items: center; justify-content: center;
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: #25d366;
+      box-shadow: 0 4px 16px rgba(37,211,102,0.4);
+      transition: transform 0.3s, box-shadow 0.3s;
     }
 
-    .whatsapp-container i:hover {
+    .whatsapp-container a:hover {
       transform: scale(1.1);
+      box-shadow: 0 8px 24px rgba(37,211,102,0.55);
     }
 
-    /* Footer Section */
+    .whatsapp-container i { font-size: 1.6rem; color: white; }
+
+    /* ══ FOOTER ══ */
     .footersection {
       width: 100%;
-      background: linear-gradient(90deg, #006400a2, #f4a30062, rgba(255, 255, 0, 0.568));
-      color: black;
-      margin-top: 50px;
-      font-size: 16px;
+      background: var(--dark);
+      color: rgba(255,255,255,0.75);
+      border-top: 1px solid rgba(200,146,42,0.2);
     }
 
     .footer-content {
@@ -137,185 +276,156 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      padding: 40px 20px;
+      gap: 2rem;
+      padding: 3.5rem 5%;
     }
 
-    .footer-box {
-      flex: 1;
-      min-width: 200px;
-      margin-bottom: 20px;
-    }
+    .footer-box { flex: 1; min-width: 180px; }
 
     .footer-box h3 {
-      margin-bottom: 15px;
-      font-size: 20px;
-      color: black;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 1.2rem;
     }
 
-    .footer-box ul {
-      list-style: none;
-      padding: 0;
-    }
+    .footer-box ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.5rem; }
 
     .footersection p,
     .footersection a {
-      color: blue;
+      color: rgba(255,255,255,0.5);
       text-decoration: none;
-      margin-bottom: 10px;
+      margin-bottom: 0.4rem;
       display: block;
+      transition: color 0.2s;
+      font-size: 0.88rem;
     }
 
-    .footersection a:hover {
-      text-decoration: underline;
-    }
+    .footersection a:hover { color: var(--amber); }
+
+    .social-icons { display: flex; gap: 0.8rem; margin-top: 0.5rem; }
 
     .social-icons a {
-      margin-right: 10px;
-      font-size: 20px;
-      color: white;
+      display: flex; align-items: center; justify-content: center;
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.6) !important;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+    }
+
+    .social-icons a:hover {
+      background: rgba(200,146,42,0.15);
+      border-color: rgba(200,146,42,0.4);
+      color: var(--amber) !important;
     }
 
     .footer-bottom {
       text-align: center;
-      padding: 10px 0;
-      background: rgba(0, 0, 0, 0.2);
-      font-size: 14px;
+      padding: 1rem 0;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.3);
     }
-     header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: linear-gradient(90deg,#006400 , #f4a3004f, #ffeb99);
 
-  padding: 15px 30px;
- 
-  position: relative;
-}
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
 
-div.logg h3 {
- 
- 
-  font-weight: 600;
-color: white !important;
-  font-style: oblique;
-}
-
-   
     @media (max-width: 768px) {
-      section.kovalamimage {
-        height: 300px;
-      }
-
-      .texthere {
-        padding: 10px 20px;
-        font-size: 14px;
-      }
-
-      .kovalam-container {
-        flex-direction: column;
-      }
-
-      .paragraph-about-kovalam, .explorehere {
-        width: 100%;
-        padding: 15px;
-      }
-
-      .whatsapp-container {
-        bottom: 20px;
-        right: 20px;
-      }
-
-      .whatsapp-container i {
-        font-size: 35px;
-      }
-
-      .footer-content {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .footer-box {
-        min-width: 100%;
-      }
+      .kovalamimage { height: 60vh; }
+      .texthere { left: 5%; bottom: 8%; }
+      .texthere h1 { font-size: 1.8rem; }
+      .kovalam-container { flex-direction: column; padding: 2rem 5% 3rem; }
+      .explorehere { min-width: unset; }
+      .footer-content { flex-direction: column; }
+      .whatsapp-container { bottom: 20px; right: 20px; }
     }
   </style>
 </head>
 <body>
-<header>
-  <div class="logg">
-    <h3><a style="text-decoration: none;color: white;" href="index.html">The Kerala Heritage Hub</a></h3>
-  </div>
 
-  
-
- 
-
-</header>
-
-
-  <section class="kovalamimage">
-    <div class="KOVALAMimagehere">
-      <img src="ATHIRAPALLY/ATHIR.jpg" alt="Kovalam Beach, Kerala">
+  <!-- ══ HEADER ══ -->
+  <header>
+    <div class="logg">
+      <h3><a href="index.html">The Kerala Heritage Hub</a></h3>
     </div>
-    <div class="texthere">
-      <h1>Kerala: The Heritage Hub</h1>
-    </div>
-  </section>
+  </header>
 
-
-  <section class="heading">
-    <h1>Athirapally</h1>
-  </section>
-
-
+  <!-- ══ WHATSAPP ══ -->
   <div class="whatsapp-container">
     <a href="https://wa.me/919886254942" target="_blank">
       <i class="fa-brands fa-whatsapp"></i>
     </a>
   </div>
 
+  <!-- ══ HERO ══ -->
+  <section class="kovalamimage">
+    <div class="KOVALAMimagehere">
+      <img src="ATHIRAPALLY/ATHIR.jpg" alt="Athirapally Waterfalls, Kerala">
+    </div>
+    <div class="texthere">
+      <div class="texthere-eyebrow">Waterfall · Thrissur District</div>
+      <h1>Athirapally:<br>The <em>Niagara of India</em></h1>
+      <p>Experience the majestic waterfall and surrounding tropical forests</p>
+    </div>
+  </section>
 
+  <!-- ══ SECTION HEADING ══ -->
+  <div class="dest-heading">
+    <div class="sec-eyebrow">Exotic Destination</div>
+    <h1>Athirapally</h1>
+  </div>
+
+  <!-- ══ CONTENT ══ -->
   <section class="kovalam-container">
     <div class="paragraph-about-kovalam">
       <p>
-        Nestled in the lush greenery of Kerala’s Thrissur district, Athirappilly is home to the spectacular Athirappilly Waterfalls, cascading from a height of 80 feet and earning the nickname “Niagara of India.” Surrounded by dense tropical forests, this natural wonder offers a perfect blend of adventure and tranquility. Visitors can enjoy the mesmerizing roar of the falls, stroll along forest trails, spot exotic birds and wildlife, or simply soak in the serene beauty of the misty landscapes. Athirappilly is a paradise for nature lovers, photographers, and anyone seeking to reconnect with the soul of God’s Own Country.
+        Nestled in the lush greenery of Kerala's Thrissur district, Athirappilly is home to the spectacular Athirappilly Waterfalls, cascading from a height of 80 feet and earning the nickname "Niagara of India." Surrounded by dense tropical forests, this natural wonder offers a perfect blend of adventure and tranquility. Visitors can enjoy the mesmerizing roar of the falls, stroll along forest trails, spot exotic birds and wildlife, or simply soak in the serene beauty of the misty landscapes. Athirappilly is a paradise for nature lovers, photographers, and anyone seeking to reconnect with the soul of God's Own Country.
       </p>
-   
     </div>
 
     <div class="explorehere">
       <h3>Athirapally Highlights</h3>
       <ul>
-       <li><i class="fa-solid fa-water"></i> Athirappilly Waterfalls</li>
-<li><i class="fa-solid fa-tree"></i> Lush Green Forest Trails</li>
-<li><i class="fa-solid fa-camera"></i> Wildlife & Bird Watching</li>
-<li><i class="fa-regular fa-calendar-days"></i> Best Time: Jun–Feb</li>
-
+        <li><i class="fa-solid fa-water"></i> Athirappilly Waterfalls — 80 ft Drop</li>
+        <li><i class="fa-solid fa-tree"></i> Lush Green Forest Trails</li>
+        <li><i class="fa-solid fa-camera"></i> Wildlife & Bird Watching</li>
+        <li><i class="fa-solid fa-fish"></i> Chalakudy River Rafting</li>
+        <li><i class="fa-regular fa-calendar-days"></i> Best Time: Jun – Feb</li>
       </ul>
     </div>
   </section>
 
-
+  <!-- ══ FOOTER ══ -->
   <footer>
     <div class="footersection">
       <div class="footer-content">
         <div class="footer-box">
           <h3>About Kerala Heritage Hub</h3>
-          <p>Discover the charm of Kerala — from the tranquil beaches of Kovalam to the misty hills of Munnar. Your gateway to the soul of God's Own Country.</p>
+          <p>Discover the charm of Kerala — from the thundering falls of Athirapally to the misty hills of Munnar. Your gateway to the soul of God's Own Country.</p>
         </div>
         <div class="footer-box">
           <h3>Quick Links</h3>
           <ul>
-            <li><a href="#">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="#">Athirapally</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="CONTACT&ABOUT.html">Contact</a></li>
           </ul>
         </div>
         <div class="footer-box">
           <h3>Contact Us</h3>
           <p>Phone: +91 9886254942</p>
           <p>Email: info@keralaheritagehub.com</p>
-          <a href="https://wa.me/919886254942" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+          <a href="https://wa.me/919886254942" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> WhatsApp
+          </a>
         </div>
         <div class="footer-box">
           <h3>Follow Us</h3>
@@ -332,12 +442,6 @@ color: white !important;
     </div>
   </footer>
 
-  <!-- Read More Toggle -->
- 
-
- 
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

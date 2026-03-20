@@ -3,351 +3,547 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kerala Heritage Hub</title>
+  <title>Kerala Heritage Hub — Events</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
   <style>
-    html, body {
-      scroll-behavior: smooth;
+    :root {
+      --forest: #0f2d1a;
+      --leaf:   #1e5c35;
+      --mid:    #2d7a50;
+      --gold:   #c8922a;
+      --amber:  #e8b84b;
+      --cream:  #faf7f0;
+      --paper:  #f3ede0;
+      --dark:   #0a1c10;
+      --text:   #1c1c1c;
+      --muted:  #6b6b6b;
+      --radius: 14px;
     }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    a { text-decoration: none; color: inherit; }
+
     body {
+      font-family: 'Jost', sans-serif;
+      background: var(--cream);
+      color: var(--text);
       display: flex;
       flex-direction: column;
-      font-family: "Poppins", sans-serif;
-      background: rgba(165, 136, 42, 0.178);
-      color: #333;
+      min-height: 100vh;
+      overflow-x: hidden;
     }
-    main {
-      flex: 1;
-    }
+
+    main { flex: 1; }
+
+    /* ══ HEADER ══ */
     header {
-      background-color: rgba(255, 255, 0, 0.432);
-      height: 100px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0 40px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      top: 0;
-      width: 100%;
-      z-index: 999;
+      background: var(--forest);
+      padding: 0 5%;
+      height: 68px;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      border-bottom: 1px solid rgba(200,146,42,0.25);
     }
+
     .LOG1 h1 a {
-      font-size: 28px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      color: #0d7735;
-      text-decoration: none;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      font-style: italic;
+      color: var(--amber);
+      letter-spacing: 0.03em;
     }
+
     header ul {
       display: flex;
-      gap: 25px;
+      gap: 0.5rem;
       list-style: none;
-      color: #6b4226;
-      font-size: 16px;
-      font-weight: 600;
-      margin: 0;
-      padding: 0;
+      margin: 0; padding: 0;
     }
+
     header ul li a {
-      color: #6b4226;
-      text-decoration: none;
-      transition: color 0.3s;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      border: 1px solid transparent;
+      transition: all 0.2s;
     }
+
     header ul li a:hover {
-      color: #0d7735;
+      color: var(--amber);
+      border-color: rgba(200,146,42,0.35);
+      background: rgba(200,146,42,0.08);
     }
-    .festival-banner {
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 6px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px; height: 2px;
+      background: rgba(255,255,255,0.85);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ══ PAGE INTRO BANNER ══ */
+    .page-banner {
+      margin-top: 68px;
+      background: linear-gradient(135deg, var(--forest) 0%, #1a4a2a 60%, #2d7a50 100%);
+      padding: 4rem 7%;
       position: relative;
       overflow: hidden;
-      border: none;
-      border-radius: 0;
-      height: 550px;
-      margin-top: 40px;
     }
-    .festival-banner .card-img {
-      object-fit: cover;
-      height: 100%;
-      width: 100%;
-      filter: brightness(65%);
-      transition: transform 0.6s ease;
+
+    .page-banner::before {
+      content: '';
+      position: absolute;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(200,146,42,0.12) 0%, transparent 70%);
+      top: -80px; right: -80px;
+      pointer-events: none;
     }
-    .festival-banner:hover .card-img {
-      transform: scale(1.05);
-    }
-    .festival-banner .card-img-overlay {
-      background: rgba(0, 0, 0, 0.4);
-      color: white;
-      padding: 0 15%;
-    }
-    .festival-banner .card-title {
-      font-size: 2.5rem;
-      font-weight: 700;
+
+    .page-banner-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      margin-bottom: 20px;
+      color: var(--amber);
+      margin-bottom: 0.8rem;
     }
-    .festival-banner .card-text {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      color: #f1f1f1;
+
+    .page-banner-eyebrow::before {
+      content: '';
+      width: 22px; height: 1px;
+      background: var(--amber);
     }
-    .course-card {
+
+    .page-banner h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 0.7rem;
+    }
+
+    .page-banner h1 em { font-style: italic; color: var(--amber); }
+
+    .page-banner p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.65);
+      max-width: 540px;
+      line-height: 1.7;
+    }
+
+    /* ══ EVENT CARDS ══ */
+    .event-section {
+      padding: 5rem 7%;
+    }
+
+    .event-section:nth-child(odd)  { background: var(--cream); }
+    .event-section:nth-child(even) { background: var(--paper); }
+
+    .event-card {
       display: flex;
       align-items: center;
-      padding: 30px;
-      margin: 90px auto;
-      background: linear-gradient(90deg, #00640052, #f4a3003d, rgba(255, 255, 0, 0.568));
-      border-radius: 12px;
-      box-shadow: 0 3px 15px rgba(0,0,0,0.05);
-      max-width: 1200px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      height: 500px;
+      gap: 3.5rem;
+      max-width: 1160px;
+      margin: 0 auto;
     }
-    .course-card:hover {
-      transform: scale(1.01);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+
+    .event-card.reverse { flex-direction: row-reverse; }
+
+    .event-img {
+      flex: 1;
+      min-width: 0;
+      border-radius: var(--radius);
+      overflow: hidden;
+      height: 400px;
+      box-shadow: 0 16px 48px rgba(15,45,26,0.18);
+      position: relative;
     }
-    .course-card img {
+
+    .event-img img {
       width: 100%;
       height: 100%;
-      max-height: 300px;
       object-fit: cover;
-      border-radius: 10px;
+      display: block;
+      transition: transform 0.6s ease;
     }
-    .card-body {
-      padding: 20px 30px;
+
+    .event-img:hover img { transform: scale(1.05); }
+
+    .event-tag {
+      position: absolute;
+      top: 1rem; left: 1rem;
+      background: var(--forest);
+      color: var(--amber);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      border: 1px solid rgba(200,146,42,0.3);
     }
-    .card-body h5 {
-      font-size: 26px;
+
+    .event-body { flex: 1.2; min-width: 0; }
+
+    .event-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 0.7rem;
+    }
+
+    .event-eyebrow::before {
+      content: '';
+      width: 18px; height: 1px;
+      background: var(--mid);
+    }
+
+    .event-body h5 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.6rem, 2.8vw, 2.2rem);
       font-weight: 700;
-      margin-bottom: 15px;
-      color: #5a3921;
+      color: var(--forest);
+      line-height: 1.2;
+      margin-bottom: 1.1rem;
     }
-    .card-body p {
-      font-size: 20px;
-      line-height: 1.6;
-      color: black;
-      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+    .event-body p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.85;
     }
+
+    .event-divider {
+      width: 40px; height: 2px;
+      background: var(--gold);
+      border-radius: 2px;
+      margin: 1.2rem 0;
+    }
+
+    /* ══ WHATSAPP ══ */
+    .whatsapp-container {
+      position: fixed;
+      bottom: 32px; right: 32px;
+      z-index: 999;
+    }
+
+    .whatsapp-container a {
+      display: flex; align-items: center; justify-content: center;
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: #25d366;
+      box-shadow: 0 4px 16px rgba(37,211,102,0.4);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .whatsapp-container a:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 24px rgba(37,211,102,0.55);
+    }
+
+    .whatsapp-container i { font-size: 1.6rem; color: white; }
+
+    /* ══ FOOTER ══ */
     .footersection {
       width: 100%;
-      background: linear-gradient(90deg, #006400a2, #f4a30062, rgba(255, 255, 0, 0.568));
-      color: #333;
-      margin-top: 60px;
-      font-size: 16px;
+      background: var(--dark);
+      color: rgba(255,255,255,0.75);
+      border-top: 1px solid rgba(200,146,42,0.2);
     }
+
     .footer-content {
       max-width: 1200px;
       margin: 0 auto;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      padding: 40px 20px;
+      gap: 2rem;
+      padding: 3.5rem 5%;
     }
-    .footer-box {
-      flex: 1;
-      min-width: 220px;
-      margin-bottom: 20px;
+
+    .footer-box { flex: 1; min-width: 180px; }
+
+    .footer-box h3 {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 1.2rem;
     }
-    .footersection h3 {
-      margin-bottom: 15px;
-      font-size: 20px;
-      color: #5a3921;
-    }
-    .footer-box ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .footer-box ul li {
-      margin-bottom: 8px;
-    }
+
+    .footer-box ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+
     .footersection p,
     .footersection a {
-      color: white;
+      color: rgba(255,255,255,0.5);
       text-decoration: none;
+      margin-bottom: 0.4rem;
       display: block;
+      transition: color 0.2s;
+      font-size: 0.88rem;
     }
-    .footersection a:hover {
-      text-decoration: underline;
-      color: #0d7735;
-    }
+
+    .footersection a:hover { color: var(--amber); }
+
+    .social-icons { display: flex; gap: 0.8rem; margin-top: 0.5rem; }
+
     .social-icons a {
-      margin-right: 10px;
-      font-size: 20px;
-      color: #5a3921;
-      transition: color 0.3s;
+      display: flex; align-items: center; justify-content: center;
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.6) !important;
+      font-size: 0.85rem;
+      transition: all 0.2s;
     }
+
     .social-icons a:hover {
-      color: #0d7735;
+      background: rgba(200,146,42,0.15);
+      border-color: rgba(200,146,42,0.4);
+      color: var(--amber) !important;
     }
+
     .footer-bottom {
       text-align: center;
-      padding: 12px 0;
-      background: rgba(0,0,0,0.05);
-      font-size: 14px;
+      padding: 1rem 0;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.3);
     }
-    @media (max-width: 992px) {
-      .course-card {
-        flex-direction: column;
-        text-align: center;
-        height: auto;
-      }
-      .course-card img {
-        margin-bottom: 20px;
-        max-height: 250px;
-      }
-      .festival-banner {
-        height: 400px;
-      }
-      .festival-banner .card-title {
-        font-size: 1.8rem;
-      }
-      .festival-banner .card-text {
-        font-size: 1rem;
-      }
+
+    /* ══ SCROLL REVEAL ══ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
     }
-    @media (max-width: 768px) {
-      header {
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ══ RESPONSIVE ══ */
+    @media (max-width: 900px) {
+      .event-card,
+      .event-card.reverse { flex-direction: column; gap: 2rem; }
+      .event-img { height: 280px; width: 100%; }
+      header ul { display: none; }
+      header ul.open {
+        display: flex;
+        position: fixed;
+        top: 68px; left: 0; right: 0;
+        background: rgba(10,22,10,0.98);
+        backdrop-filter: blur(12px);
         flex-direction: column;
-        height: auto;
-        padding: 15px;
+        padding: 1rem 2rem 1.5rem;
+        gap: 0;
+        border-bottom: 1px solid rgba(200,146,42,0.2);
+        z-index: 199;
       }
-      header ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        margin-top: 10px;
+      header ul li a {
+        display: block;
+        padding: 0.75rem 0;
+        border-radius: 0;
+        border-bottom: 1px solid rgba(255,255,255,0.07);
+        border-left: none; border-right: none; border-top: none;
+        color: rgba(255,255,255,0.8);
       }
-      .footer-content {
-        flex-direction: column;
-        text-align: center;
-      }
-      .festival-banner {
-        height: 300px;
-      }
-      .festival-banner .card-title {
-        font-size: 1.4rem;
-      }
-      .festival-banner .card-text {
-        font-size: 0.9rem;
-      }
+      .hamburger { display: flex; }
+      .footer-content { flex-direction: column; }
+      .event-section { padding: 3rem 5%; }
     }
-    
   </style>
 </head>
 <body>
+
+  <!-- ══ HEADER ══ -->
   <header>
     <div class="LOG1">
-      <h1><a href="index.html">KERALA HERITAGE HUB</a></h1>
+      <h1><a href="index.html">The Kerala Heritage Hub</a></h1>
     </div>
-    <ul>
-      
-      <li><a href="#"><a href="iframevediosinklht.html">Festivals</a></li>
+    <ul id="navMenu">
+      <li><a href="iframevediosinklht.html">Festivals</a></li>
       <li><a href="#foot">Contact</a></li>
     </ul>
+    <div class="hamburger" id="hamburger" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </div>
   </header>
-  
-  
-    <div class="card w-100 course-card" id="#peru">
-      <div class="row g-0 align-items-center">
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5>Perumal Perunnal</h5>
-            <p>The Perumal Perunnal, celebrated with immense devotion at Parumala Church in Pathanamthitta, honors Saint Geevarghese Mar Gregorios, affectionately known as Parumala Thirumeni. The festival begins with solemn prayers and culminates in a majestic procession carrying the saint’s relics. Pilgrims dressed in white throng the churchyard, singing hymns and lighting candles. Traditional music bands and colorful parasols add grandeur to the celebration, transforming the entire village into a sea of faith and festivity. The event beautifully blends spirituality, cultural artistry, and communal harmony.</p>
-          </div>
+
+  <!-- ══ WHATSAPP ══ -->
+  <div class="whatsapp-container">
+    <a href="https://wa.me/919886254942" target="_blank">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+  </div>
+
+  <!-- ══ PAGE BANNER ══ -->
+  <div class="page-banner">
+    <div class="page-banner-eyebrow">Kerala Festivals & Events</div>
+    <h1>Living Traditions of<br><em>God's Own Country</em></h1>
+    <p>From grand temple processions and sacred boat races to chariot festivals and ancient pilgrimages — Kerala's events are a living testament to its timeless culture.</p>
+  </div>
+
+  <main>
+
+    <!-- Parumala Perunnal -->
+    <section class="event-section reveal" id="peru">
+      <div class="event-card">
+        <div class="event-img">
+          <div class="event-tag">Church Festival</div>
+          <img src="events/Parumala-Church-perunnal.webp" alt="Parumala Perunnal">
         </div>
-        <div class="col-md-4">
-          <img src="events/Parumala-Church-perunnal.webp" alt="Perumal Perunnal">
+        <div class="event-body">
+          <div class="event-eyebrow">Pathanamthitta</div>
+          <h5>Parumala Perunnal</h5>
+          <div class="event-divider"></div>
+          <p>The Perumal Perunnal, celebrated with immense devotion at Parumala Church in Pathanamthitta, honors Saint Geevarghese Mar Gregorios, affectionately known as Parumala Thirumeni. The festival begins with solemn prayers and culminates in a majestic procession carrying the saint's relics. Pilgrims dressed in white throng the churchyard, singing hymns and lighting candles. Traditional music bands and colorful parasols add grandeur to the celebration, transforming the entire village into a sea of faith and festivity. The event beautifully blends spirituality, cultural artistry, and communal harmony.</p>
         </div>
       </div>
-    </div>
-    <div class="card w-100 course-card" id="alp">
-      <div class="row g-0 align-items-center flex-row-reverse">
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5>Alpashi Utsavam</h5>
-            <p>Alpashi Utsavam, observed during the Malayalam month of Thulam (October–November), is one of Kerala’s most significant temple festivals, especially at the iconic Sree Padmanabhaswamy Temple in Thiruvananthapuram. The festival features ten days of rituals, including the grand Aarattu (holy bath) procession, where the deity is taken to the Shankhumugham Beach for ceremonial immersion. Accompanied by caparisoned elephants, traditional percussion ensembles, and chants, this sacred spectacle draws devotees and tourists alike. The event reflects Kerala’s deep-rooted royal traditions and its seamless blend of devotion and artistry.</p>
-          </div>
-        </div>
-        <div class="col-md-4">
+    </section>
+
+    <!-- Alpashi Utsavam -->
+    <section class="event-section reveal" id="alp">
+      <div class="event-card reverse">
+        <div class="event-img">
+          <div class="event-tag">Temple Festival</div>
           <img src="events/pexels-nandhukumar-27489412.jpg" alt="Alpashi Utsavam">
         </div>
-      </div>
-    </div>
-    <div class="card w-100 course-card" id="pay">
-      <div class="row g-0 align-items-center">
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5>Payippad Boat Race</h5>
-            <p>The Payippad Boat Race, held on the shimmering Payippad Lake near Haripad, is a thrilling fusion of devotion, teamwork, and tradition. Dedicated to Lord Subramanya, the race commemorates the legend of devotees transporting the deity’s idol by boat to the Haripad Temple. Hundreds of oarsmen in vibrant uniforms row in rhythmic unison to the beat of drums and the chants of “Vanchipattu” (boat songs), as thousands of spectators cheer from the banks. Beyond its competitive spirit, the festival reflects Kerala’s riverine culture and the unity of its people, embodying the essence of communal celebration.</p>
-          </div>
+        <div class="event-body">
+          <div class="event-eyebrow">Thiruvananthapuram</div>
+          <h5>Alpashi Utsavam</h5>
+          <div class="event-divider"></div>
+          <p>Alpashi Utsavam, observed during the Malayalam month of Thulam (October–November), is one of Kerala's most significant temple festivals, especially at the iconic Sree Padmanabhaswamy Temple. The festival features ten days of rituals, including the grand Aarattu procession, where the deity is taken to Shankhumugham Beach for ceremonial immersion. Accompanied by caparisoned elephants, traditional percussion ensembles, and chants, this sacred spectacle draws devotees and tourists alike. The event reflects Kerala's deep-rooted royal traditions and its seamless blend of devotion and artistry.</p>
         </div>
-        <div class="col-md-4">
+      </div>
+    </section>
+
+    <!-- Payippad Boat Race -->
+    <section class="event-section reveal" id="pay">
+      <div class="event-card">
+        <div class="event-img">
+          <div class="event-tag">Boat Race</div>
           <img src="events/boat-races-of-kerala-1727230946_36db1d2132b7098cc2bd.webp" alt="Payippad Boat Race">
         </div>
-      </div>
-    </div>
-    <div class="card w-100 course-card">
-      <div class="row g-0 align-items-center flex-row-reverse">
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5>Kottapuram Boat Race</h5>
-            <p>The Kottapuram Boat Race, hosted on the serene backwaters of Kodungallur, showcases the breathtaking energy of Kerala’s famed Chundan Vallams (snake boats). Each boat, stretching over 100 feet, glides like a serpent through the water, powered by synchronized rowers and accompanied by the thunderous rhythm of traditional percussion. Villages along the banks come alive with decorations, food stalls, and cultural programs, transforming the day into a carnival of colors and sound. The event is not just a race — it’s a heartfelt tribute to Kerala’s age-old maritime legacy and spirit of camaraderie.</p>
-          </div>
+        <div class="event-body">
+          <div class="event-eyebrow">Haripad · Alappuzha</div>
+          <h5>Payippad Boat Race</h5>
+          <div class="event-divider"></div>
+          <p>The Payippad Boat Race, held on the shimmering Payippad Lake near Haripad, is a thrilling fusion of devotion, teamwork, and tradition. Dedicated to Lord Subramanya, the race commemorates the legend of devotees transporting the deity's idol by boat to the Haripad Temple. Hundreds of oarsmen in vibrant uniforms row in rhythmic unison to the beat of drums and the chants of Vanchipattu (boat songs), as thousands of spectators cheer from the banks. Beyond its competitive spirit, the festival reflects Kerala's riverine culture and the unity of its people.</p>
         </div>
-        <div class="col-md-4">
+      </div>
+    </section>
+
+    <!-- Kottapuram Boat Race -->
+    <section class="event-section reveal">
+      <div class="event-card reverse">
+        <div class="event-img">
+          <div class="event-tag">Boat Race</div>
           <img src="events/istockphoto-1544866334-612x612.jpg" alt="Kottapuram Boat Race">
         </div>
-      </div>
-    </div>
-    <div class="card w-100 course-card">
-      <div class="row g-0 align-items-center">
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5>Kalpathi Rathotsavam</h5>
-            <p>The Kalpathi Rathotsavam, celebrated in the historic Tamil Brahmin village of Kalpathi near Palakkad, is one of the most colorful chariot festivals in South India. The ten-day event culminates with grand processions where exquisitely decorated wooden chariots carrying the idols of Lord Vishwanatha and Goddess Parvathy are pulled through the streets by thousands of devotees. The air resonates with the sound of conch shells, Nadaswaram music, and Vedic chants, creating an atmosphere of divine ecstasy. The festival is a magnificent expression of unity, faith, and traditional craftsmanship that has endured for centuries.</p>
-          </div>
+        <div class="event-body">
+          <div class="event-eyebrow">Kodungallur · Thrissur</div>
+          <h5>Kottapuram Boat Race</h5>
+          <div class="event-divider"></div>
+          <p>The Kottapuram Boat Race, hosted on the serene backwaters of Kodungallur, showcases the breathtaking energy of Kerala's famed Chundan Vallams (snake boats). Each boat, stretching over 100 feet, glides like a serpent through the water, powered by synchronized rowers and accompanied by the thunderous rhythm of traditional percussion. Villages along the banks come alive with decorations, food stalls, and cultural programs, transforming the day into a carnival of colors and sound. The event is a heartfelt tribute to Kerala's age-old maritime legacy and spirit of camaraderie.</p>
         </div>
-        <div class="col-md-4">
+      </div>
+    </section>
+
+    <!-- Kalpathi Rathotsavam -->
+    <section class="event-section reveal">
+      <div class="event-card">
+        <div class="event-img">
+          <div class="event-tag">Chariot Festival</div>
           <img src="events/kalpathy-cover.webp" alt="Kalpathi Rathotsavam">
         </div>
-      </div>
-    </div>
-    <div class="card w-100 course-card">
-      <div class="row g-0 align-items-center flex-row-reverse">
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5>Guruvayur Ekadashi</h5>
-            <p>Guruvayur Ekadashi is one of the holiest days for devotees of Lord Krishna, observed with unmatched devotion at the renowned Guruvayur Temple. The festival includes a series of religious rituals, devotional recitals, and a solemn procession of the deity’s idol atop a richly adorned elephant. The temple town awakens before dawn, with devotees observing fasts and engaging in continuous prayer. The highlight of the festival is the “Vilakku Ekadashi,” when thousands of lamps illuminate the temple premises, creating a breathtaking spectacle of light and faith. It’s an experience that embodies Kerala’s spiritual heart and its timeless cultural identity.</p>
-          </div>
+        <div class="event-body">
+          <div class="event-eyebrow">Palakkad</div>
+          <h5>Kalpathi Rathotsavam</h5>
+          <div class="event-divider"></div>
+          <p>The Kalpathi Rathotsavam, celebrated in the historic Tamil Brahmin village of Kalpathi near Palakkad, is one of the most colorful chariot festivals in South India. The ten-day event culminates with grand processions where exquisitely decorated wooden chariots carrying the idols of Lord Vishwanatha and Goddess Parvathy are pulled through the streets by thousands of devotees. The air resonates with the sound of conch shells, Nadaswaram music, and Vedic chants, creating an atmosphere of divine ecstasy — a magnificent expression of unity, faith, and traditional craftsmanship.</p>
         </div>
-        <div class="col-md-4">
+      </div>
+    </section>
+
+    <!-- Guruvayur Ekadashi -->
+    <section class="event-section reveal">
+      <div class="event-card reverse">
+        <div class="event-img">
+          <div class="event-tag">Temple Festival</div>
           <img src="events/guruvayoor.jpeg" alt="Guruvayur Ekadashi">
         </div>
+        <div class="event-body">
+          <div class="event-eyebrow">Guruvayur · Thrissur</div>
+          <h5>Guruvayur Ekadashi</h5>
+          <div class="event-divider"></div>
+          <p>Guruvayur Ekadashi is one of the holiest days for devotees of Lord Krishna, observed with unmatched devotion at the renowned Guruvayur Temple. The festival includes a series of religious rituals, devotional recitals, and a solemn procession of the deity's idol atop a richly adorned elephant. The highlight is the "Vilakku Ekadashi," when thousands of lamps illuminate the temple premises, creating a breathtaking spectacle of light and faith — an experience that embodies Kerala's spiritual heart and timeless cultural identity.</p>
+        </div>
       </div>
-    </div>
+    </section>
+
   </main>
+
+  <!-- ══ FOOTER ══ -->
   <footer id="foot">
     <div class="footersection">
       <div class="footer-content">
         <div class="footer-box">
           <h3>About Kerala Heritage Hub</h3>
-          <p>Explore the serene hills, lush tea gardens, and timeless beauty of Kerala. Your gateway to cultural experiences, festivals, and traditional celebrations of God's Own Country.</p>
+          <p>Explore the serene hills, lush tea gardens, and timeless beauty of Kerala. Your gateway to cultural experiences, festivals, and traditions of God's Own Country.</p>
         </div>
         <div class="footer-box">
           <h3>Quick Links</h3>
           <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Festivals</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="iframevediosinklht.html">Festivals</a></li>
+            <li><a href="CONTACT&ABOUT.html">About</a></li>
+            <li><a href="#foot">Contact</a></li>
           </ul>
         </div>
         <div class="footer-box">
           <h3>Contact Us</h3>
           <p>Phone: +91 9886254942</p>
           <p>Email: info@keralaheritagehub.com</p>
-          <a href="https://wa.me/919886254942" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+          <a href="https://wa.me/919886254942" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> WhatsApp
+          </a>
         </div>
         <div class="footer-box">
           <h3>Follow Us</h3>
@@ -363,7 +559,34 @@
       </div>
     </div>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+
+  <!-- ══ SCRIPTS ══ -->
+  <script>
+    function toggleNav() {
+      document.getElementById('navMenu').classList.toggle('open');
+      document.getElementById('hamburger').classList.toggle('open');
+    }
+
+    document.querySelectorAll('#navMenu li a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('navMenu').classList.remove('open');
+        document.getElementById('hamburger').classList.remove('open');
+      });
+    });
+
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    revealEls.forEach(el => observer.observe(el));
+  </script>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"></script>
 </body>
 </html>

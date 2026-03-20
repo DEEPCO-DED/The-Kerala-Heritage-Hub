@@ -3,122 +3,418 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SKILLLAB - Beyond Data</title>
+  <title>Beyond Data — SkillLab</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      width: 100%;
-      overflow-x: hidden;
-      font-family: "Poppins", sans-serif;
-      background: linear-gradient(135deg, #007BFF, #00C6FF);
-      background-position: center center;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
+    :root {
+      --navy:   #0a1628;
+      --blue:   #1447e6;
+      --mid:    #2563eb;
+      --sky:    #3b82f6;
+      --light:  #93c5fd;
+      --pale:   #eff6ff;
+      --white:  #ffffff;
+      --gold:   #f59e0b;
+      --muted:  #64748b;
+      --radius: 14px;
     }
 
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    a { text-decoration: none; color: inherit; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--navy);
+      color: var(--white);
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* ══ ANIMATED BG ══ */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 15% 20%, rgba(20,71,230,0.25) 0%, transparent 55%),
+        radial-gradient(ellipse at 85% 75%, rgba(59,130,246,0.2) 0%, transparent 55%),
+        radial-gradient(ellipse at 50% 50%, rgba(10,22,40,0.9) 0%, transparent 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ══ HEADER ══ */
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 30px;
-      background: blue;
-      color: white;
+      padding: 0 5%;
+      height: 68px;
+      background: rgba(10,22,40,0.95);
+      backdrop-filter: blur(12px);
       position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-      flex-wrap: wrap;
+      top: 0; left: 0; right: 0;
+      z-index: 300;
+      border-bottom: 1px solid rgba(59,130,246,0.2);
+      animation: slideDown 0.6s ease both;
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-100%); opacity: 0; }
+      to   { transform: translateY(0);     opacity: 1; }
     }
 
     .logo {
-      font-size: 28px;
-      font-weight: 500;
-      margin-bottom: 5px;
+      font-family: 'Syne', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
     }
+
+    .logo a { color: var(--white); }
+    .logo span { color: var(--sky); }
 
     nav ul {
       display: flex;
       list-style: none;
-      margin: 0;
-      padding: 0;
-      flex-wrap: wrap;
-      gap: 15px;
+      gap: 0.4rem;
+      align-items: center;
     }
 
-    nav ul li {
-      font-size: 15px;
-      font-weight: 400;
-      cursor: pointer;
-    }
-
-    nav ul li:hover {
-      text-decoration: underline;
-    }
-
-    header li b {
-      color: white;
-      padding: 10px;
+    nav ul li a {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      padding: 0.4rem 0.9rem;
       border-radius: 20px;
-      font-size: 15px;
+      border: 1px solid transparent;
+      transition: all 0.2s;
     }
 
-    header li b:hover {
-    background: linear-gradient(90deg, #006400a2, #f4a30062, rgba(255, 255, 0, 0.568));
-
+    nav ul li a:hover {
+      color: var(--sky);
+      border-color: rgba(59,130,246,0.35);
+      background: rgba(59,130,246,0.08);
     }
 
-    .card-body-glassaffect {
-      background: linear-gradient(
-        rgba(255, 223, 100, 0.5),
-        rgba(37, 99, 235, 0.5)
-      );
+    nav ul li:last-child a {
+      background: var(--mid);
       color: white;
-      backdrop-filter: blur(5px);
-      -webkit-backdrop-filter: blur(5px);
-      border-radius: 10px;
-      padding: 20px;
-      height: 100%;
+      border-color: var(--mid);
     }
 
-    .card {
-      background: rgba(255, 255, 0, 0.192);
-      border: none;
+    nav ul li:last-child a:hover { background: var(--blue); }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 6px;
     }
 
-    .card-img-top {
+    .hamburger span {
+      display: block;
+      width: 22px; height: 2px;
+      background: rgba(255,255,255,0.85);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ══ HERO ══ */
+    .page-hero {
+      position: relative;
+      z-index: 1;
+      padding: 9rem 7% 5rem;
+      text-align: center;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--light);
+      margin-bottom: 1rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.3s both;
+    }
+
+    .hero-eyebrow::before, .hero-eyebrow::after {
+      content: '';
+      width: 20px; height: 1px;
+      background: var(--light);
+      opacity: 0.5;
+    }
+
+    .page-hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+      opacity: 0;
+      animation: fadeUp 0.9s ease 0.5s both;
+    }
+
+    .page-hero h1 span { color: var(--sky); }
+
+    .page-hero p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.55);
+      max-width: 520px;
+      margin: 0 auto 3rem;
+      line-height: 1.75;
+      opacity: 0;
+      animation: fadeUp 0.9s ease 0.7s both;
+    }
+
+    /* Course anchor pills */
+    .course-pills {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      opacity: 0;
+      animation: fadeUp 0.9s ease 0.9s both;
+    }
+
+    .course-pills a {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      padding: 0.45rem 1.1rem;
+      border-radius: 20px;
+      border: 1px solid rgba(59,130,246,0.3);
+      background: rgba(59,130,246,0.07);
+      transition: all 0.2s;
+    }
+
+    .course-pills a:hover {
+      color: var(--sky);
+      border-color: var(--sky);
+      background: rgba(59,130,246,0.15);
+    }
+
+    /* ══ CARDS SECTION ══ */
+    .cards-section {
+      position: relative;
+      z-index: 1;
+      padding: 2rem 5% 5rem;
+    }
+
+    .course-card {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 0;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(59,130,246,0.15);
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 2rem;
+      transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease, border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .course-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .course-card:hover {
+      border-color: rgba(59,130,246,0.45);
+      box-shadow: 0 20px 60px rgba(20,71,230,0.2);
+    }
+
+    /* Alternate layout */
+    .course-card.reverse { grid-template-columns: 1.4fr 1fr; }
+    .course-card.reverse .card-img-wrap { order: 2; }
+    .course-card.reverse .card-content   { order: 1; }
+
+    /* Image side */
+    .card-img-wrap {
+      position: relative;
+      overflow: hidden;
+      min-height: 380px;
+    }
+
+    .card-img-wrap img {
+      width: 100%; height: 100%;
       object-fit: cover;
-      width: 100%;
-      height: 250px;
-      border-radius: 10px 10px 0 0;
+      display: block;
+      transition: transform 0.6s ease;
+      filter: brightness(0.85);
     }
 
-    .card-body h5 {
-      margin-top: 30px;
+    .course-card:hover .card-img-wrap img { transform: scale(1.06); }
+
+    /* Gradient overlay on image */
+    .card-img-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, transparent 60%, rgba(10,22,40,0.85) 100%);
+    }
+
+    .course-card.reverse .card-img-wrap::after {
+      background: linear-gradient(to left, transparent 60%, rgba(10,22,40,0.85) 100%);
+    }
+
+    /* Number badge */
+    .card-number {
+      position: absolute;
+      top: 1.2rem; left: 1.2rem;
+      z-index: 2;
+      font-family: 'Syne', sans-serif;
+      font-size: 0.65rem;
       font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      background: rgba(10,22,40,0.75);
+      color: var(--sky);
+      padding: 0.3rem 0.7rem;
+      border-radius: 20px;
+      border: 1px solid rgba(59,130,246,0.35);
+      backdrop-filter: blur(4px);
     }
 
-    .card-body ul {
-      padding-left: 20px;
-      margin-top: 15px;
+    /* Content side */
+    .card-content {
+      padding: 2.5rem 2.5rem 2.5rem 2.8rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .course-card.reverse .card-content { padding: 2.5rem 2.8rem 2.5rem 2.5rem; }
+
+    .card-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      margin-bottom: 1rem;
+      width: fit-content;
+    }
+
+    .tag-ds   { background: rgba(59,130,246,0.15); color: var(--sky);   border: 1px solid rgba(59,130,246,0.3); }
+    .tag-excel{ background: rgba(16,185,129,0.15); color: #10b981;      border: 1px solid rgba(16,185,129,0.3); }
+    .tag-py   { background: rgba(245,158,11,0.15); color: var(--gold);  border: 1px solid rgba(245,158,11,0.3); }
+    .tag-ux   { background: rgba(168,85,247,0.15); color: #a855f7;      border: 1px solid rgba(168,85,247,0.3); }
+
+    .card-content h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 0.8rem;
+      letter-spacing: -0.01em;
+    }
+
+    .card-divider {
+      width: 36px; height: 2px;
+      border-radius: 2px;
+      margin-bottom: 1rem;
+    }
+
+    .ds-line   { background: var(--sky); }
+    .excel-line{ background: #10b981; }
+    .py-line   { background: var(--gold); }
+    .ux-line   { background: #a855f7; }
+
+    .card-content > p {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.75;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Feature list */
+    .feature-list {
       list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin-bottom: 2rem;
     }
 
-    .card-body ul li {
-      margin-bottom: 10px;
+    .feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.7rem;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.5;
     }
 
+    .feature-list li::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      margin-top: 6px;
+      flex-shrink: 0;
+    }
+
+    .ds-dot::before    { background: var(--sky); }
+    .excel-dot::before { background: #10b981; }
+    .py-dot::before    { background: var(--gold); }
+    .ux-dot::before    { background: #a855f7; }
+
+    /* Enroll button */
+    .enroll-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.8rem;
+      border-radius: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      cursor: pointer;
+      border: none;
+      transition: transform 0.2s, opacity 0.2s;
+      width: fit-content;
+    }
+
+    .enroll-btn:hover { transform: translateY(-2px); opacity: 0.9; }
+
+    .btn-ds    { background: linear-gradient(135deg, var(--mid), var(--sky)); color: white; }
+    .btn-excel { background: linear-gradient(135deg, #059669, #10b981); color: white; }
+    .btn-py    { background: linear-gradient(135deg, #d97706, var(--gold)); color: white; }
+    .btn-ux    { background: linear-gradient(135deg, #7c3aed, #a855f7); color: white; }
+
+    /* ══ FOOTER ══ */
     footer.footer {
-      margin-top: auto;
-      width: 100%;
-      background: #1e3a8a;
-      color: #fff;
-      font-family: "Poppins", sans-serif;
-      padding: 50px 20px 20px 20px;
+      position: relative;
+      z-index: 1;
+      background: rgba(5,12,25,0.98);
+      border-top: 1px solid rgba(59,130,246,0.2);
     }
 
     .footer-container {
@@ -126,254 +422,298 @@
       flex-wrap: wrap;
       max-width: 1200px;
       margin: 0 auto;
-      gap: 40px;
+      gap: 2rem;
       justify-content: space-between;
+      padding: 3.5rem 5%;
     }
 
-    .footer-box {
-      flex: 1 1 220px;
-      min-width: 200px;
-    }
+    .footer-box { flex: 1; min-width: 180px; }
 
     .footer-box h3 {
-      margin-bottom: 15px;
-      font-size: 18px;
-      color: #fff;
+      font-family: 'Syne', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--sky);
+      margin-bottom: 1.2rem;
     }
 
-    .footer-box ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
+    .footer-box ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.5rem; }
 
-    .footer-box ul li {
-      margin-bottom: 10px;
-    }
-
+    .footer-box p,
     .footer-box a {
-      color: #fff;
-      text-decoration: none;
-      transition: 0.3s;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.45);
+      display: block;
+      transition: color 0.2s;
+      margin-bottom: 0.3rem;
     }
 
-    .footer-box a:hover {
-      color: #f9f871;
-      text-decoration: underline;
-    }
+    .footer-box a:hover { color: var(--sky); }
+
+    .social-icons { display: flex; gap: 0.8rem; margin-top: 0.5rem; }
 
     .social-icons a {
-      display: inline-block;
-      margin-right: 15px;
-      font-size: 20px;
-      color: #fff;
-      transition: 0.3s;
+      display: flex; align-items: center; justify-content: center;
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.55);
+      font-size: 0.85rem;
+      transition: all 0.2s;
     }
 
     .social-icons a:hover {
-      color: #f9f871;
+      background: rgba(59,130,246,0.2);
+      border-color: var(--sky);
+      color: var(--sky);
+      transform: translateY(-2px);
     }
 
     .footer-bottom {
       text-align: center;
-      padding: 15px 0;
-      width: 100%;
-      font-size: 14px;
-      margin-top: 20px;
+      padding: 1rem 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.25);
     }
 
-    @media (max-width: 992px) {
-      .card-body h5 {
-        margin-top: 20px;
-        font-size: 20px;
-      }
-      .card-img-top {
-        height: 220px;
-      }
+    /* ══ KEYFRAMES ══ */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
-    @media (max-width: 768px) {
-      header {
+    /* ══ RESPONSIVE ══ */
+    @media (max-width: 900px) {
+      .course-card,
+      .course-card.reverse { grid-template-columns: 1fr; }
+      .card-img-wrap { min-height: 240px; }
+      .card-img-wrap::after,
+      .course-card.reverse .card-img-wrap::after {
+        background: linear-gradient(to bottom, transparent 50%, rgba(10,22,40,0.9) 100%);
+      }
+      .course-card.reverse .card-img-wrap { order: 0; }
+      .course-card.reverse .card-content  { order: 1; }
+      .card-content,
+      .course-card.reverse .card-content { padding: 2rem 1.8rem; }
+      nav ul { display: none; }
+      nav ul.open {
+        display: flex;
+        position: fixed;
+        top: 68px; left: 0; right: 0;
+        background: rgba(10,22,40,0.98);
+        backdrop-filter: blur(12px);
         flex-direction: column;
-        text-align: center;
-        padding: 10px;
+        padding: 1rem 2rem 1.5rem;
+        gap: 0;
+        border-bottom: 1px solid rgba(59,130,246,0.2);
+        z-index: 299;
       }
-      nav ul {
-        justify-content: center;
-        gap: 10px;
+      nav ul li a {
+        display: block;
+        padding: 0.75rem 0;
+        border-radius: 0;
+        border-bottom: 1px solid rgba(255,255,255,0.07);
+        color: rgba(255,255,255,0.8);
       }
-      .container {
-        padding: 10px;
-      }
-      .card-body-glassaffect {
-        padding: 15px;
-      }
-      .footer-container {
-        flex-direction:row;
-        align-items: center;
-        text-align: center;
-        
-       
-        padding: 0;
-      }
-      .footer-box {
-        min-width: 100%;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .logo {
-        font-size: 22px;
-      }
-      nav ul li {
-        font-size: 13px;
-      }
-      .card-img-top {
-        height: 200px;
-      }
-      .card-body h5 {
-        font-size: 18px;
-      }
+      .hamburger { display: flex; }
+      .footer-container { flex-direction: column; }
     }
   </style>
 </head>
 <body>
 
+  <!-- ══ HEADER ══ -->
   <header>
-    <div class="logo"><a href="E-learning.html" style="text-decoration: none; color: beige;">SKILLLAB</a></div>
+    <div class="logo">
+      <a href="E-learning.html">SKILL<span>LAB</span></a>
+    </div>
     <nav>
-      <ul>
-        <li><a href="beyonddata.html" style="color: white; text-decoration: none;">Beyond Data</a></li>
-        <li><a href="#foot" style="color: aliceblue; text-decoration: none;">Contact</a></li>
-        <li><a href="index.html"><b>Back to Hub</b></a></li>
+      <ul id="navMenu">
+        <li><a href="beyonddata.html">Beyond Data</a></li>
+        <li><a href="#foot">Contact</a></li>
+        <li><a href="index.html">← Back to Hub</a></li>
       </ul>
     </nav>
+    <div class="hamburger" id="hamburger" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </div>
   </header>
-  <div class="container my-5 pt-5">
-    <div class="row row-cols-1 row-cols-md-2 g-4">
 
-      <!-- Data Science Card -->
-      <div class="col" id="ds">
-        <div class="card-body-glassaffect">
-          <img src="coursess/beyond-data-science.png" class="card-img-top" alt="Data Science">
-          <div class="card-body">
-            <h5 class="card-title" style="color:darkblue;">DATA SCIENCE</h5>
-            <p class="card-text">
-              Unlock the Digital Goldmine: Data Science is the most in-demand skill of the 21st century. Our SkillLab course moves beyond theory, teaching you the essential blend of statistics, programming (Python/R), and domain knowledge needed to extract meaningful insights from massive datasets.
-            </p>
-            <ul>
-              <li>Predictive Modeling: Master techniques to build and evaluate models that forecast future trends and outcomes.</li>
-              <li>Big Data Tools: Gain hands-on experience with Python libraries (Pandas, NumPy) and cloud tools for handling large datasets.</li>
-              <li>Statistical Foundation: Understand the core statistical and mathematical principles that underpin data-driven decision-making.</li>
-              <li>Data Visualization: Learn to communicate complex findings effectively using tools like Matplotlib and Seaborn for executive reporting.</li>
-              <li>Career Portfolio: Build a collection of real-world projects to showcase your ability to solve business challenges.</li>
-            </ul>
-          </div>
+  <!-- ══ HERO ══ -->
+  <section class="page-hero">
+    <div class="hero-eyebrow">Career-Transforming Programs</div>
+    <h1>Go <span>Beyond</span> the Data</h1>
+    <p>Master the skills that power the world's fastest-growing industries. Real-world curriculum, expert mentors, and career-focused outcomes.</p>
+    <div class="course-pills">
+      <a href="#ds">Data Science</a>
+      <a href="#eb">Excel for Business</a>
+      <a href="#pn">Python</a>
+      <a href="#ux">UI / UX Design</a>
+    </div>
+  </section>
+
+  <!-- ══ CARDS ══ -->
+  <section class="cards-section">
+
+    <!-- DATA SCIENCE -->
+    <div class="course-card reveal-card" id="ds">
+      <div class="card-img-wrap">
+        <div class="card-number">01 · Data Science</div>
+        <img src="coursess/beyond-data-science.png" alt="Data Science">
+      </div>
+      <div class="card-content">
+        <div class="card-tag tag-ds"><i class="fa-solid fa-chart-line fa-xs"></i> Data & AI</div>
+        <h2>Data Science</h2>
+        <div class="card-divider ds-line"></div>
+        <p>Unlock the digital goldmine. Our course moves beyond theory, teaching the essential blend of statistics, programming, and domain knowledge needed to extract meaningful insights from massive datasets.</p>
+        <ul class="feature-list">
+          <li class="ds-dot">Predictive Modeling — build and evaluate models that forecast future trends.</li>
+          <li class="ds-dot">Big Data Tools — hands-on with Python libraries (Pandas, NumPy) and cloud tools.</li>
+          <li class="ds-dot">Statistical Foundation — core principles that underpin data-driven decisions.</li>
+          <li class="ds-dot">Data Visualization — communicate findings using Matplotlib and Seaborn.</li>
+          <li class="ds-dot">Career Portfolio — real-world projects to showcase your abilities.</li>
+        </ul>
+        <a href="e-learningcourses.html#data-analytics" class="enroll-btn btn-ds">Enroll Now <i class="fa-solid fa-arrow-right fa-xs"></i></a>
+      </div>
+    </div>
+
+    <!-- EXCEL -->
+    <div class="course-card reverse reveal-card" id="eb">
+      <div class="card-img-wrap">
+        <div class="card-number">02 · Excel for Business</div>
+        <img src="coursess/beyond-excel.png" alt="Excel for Business">
+      </div>
+      <div class="card-content">
+        <div class="card-tag tag-excel"><i class="fa-solid fa-table fa-xs"></i> Business Analytics</div>
+        <h2>Excel for Business</h2>
+        <div class="card-divider excel-line"></div>
+        <p>Excel remains the single most important tool for business analysis and reporting globally. This course transforms you from a user into a master of spreadsheet-driven decisions.</p>
+        <ul class="feature-list">
+          <li class="excel-dot">Advanced Formulas — VLOOKUP, INDEX/MATCH, and complex logical functions.</li>
+          <li class="excel-dot">Dynamic Reporting — interactive PivotTables and Dashboards for instant analysis.</li>
+          <li class="excel-dot">Financial Modeling — budget trackers, cash flow statements, and projections.</li>
+          <li class="excel-dot">Data Automation — Macros/VBA to automate repetitive tasks and eliminate errors.</li>
+          <li class="excel-dot">Data Integrity — clean, validate, and structure raw data for reliable reports.</li>
+        </ul>
+        <a href="e-learningcourses.html#business-analyst" class="enroll-btn btn-excel">Enroll Now <i class="fa-solid fa-arrow-right fa-xs"></i></a>
+      </div>
+    </div>
+
+    <!-- PYTHON -->
+    <div class="course-card reveal-card" id="pn">
+      <div class="card-img-wrap">
+        <div class="card-number">03 · Python Programming</div>
+        <img src="coursess/beyond-python.png" alt="Python">
+      </div>
+      <div class="card-content">
+        <div class="card-tag tag-py"><i class="fa-brands fa-python fa-xs"></i> Programming</div>
+        <h2>Python Programming</h2>
+        <div class="card-divider py-line"></div>
+        <p>Python is the world's most popular programming language — renowned for simplicity, readability, and versatility. This course provides foundational knowledge to apply Python across any tech field.</p>
+        <ul class="feature-list">
+          <li class="py-dot">Fundamental Coding — core syntax, data structures, and control flow.</li>
+          <li class="py-dot">Problem-Solving — computational thinking and algorithmic skills.</li>
+          <li class="py-dot">Ecosystem Integration — key libraries (NumPy, Requests) for web, data, and scripting.</li>
+          <li class="py-dot">OOP Design — write clean, reusable, and scalable code using modern principles.</li>
+          <li class="py-dot">Software Development — build functional scripts and small applications.</li>
+        </ul>
+        <a href="e-learningcourses.html#python" class="enroll-btn btn-py">Enroll Now <i class="fa-solid fa-arrow-right fa-xs"></i></a>
+      </div>
+    </div>
+
+    <!-- UI/UX -->
+    <div class="course-card reverse reveal-card" id="ux">
+      <div class="card-img-wrap">
+        <div class="card-number">04 · UI / UX Design</div>
+        <img src="coursess/beyond-uiux.png" alt="UI/UX">
+      </div>
+      <div class="card-content">
+        <div class="card-tag tag-ux"><i class="fa-solid fa-pen-ruler fa-xs"></i> Design</div>
+        <h2>UI / UX Design</h2>
+        <div class="card-divider ux-line"></div>
+        <p>UI/UX Design is the art and science of creating digital products that are beautiful, efficient, and enjoyable to use. This course teaches the entire design process from research to launch.</p>
+        <ul class="feature-list">
+          <li class="ux-dot">User Research & Empathy — conduct interviews and create User Personas.</li>
+          <li class="ux-dot">Wireframing & Prototyping — low- and high-fidelity prototypes using Figma.</li>
+          <li class="ux-dot">Information Architecture — clear navigation flows and intuitive sitemaps.</li>
+          <li class="ux-dot">Visual Hierarchy — typography, color theory, spacing, and accessible interfaces.</li>
+          <li class="ux-dot">Data-Driven Iteration — A/B testing, analytics, and heat-mapping to improve designs.</li>
+        </ul>
+        <a href="e-learningcourses.html#web-dev" class="enroll-btn btn-ux">Enroll Now <i class="fa-solid fa-arrow-right fa-xs"></i></a>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ══ FOOTER ══ -->
+  <footer class="footer" id="foot">
+    <div class="footer-container">
+      <div class="footer-box">
+        <h3>SkillLab</h3>
+        <p>Your path to expertise starts here. Learn top courses and build skills demanded by today's market.</p>
+      </div>
+      <div class="footer-box">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="E-learning.html">Home</a></li>
+          <li><a href="elearning-about.html">About Us</a></li>
+          <li><a href="e-learningcourses.html">Courses</a></li>
+          <li><a href="#foot">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-box">
+        <h3>Contact</h3>
+        <p>Phone: +91 9886254942</p>
+        <p>Email: skilllab@gmail.com</p>
+        <a href="https://wa.me/919886254942" target="_blank">
+          <i class="fa-brands fa-whatsapp"></i> WhatsApp
+        </a>
+      </div>
+      <div class="footer-box">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-twitter"></i></a>
         </div>
       </div>
-
-      <!-- Excel Card -->
-      <div class="col" id="eb">
-        <div class="card-body-glassaffect">
-          <img src="coursess/beyond-excel.png" class="card-img-top" alt="Excel for Business">
-          <div class="card-body">
-            <h5 class="card-title" style="color:yellowgreen;">EXCEL FOR BUSINESS</h5>
-            <p class="card-text">
-              Excel remains the single most important tool for business analysis, reporting, and decision-making globally. This SkillLab course transforms you from a user into a master.
-            </p>
-            <ul>
-              <li>Advanced Formulas: Quickly master powerful functions like VLOOKUP, INDEX/MATCH, and complex logical formulas.</li>
-              <li>Dynamic Reporting: Create robust, interactive PivotTables and Dashboards for instant analysis of large datasets.</li>
-              <li>Financial Modeling: Build essential business tools like budget trackers, cash flow statements, and financial projections.</li>
-              <li>Data Automation: Learn the basics of Macros/VBA to automate repetitive tasks and eliminate manual errors.</li>
-              <li>Data Integrity: Master techniques for cleaning, validating, and structuring raw data to ensure reliable reports.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- Python Card -->
-      <div class="col" id="pn">
-        <div class="card-body-glassaffect">
-          <img src="coursess/beyond-python.png" class="card-img-top" alt="Python">
-          <div class="card-body">
-            <h5 class="card-title" style="color: green;">PYTHON</h5>
-            <p class="card-text">
-              Python is the world's most popular programming language, renowned for its simplicity, readability, and versatility. This SkillLab course provides the foundational knowledge needed to apply Python across almost any tech field.
-            </p>
-            <ul>
-              <li>Fundamental Coding: Grasp the core syntax, data structures, and control flow necessary for any software development task.</li>
-              <li>Problem-Solving: Develop computational thinking and algorithmic skills to break down and solve complex technical challenges.</li>
-              <li>Ecosystem Integration: Gain familiarity with key libraries (e.g., NumPy, Requests) for versatile applications in web, data, and scripting.</li>
-              <li>Object-Oriented Design (OOP): Learn to write clean, reusable, and scalable code using modern OOP principles.</li>
-              <li>Software Development: Build functional scripts and small applications.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- UI/UX Card -->
-      <div class="col" id="ux">
-        <div class="card-body-glassaffect">
-          <img src="coursess/beyond-uiux.png" class="card-img-top" alt="UI/UX">
-          <div class="card-body">
-            <h5 class="card-title" style="color: chocolate;">UI / UX</h5>
-            <p class="card-text">
-              UI/UX Design is the art and science of creating digital products that are not just beautiful, but also easy, efficient, and enjoyable to use. This SkillLab course teaches you the entire design process.
-            </p>
-            <ul>
-              <li>User Research & Empathy: Conduct effective interviews and create User Personas.</li>
-              <li>Wireframing & Prototyping: Master low- and high-fidelity prototypes using Figma or Sketch.</li>
-              <li>Information Architecture: Design clear and intuitive navigation flows (sitemaps) to ensure seamless user journeys.</li>
-              <li>Visual Hierarchy (UI): Master typography, color theory, spacing, and layout to create visually appealing and accessible interfaces.</li>
-            <li>Data-Driven Iteration: Use analytics and heat-mapping tools to measure the success of your designs and conduct A/B testing to inform continuous improvement.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
     </div>
-  </div>
-
-
-  
-<footer class="footer" id="foot">
-  <div class="footer-container">
-    <div class="footer-box">
-      <h3>About SkillLab</h3>
-      <p>Your path to expertise starts here. Learn top courses and build skills demanded by today's market.</p>
+    <div class="footer-bottom">
+      &copy; 2025 SkillLab. All rights reserved.
     </div>
-    <div class="footer-box">
-      <h3>Quick Links</h3>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Courses</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </div>
-    <div class="footer-box">
-      <h3>Contact</h3>
-      <p>Phone: +91 9886254942</p>
-      <p>Email: skilllab@gmail.com</p>
-      <a href="https://wa.me/919886254942" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-    </div>
-    <div class="footer-box">
-      <h3>Follow Us</h3>
-      <div class="social-icons">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-      </div>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    &copy; 2025 SkillLab. All rights reserved.
-  </div>
-</footer>
+  </footer>
 
+  <!-- ══ SCRIPTS ══ -->
+  <script>
+    function toggleNav() {
+      document.getElementById('navMenu').classList.toggle('open');
+      document.getElementById('hamburger').classList.toggle('open');
+    }
 
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"></script>
+    document.querySelectorAll('#navMenu li a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('navMenu').classList.remove('open');
+        document.getElementById('hamburger').classList.remove('open');
+      });
+    });
+
+    // Scroll reveal for cards
+    const cards = document.querySelectorAll('.reveal-card');
+    const cardObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 100);
+          cardObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    cards.forEach(c => cardObserver.observe(c));
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
