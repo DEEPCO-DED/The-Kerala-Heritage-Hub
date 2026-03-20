@@ -33,7 +33,6 @@
       overflow-x: hidden;
     }
 
-    /* ══ HEADER ══ */
     header {
       display: flex;
       align-items: center;
@@ -98,7 +97,6 @@
 
     .header-collab a:hover { opacity: 0.75; }
 
-    /* ══ HERO BANNER ══ */
     .hero-banner {
       position: relative;
       width: 100%;
@@ -183,7 +181,6 @@
       animation: fadeUp 0.9s ease 0.7s both;
     }
 
-    /* ══ ABOUT SECTION ══ */
     .about-section {
       background: var(--cream);
       padding: 5rem 7%;
@@ -235,7 +232,6 @@
       text-align: justify;
     }
 
-    /* ══ MISSION & VISION ══ */
     .mv-section {
       background: var(--forest);
       padding: 5rem 7%;
@@ -296,7 +292,6 @@
       line-height: 1.8;
     }
 
-    /* ══ CONTACT SECTION ══ */
     .contact-section {
       background: var(--paper);
       padding: 5rem 7%;
@@ -364,7 +359,7 @@
 
     .contact-card a:hover { color: var(--gold); }
 
-    /* Social icons */
+
     .social-row {
       display: flex;
       justify-content: center;
@@ -391,7 +386,7 @@
       transform: translateY(-3px);
     }
 
-    /* ══ FOOTER ══ */
+
     .site-footer {
       background: var(--dark);
       border-top: 1px solid rgba(200,146,42,0.2);
@@ -406,7 +401,7 @@
 
     .site-footer strong { color: var(--amber); font-weight: 500; }
 
-    /* ══ SCROLL REVEAL ══ */
+  
     .reveal {
       opacity: 0;
       transform: translateY(22px);
@@ -415,13 +410,12 @@
 
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* ══ ANIMATIONS ══ */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(28px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* ══ RESPONSIVE ══ */
+
     @media (max-width: 768px) {
       .hero-banner { height: 65vh; }
       .hero-content { left: 5%; bottom: 8%; }
@@ -432,7 +426,7 @@
 </head>
 <body>
 
-  <!-- ══ HEADER ══ -->
+
   <header>
     <div class="header-home">
       <a href="index.html"><i class="fa-solid fa-house"></i></a>
@@ -446,7 +440,6 @@
     </div>
   </header>
 
-  <!-- ══ HERO ══ -->
   <div class="hero-banner">
     <div class="hero-content">
       <div class="hero-eyebrow">God's Own Country</div>
@@ -455,7 +448,7 @@
     </div>
   </div>
 
-  <!-- ══ ABOUT ══ -->
+
   <section class="about-section">
     <div class="about-inner reveal">
       <div class="sec-eyebrow">Who We Are</div>
@@ -469,7 +462,7 @@
     </div>
   </section>
 
-  <!-- ══ MISSION & VISION ══ -->
+
   <section class="mv-section">
     <div class="mv-grid">
       <div class="mv-card reveal">
@@ -493,7 +486,7 @@
     </div>
   </section>
 
-  <!-- ══ CONTACT ══ -->
+
   <section class="contact-section">
     <div class="contact-inner reveal">
       <div class="sec-eyebrow">Get in Touch</div>

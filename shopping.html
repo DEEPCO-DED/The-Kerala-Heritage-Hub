@@ -36,7 +36,6 @@
       flex-direction: column;
     }
 
-    /* ══ HEADER ══ */
     header {
       display: flex;
       justify-content: space-between;
@@ -168,14 +167,12 @@
       background: rgba(200,146,42,0.08);
     }
 
-    /* ══ MAIN CONTENT ══ */
     .main-wrapper {
       margin-top: 120px; /* header + bottom-nav */
       flex: 1;
       padding: 3rem 5%;
     }
 
-    /* Section heading */
     .gallery-heading {
       margin-bottom: 2rem;
     }
@@ -205,7 +202,6 @@
       color: var(--forest);
     }
 
-    /* ══ GALLERY GRID ══ */
     .gallery {
       display: none;
       grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -277,7 +273,6 @@
     .add-to-cart-btn:hover { background: var(--leaf); transform: translateY(-1px); }
     .add-to-cart-btn:disabled { background: var(--mid); cursor: default; transform: none; }
 
-    /* ══ MODAL BASE ══ */
     .modal {
       display: none;
       position: fixed;
@@ -333,7 +328,6 @@
       border-radius: 2px;
     }
 
-    /* ══ LOGIN FORM ══ */
     .form-group {
       margin-bottom: 1rem;
     }
@@ -388,7 +382,7 @@
 
     #login-submit-btn:hover { background: var(--leaf); }
 
-    /* ══ CART MODAL ══ */
+   
     #cart-modal .modal-box { max-width: 480px; }
 
     #cart-list {
@@ -456,7 +450,7 @@
 
     .btn-primary-green:hover { background: var(--leaf); }
 
-    /* ══ EMPTY STATE ══ */
+
     .empty-state {
       text-align: center;
       padding: 3rem 2rem;
@@ -541,7 +535,6 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* ══ RESPONSIVE ══ */
     @media (max-width: 768px) {
       .gallery { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1rem; }
       .product-card img { height: 180px; }
@@ -555,7 +548,7 @@
 </head>
 <body>
 
-  <!-- ══ HEADER ══ -->
+
   <header>
     <div class="logo">
       <a href="index.html">The Kerala Heritage Hub</a>
@@ -571,7 +564,7 @@
     </div>
   </header>
 
-  <!-- ══ CATEGORY NAV ══ -->
+
   <div class="bottom-nav">
     <a onclick="showGallery('mens')" class="active" id="tab-mens">Men's</a>
     <a onclick="showGallery('womans')" id="tab-womans">Women's</a>
@@ -579,7 +572,7 @@
     <a onclick="showGallery('crafts')" id="tab-crafts">Handmade Crafts</a>
   </div>
 
-  <!-- ══ MAIN ══ -->
+
   <div class="main-wrapper">
     <div class="gallery-heading">
       <div class="sec-eyebrow" id="gallery-eyebrow">Kerala Finds</div>
@@ -592,7 +585,7 @@
     <div class="gallery" id="crafts"></div>
   </div>
 
-  <!-- ══ LOGIN MODAL ══ -->
+  
   <div id="login-modal" class="modal">
     <div class="modal-box">
       <button class="modal-close-btn modal-close" data-modal="login-modal"><i class="fa-solid fa-xmark"></i></button>
@@ -624,7 +617,6 @@
     </div>
   </div>
 
-  <!-- ══ CART MODAL ══ -->
   <div id="cart-modal" class="modal">
     <div class="modal-box">
       <button class="modal-close-btn modal-close" data-modal="cart-modal"><i class="fa-solid fa-xmark"></i></button>
@@ -641,7 +633,7 @@
     </div>
   </div>
 
-  <!-- ══ FOOTER ══ -->
+
   <footer>
     <div class="footersection">
       <div class="footer-content">
@@ -681,7 +673,7 @@
     </div>
   </footer>
 
-  <!-- ══ SCRIPTS (all original logic preserved) ══ -->
+ 
   <script>
     let allProducts = [];
     let cart = [];
@@ -918,7 +910,6 @@
         });
       });
 
-      // Close on backdrop click
       document.querySelectorAll('.modal').forEach(modal => {
         modal.addEventListener('click', (e) => {
           if (e.target === modal) closeModal(modal.id);

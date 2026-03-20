@@ -38,13 +38,12 @@
       overflow-x: hidden;
     }
 
-    /* ══ HEADER ══ */
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       background: var(--forest);
-      padding: 0 5%;
+      padding: 0 1%;
       height: 68px;
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -54,7 +53,7 @@
 
     .logg h3 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.3rem;
+      font-size: 1.9rem;
       font-weight: 600;
       font-style: italic;
       color: var(--amber) !important;
@@ -62,8 +61,8 @@
       white-space: nowrap;
     }
 
-    nav { position: static; transform: none; }
-    nav ul { display: flex; list-style: none; gap: 2rem; }
+ nav { position: absolute; left: 50%; transform: translateX(-50%); }
+    nav ul { display: flex; list-style: none; gap: 1.2rem; }
 
     nav ul li a {
       font-family: 'Jost', sans-serif;
@@ -71,7 +70,7 @@
       font-weight: 500;
       font-style: normal;
       color: rgba(255,255,255,0.85);
-      letter-spacing: 0.05em;
+      /* letter-spacing: 0.05em; */
       transition: color 0.2s;
     }
 
@@ -127,7 +126,6 @@
       color: var(--amber);
     }
 
-    /* ══ VIDEO HERO ══ */
     .container-fluid-section1 {
       position: relative;
       width: 100%;
@@ -225,7 +223,6 @@
       50%       { opacity: 1; }
     }
 
-    /* ══ TRENDING ══ */
     .whatstrending {
       text-align: center;
       background: var(--cream);
@@ -309,7 +306,6 @@
 
     .trending-card .btn:hover { background: var(--amber); transform: translateY(-2px); }
 
-    /* ══ EDUCATION HERO ══ */
     .education-hero {
       position: relative;
       width: 92%;
@@ -378,7 +374,6 @@
 
     .edu-btn:hover { background: var(--amber); transform: translateY(-2px); color: white; }
 
-    /* ══ E-LEARN INFO ══ */
     #e-learn {
       margin: 0 auto 3rem;
       width: 88%;
@@ -402,7 +397,6 @@
 
     #e-learn .inline-btn:hover { color: var(--gold); border-color: var(--gold); }
 
-    /* ══ SECTION HEADINGS ══ */
     .sec-heading {
       font-family: 'Cormorant Garamond', serif !important;
       font-size: clamp(1.8rem, 3vw, 2.5rem) !important;
@@ -420,15 +414,14 @@
       font-size: 1rem !important;
     }
 
-    /* ══ DESTINATION CARDS ══ */
     #most-loved { padding: 4rem 7%; background: var(--paper); }
     #exotic     { padding: 4rem 7%; background: var(--cream); }
 
     .destination-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.4rem;
-}
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.4rem;
+    }
 
     .card {
       position: relative;
@@ -470,7 +463,6 @@
     .card:hover img { transform: scale(1.07); }
     .card:hover p { background: linear-gradient(to top, rgba(30,92,53,0.9), transparent); }
 
-    /* ══ EVENTS ══ */
     .events-section {
       text-align: center;
       padding: 5rem 7%;
@@ -538,7 +530,6 @@
     .event-card:hover img { transform: scale(1.07); }
     .event-card:hover h3 { background: linear-gradient(to top, rgba(30,92,53,0.92), transparent); }
 
-    /* ══ YOUTUBE ══ */
     .youthframe {
       display: flex;
       justify-content: center;
@@ -555,7 +546,6 @@
       box-shadow: 0 8px 36px rgba(0,0,0,0.15);
     }
 
-    /* ══ FAQ ══ */
     #faq { padding: 5rem 7%; background: var(--cream); }
 
     #faq h2 {
@@ -634,7 +624,6 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* ══ FOOTER ══ */
     .footersection {
       width: 100%;
       background: var(--dark);
@@ -711,7 +700,6 @@
       background: transparent;
     }
 
-    /* ══ SCROLL REVEAL ══ */
     .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
@@ -720,7 +708,6 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* ══ RESPONSIVE ══ */
     @media (max-width: 768px) {
       nav ul { display: none; }
       .destination-grid { grid-template-columns: 1fr; }
@@ -738,7 +725,6 @@
 
 <body>
 
-  <!-- ══ HEADER ══ -->
   <header>
     <div class="logg">
       <h3>The Kerala Heritage Hub</h3>
@@ -746,8 +732,9 @@
 
     <nav>
       <ul>
-        <li><a href="hotelbooking.html">T Hill</a></li>
+        <li><a href="hotelbooking.html">Tourism & Booking</a></li>
         <li><a href="shopping.html">Kerala Finds</a></li>
+        <li><a href="events.html">Must Visit</a></li>
       </ul>
     </nav>
 
@@ -769,7 +756,6 @@
     </ul>
   </header>
 
-  <!-- ══ VIDEO HERO ══ -->
   <div class="container-fluid-section1">
     <video autoplay muted loop playsinline>
       <source src="heritagevedio.mp4" type="video/mp4" />
@@ -783,7 +769,6 @@
     </div>
   </div>
 
-  <!-- ══ TRENDING ══ -->
   <section class="whatstrending reveal">
     <h2>What's Trending Now</h2>
     <p>Your Quick Look at What's Trending in God's Own Country</p>
@@ -799,7 +784,6 @@
     </div>
   </section>
 
-  <!-- ══ EDUCATION HERO ══ -->
   <section class="education-hero reveal">
     <img src="education.png" alt="Education Hero Image" />
     <div class="hero-text">
@@ -809,7 +793,6 @@
     </div>
   </section>
 
-  <!-- ══ E-LEARN INFO ══ -->
   <section id="e-learn" class="reveal">
     <p>
       We see the results of the celebrated Kerala Model in the state's amazing education story:
@@ -818,21 +801,18 @@
     </p>
   </section>
 
-  <!-- ══ MOST LOVED DESTINATIONS ══ -->
   <section id="most-loved" class="reveal">
     <h2 class="sec-heading">Most Loved Destinations</h2>
     <p class="sec-sub">Explore the Most Loved Destinations in God's Own Country</p>
     <div id="mostLoved-container" class="destination-grid"></div>
   </section>
 
-  <!-- ══ EXOTIC DESTINATIONS ══ -->
   <section id="exotic" class="reveal">
     <h2 class="sec-heading">Exotic Destinations</h2>
     <p class="sec-sub">Discover Hidden Gems and Unique Experiences</p>
     <div id="exotic-container" class="destination-grid"></div>
   </section>
 
-  <!-- ══ EVENTS ══ -->
   <section class="events-section reveal">
     <h2>Major Kerala Events</h2>
     <p>Experience the vibrant festivals and traditions of God's Own Country</p>
@@ -858,13 +838,11 @@
     </div>
   </section>
 
-  <!-- ══ YOUTUBE ══ -->
   <section class="youthframe reveal">
     <iframe src="https://www.youtube.com/embed/vmT6WfrQCU0"
       title="YouTube video player" frameborder="0" allowfullscreen></iframe>
   </section>
 
-  <!-- ══ FAQ ══ -->
   <section id="faq" class="reveal">
     <h2>Frequently Asked Questions</h2>
     <div class="faqq" onclick="toggleFAQ(this)">
@@ -909,7 +887,6 @@
     </div>
   </section>
 
-  <!-- ══ FOOTER ══ -->
   <footer>
     <div class="footersection">
       <div class="footer-content">
@@ -949,7 +926,6 @@
     </div>
   </footer>
 
-  <!-- ══ SCRIPTS ══ -->
   <script>
     function toggleFAQ(element) {
       element.classList.toggle("active");
@@ -1008,5 +984,6 @@
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="gototop.js"></script>
 </body>
 </html>

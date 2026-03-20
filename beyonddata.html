@@ -35,7 +35,7 @@
       min-height: 100vh;
     }
 
-    /* ══ ANIMATED BG ══ */
+ 
     body::before {
       content: '';
       position: fixed;
@@ -48,7 +48,7 @@
       z-index: 0;
     }
 
-    /* ══ HEADER ══ */
+    
     header {
       display: flex;
       justify-content: space-between;
@@ -132,7 +132,7 @@
     .hamburger.open span:nth-child(2) { opacity: 0; }
     .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-    /* ══ HERO ══ */
+
     .page-hero {
       position: relative;
       z-index: 1;
@@ -184,7 +184,7 @@
       animation: fadeUp 0.9s ease 0.7s both;
     }
 
-    /* Course anchor pills */
+    
     .course-pills {
       display: flex;
       justify-content: center;
@@ -213,7 +213,7 @@
       background: rgba(59,130,246,0.15);
     }
 
-    /* ══ CARDS SECTION ══ */
+  
     .cards-section {
       position: relative;
       z-index: 1;
@@ -245,12 +245,12 @@
       box-shadow: 0 20px 60px rgba(20,71,230,0.2);
     }
 
-    /* Alternate layout */
+  
     .course-card.reverse { grid-template-columns: 1.4fr 1fr; }
     .course-card.reverse .card-img-wrap { order: 2; }
     .course-card.reverse .card-content   { order: 1; }
 
-    /* Image side */
+  
     .card-img-wrap {
       position: relative;
       overflow: hidden;
@@ -267,7 +267,7 @@
 
     .course-card:hover .card-img-wrap img { transform: scale(1.06); }
 
-    /* Gradient overlay on image */
+
     .card-img-wrap::after {
       content: '';
       position: absolute;
@@ -279,7 +279,7 @@
       background: linear-gradient(to left, transparent 60%, rgba(10,22,40,0.85) 100%);
     }
 
-    /* Number badge */
+ 
     .card-number {
       position: absolute;
       top: 1.2rem; left: 1.2rem;
@@ -297,7 +297,7 @@
       backdrop-filter: blur(4px);
     }
 
-    /* Content side */
+
     .card-content {
       padding: 2.5rem 2.5rem 2.5rem 2.8rem;
       display: flex;
@@ -353,7 +353,7 @@
       margin-bottom: 1.5rem;
     }
 
-    /* Feature list */
+   
     .feature-list {
       list-style: none;
       padding: 0;
@@ -385,7 +385,7 @@
     .py-dot::before    { background: var(--gold); }
     .ux-dot::before    { background: #a855f7; }
 
-    /* Enroll button */
+   
     .enroll-btn {
       display: inline-flex;
       align-items: center;
@@ -409,7 +409,7 @@
     .btn-py    { background: linear-gradient(135deg, #d97706, var(--gold)); color: white; }
     .btn-ux    { background: linear-gradient(135deg, #7c3aed, #a855f7); color: white; }
 
-    /* ══ FOOTER ══ */
+
     footer.footer {
       position: relative;
       z-index: 1;
@@ -480,13 +480,13 @@
       color: rgba(255,255,255,0.25);
     }
 
-    /* ══ KEYFRAMES ══ */
+   
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(28px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* ══ RESPONSIVE ══ */
+  
     @media (max-width: 900px) {
       .course-card,
       .course-card.reverse { grid-template-columns: 1fr; }
@@ -526,7 +526,6 @@
 </head>
 <body>
 
-  <!-- ══ HEADER ══ -->
   <header>
     <div class="logo">
       <a href="E-learning.html">SKILL<span>LAB</span></a>
@@ -543,7 +542,7 @@
     </div>
   </header>
 
-  <!-- ══ HERO ══ -->
+
   <section class="page-hero">
     <div class="hero-eyebrow">Career-Transforming Programs</div>
     <h1>Go <span>Beyond</span> the Data</h1>
@@ -556,10 +555,10 @@
     </div>
   </section>
 
-  <!-- ══ CARDS ══ -->
+ 
   <section class="cards-section">
 
-    <!-- DATA SCIENCE -->
+
     <div class="course-card reveal-card" id="ds">
       <div class="card-img-wrap">
         <div class="card-number">01 · Data Science</div>
@@ -581,7 +580,7 @@
       </div>
     </div>
 
-    <!-- EXCEL -->
+    
     <div class="course-card reverse reveal-card" id="eb">
       <div class="card-img-wrap">
         <div class="card-number">02 · Excel for Business</div>
@@ -603,7 +602,7 @@
       </div>
     </div>
 
-    <!-- PYTHON -->
+
     <div class="course-card reveal-card" id="pn">
       <div class="card-img-wrap">
         <div class="card-number">03 · Python Programming</div>
@@ -625,7 +624,7 @@
       </div>
     </div>
 
-    <!-- UI/UX -->
+  
     <div class="course-card reverse reveal-card" id="ux">
       <div class="card-img-wrap">
         <div class="card-number">04 · UI / UX Design</div>
@@ -649,7 +648,7 @@
 
   </section>
 
-  <!-- ══ FOOTER ══ -->
+
   <footer class="footer" id="foot">
     <div class="footer-container">
       <div class="footer-box">
@@ -687,7 +686,7 @@
     </div>
   </footer>
 
-  <!-- ══ SCRIPTS ══ -->
+
   <script>
     function toggleNav() {
       document.getElementById('navMenu').classList.toggle('open');
@@ -701,7 +700,7 @@
       });
     });
 
-    // Scroll reveal for cards
+   
     const cards = document.querySelectorAll('.reveal-card');
     const cardObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry, i) => {
@@ -715,5 +714,7 @@
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="gototop.js"></script>
+
 </body>
 </html>
