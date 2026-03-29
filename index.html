@@ -61,12 +61,13 @@
       white-space: nowrap;
     }
 
- nav { position: absolute; left: 50%; transform: translateX(-50%); }
+ nav { position: absolute; left: 50%;bottom: 10%; transform: translateX(-50%); }
     nav ul { display: flex; list-style: none; gap: 1.2rem; }
 
     nav ul li a {
       font-family: 'Jost', sans-serif;
-      font-size: 0.95rem;
+      font-size: 1.2rem;
+      text-align: center;
       font-weight: 500;
       font-style: normal;
       color: rgba(255,255,255,0.85);
@@ -720,6 +721,9 @@
       .education-hero { height: 320px; }
       header { padding: 0 4%; }
     }
+    @media(max-width:900px){
+      nav ul{display: none;}
+    }
   </style>
 </head>
 
@@ -735,6 +739,7 @@
         <li><a href="hotelbooking.html">Tourism & Booking</a></li>
         <li><a href="shopping.html">Kerala Finds</a></li>
         <li><a href="events.html">Must Visit</a></li>
+        <li><a href="beyonddata.html">Beyond Data</a></li>
       </ul>
     </nav>
 
@@ -774,7 +779,7 @@
     <p>Your Quick Look at What's Trending in God's Own Country</p>
     <div class="trending-card">
       <a href="iframevediosinklht.html">
-        <img src="TOURSANDSTAYS/onam.jpg" alt="Kerala Festivals">
+        <img src="festival/ChatGPT Image Mar 29, 2026, 04_55_36 PM.png" alt="Kerala Festivals">
         <div class="overlay">
           <h3>Explore Kerala's 5 Most Celebrated Festivals</h3>
           <p>Step into the colorful world of Onam, Theyyam, Thrissur Pooram, and more!</p>
