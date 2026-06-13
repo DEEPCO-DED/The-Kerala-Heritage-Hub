@@ -261,7 +261,16 @@
       display: block;
       transition: transform 0.6s ease;
     }
-
+@media (max-width: 768px) {
+  .container-fluid-section1 video {
+    display: none;
+  }
+  .container-fluid-section1 {
+    background-image: url('education.png');
+    background-size: cover;
+    background-position: center;
+  }
+}
     .trending-card:hover img { transform: scale(1.04); }
 
     .trending-card .overlay {
@@ -998,6 +1007,14 @@ window.addEventListener('load', function() {
     vid.play().catch(function() {});
   }
 });
+
+// Show image only on iPhone, video on everything else
+if (/iPhone/i.test(navigator.userAgent)) {
+  document.querySelector('.container-fluid-section1 video').style.display = 'none';
+  document.querySelector('.container-fluid-section1').style.backgroundImage = "url('education.png')";
+  document.querySelector('.container-fluid-section1').style.backgroundSize = 'cover';
+  document.querySelector('.container-fluid-section1').style.backgroundPosition = 'center';
+}
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
